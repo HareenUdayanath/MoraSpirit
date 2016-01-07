@@ -56,4 +56,10 @@ class MoraController extends Controller
         return view('projectViews.login');
     }
 
+    public function showAdmin(){
+        $user = new User();
+        $user->setName("Anthony Fernando");
+        return view('projectViews.admin')->with('user',$user);
+    }
+
 }
