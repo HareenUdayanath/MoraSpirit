@@ -19,7 +19,9 @@ class MoraController extends Controller
 
     public function temp()
     {
-        return view('layout.template');
+        $user = new User();
+        $user->setName("Anthony Fernando");
+        return view('projectViews.home')->with('user',$user);
     }
 
     public function seeUser()
