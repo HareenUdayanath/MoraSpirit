@@ -2,734 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8cef6fe8-3d19-4f38-ab74-a0a842c1899c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/colorpicker/alpha-horizontal.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/colorpicker/alpha.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/colorpicker/hue-horizontal.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/colorpicker/hue.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/colorpicker/saturation.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/datatables/images/Sorting icons.psd" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/datatables/images/back_disabled.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/datatables/images/back_enabled.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/datatables/images/back_enabled_hover.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/datatables/images/favicon.ico" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/datatables/images/forward_disabled.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/datatables/images/forward_enabled.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/datatables/images/forward_enabled_hover.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/datatables/images/sort_asc.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/datatables/images/sort_asc_disabled.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/datatables/images/sort_both.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/datatables/images/sort_desc.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/datatables/images/sort_desc_disabled.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/icheck/flat/aero.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/icheck/flat/aero@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/icheck/flat/blue.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/icheck/flat/blue@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/icheck/flat/flat.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/icheck/flat/flat@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/icheck/flat/green.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/icheck/flat/green@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/icheck/flat/grey.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/icheck/flat/grey@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/icheck/flat/orange.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/icheck/flat/orange@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/icheck/flat/pink.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/icheck/flat/pink@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/icheck/flat/purple.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/icheck/flat/purple@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/icheck/flat/red.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/icheck/flat/red@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/icheck/flat/yellow.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/icheck/flat/yellow@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/fonts/FontAwesome.otf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/fonts/fontawesome-webfont.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/fonts/fontawesome-webfont.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/fonts/fontawesome-webfont.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/4.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/Sorting icons.psd" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/american-express.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/back_disabled.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/back_enabled.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/back_enabled_hover.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/bootstrap-colorpicker/alpha-horizontal.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/bootstrap-colorpicker/alpha.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/bootstrap-colorpicker/hue-horizontal.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/bootstrap-colorpicker/hue.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/bootstrap-colorpicker/saturation.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/data.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/favicon.ico" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/forward_disabled.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/forward_enabled.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/forward_enabled_hover.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/icons.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/img.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/mastercard.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/paypal2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/picture-2.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/picture.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/picture2.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/prod1.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/prod2.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/prod3.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/prod4.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/prod5.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/sort_asc.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/sort_asc_disabled.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/sort_both.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/sort_desc.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/sort_desc_disabled.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/sprite-skin-flat.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/sprite-skin-modern.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/sprite-skin-nice.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/sprite-skin-simple.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/user.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/visa.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/images/Sorting icons.psd" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/images/back_disabled.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/images/back_enabled.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/images/back_enabled_hover.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/images/favicon.ico" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/images/forward_disabled.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/images/forward_enabled.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/images/forward_enabled_hover.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/images/sort_asc.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/images/sort_asc_disabled.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/images/sort_both.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/images/sort_desc.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/images/sort_desc_disabled.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/TableTools-master/as3/lib/AlivePDF.swc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/TableTools-master/images/background.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/TableTools-master/images/collection.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/TableTools-master/images/collection_hover.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/TableTools-master/images/copy.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/TableTools-master/images/copy_hover.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/TableTools-master/images/csv.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/TableTools-master/images/csv_hover.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/TableTools-master/images/pdf.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/TableTools-master/images/pdf_hover.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/TableTools-master/images/print.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/TableTools-master/images/print_hover.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/TableTools-master/images/psd/collection.psd" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/TableTools-master/images/psd/copy document.psd" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/TableTools-master/images/psd/file_types.psd" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/TableTools-master/images/psd/printer.psd" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/TableTools-master/images/xls.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/TableTools-master/images/xls_hover.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/TableTools-master/swf/copy_csv_xls.swf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/TableTools-master/swf/copy_csv_xls_pdf.swf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/as3/lib/AlivePDF.swc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/images/background.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/images/collection.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/images/collection_hover.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/images/copy.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/images/copy_hover.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/images/csv.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/images/csv_hover.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/images/pdf.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/images/pdf_hover.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/images/print.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/images/print_hover.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/images/psd/collection.psd" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/images/psd/copy document.psd" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/images/psd/file_types.psd" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/images/psd/printer.psd" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/images/xls.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/images/xls_hover.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/swf/copy_csv_xls.swf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/swf/copy_csv_xls_pdf.swf" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/animate.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/bootstrap.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/calendar/fullcalendar.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/calendar/fullcalendar.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/calendar/fullcalendar.print.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/colorpicker/bootstrap-colorpicker.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/custom.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/datatables/css/demo_page.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/datatables/css/demo_table.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/datatables/css/demo_table_jui.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/datatables/css/jquery.dataTables.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/datatables/css/jquery.dataTables_themeroller.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/datatables/tools/css/dataTables.tableTools.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/editor/external/google-code-prettify/prettify.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/editor/index.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/floatexamples.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/icheck/flat/_all.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/icheck/flat/aero.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/icheck/flat/blue.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/icheck/flat/flat.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/icheck/flat/green.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/icheck/flat/grey.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/icheck/flat/orange.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/icheck/flat/pink.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/icheck/flat/purple.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/icheck/flat/red.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/icheck/flat/yellow.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/ion.rangeSlider.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/ion.rangeSlider.skinFlat.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/maps/jquery-jvectormap-2.0.1.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/normalize.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/nprogress.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/progressbar/bootstrap-progressbar-3.3.0.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/select/select2.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/switchery/switchery.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/css/font-awesome.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/css/font-awesome.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/fonts/fontawesome-webfont.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/less/bordered-pulled.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/less/core.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/less/fixed-width.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/less/font-awesome.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/less/icons.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/less/larger.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/less/list.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/less/mixins.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/less/path.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/less/rotated-flipped.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/less/spinning.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/less/stacked.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/less/variables.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/scss/_bordered-pulled.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/scss/_core.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/scss/_fixed-width.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/scss/_icons.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/scss/_larger.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/scss/_list.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/scss/_mixins.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/scss/_path.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/scss/_rotated-flipped.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/scss/_spinning.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/scss/_stacked.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/scss/_variables.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/scss/font-awesome.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/autocomplete/countries.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/autocomplete/jquery.autocomplete.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/bootstrap.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/calendar/fullcalendar.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/chartjs/chart.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/colorpicker/bootstrap-colorpicker.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/colorpicker/docs.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/cropping/cropper.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/cropping/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/cropping/main2.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/custom.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/js/jquery.dataTables.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/js/jquery.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/src/DataTables.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/src/api/api.internal.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/src/api/api.methods.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/src/api/api.static.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/src/core/core.ajax.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/src/core/core.columns.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/src/core/core.compat.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/src/core/core.constructor.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/src/core/core.data.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/src/core/core.draw.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/src/core/core.filter.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/src/core/core.info.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/src/core/core.init.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/src/core/core.length.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/src/core/core.page.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/src/core/core.processing.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/src/core/core.scrolling.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/src/core/core.sizing.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/src/core/core.sort.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/src/core/core.state.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/src/core/core.support.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/src/ext/ext.classes.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/src/ext/ext.paging.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/src/ext/ext.sorting.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/src/ext/ext.types.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/src/model/model.column.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/src/model/model.defaults.columns.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/src/model/model.defaults.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/src/model/model.ext.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/src/model/model.row.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/src/model/model.search.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/src/model/model.settings.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/Readme.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/TableTools-master/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/TableTools-master/Readme.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/TableTools-master/as3/ZeroClipboard.as" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/TableTools-master/as3/ZeroClipboardPdf.as" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/TableTools-master/bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/TableTools-master/css/dataTables.tableTools.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/TableTools-master/examples/alter_buttons.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/TableTools-master/examples/bootstrap.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/TableTools-master/examples/button_text.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/TableTools-master/examples/collection.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/TableTools-master/examples/defaults.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/TableTools-master/examples/index.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/TableTools-master/examples/multi_instance.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/TableTools-master/examples/multiple_tables.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/TableTools-master/examples/new_init.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/TableTools-master/examples/pdf_message.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/TableTools-master/examples/plug-in.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/TableTools-master/examples/select_column.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/TableTools-master/examples/select_multi.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/TableTools-master/examples/select_os.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/TableTools-master/examples/select_single.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/TableTools-master/examples/simple.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/TableTools-master/examples/swf_path.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/TableTools-master/js/dataTables.tableTools.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/TableTools-master/make.sh" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/TableTools-master/src/TableTools.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/TableTools-master/src/ZeroClipboard.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/TableTools-master/src/dataTables.tableTools.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/as3/ZeroClipboard.as" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/as3/ZeroClipboardPdf.as" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/examples/alter_buttons.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/examples/bootstrap.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/examples/button_text.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/examples/collection.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/examples/defaults.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/examples/index.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/examples/multi_instance.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/examples/multiple_tables.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/examples/new_init.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/examples/pdf_message.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/examples/plug-in.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/examples/select_column.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/examples/select_multi.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/examples/select_os.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/examples/select_single.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/examples/simple.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/examples/swf_path.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/js/dataTables.tableTools.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/make.sh" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/src/TableTools.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/src/ZeroClipboard.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/tools/src/dataTables.tableTools.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/controller.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/controller.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/performance/draw.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/performance/large.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/performance/page.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/performance/sort.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/templates/-complex_header.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/templates/2512.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/templates/6776.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/templates/complex_header_2.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/templates/deferred_table.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/templates/dom_data.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/templates/dom_data_th.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/templates/dom_data_two_headers.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/templates/dymanic_table.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/templates/empty_table.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/templates/html_table.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/templates/js_data.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/templates/js_data_mixed_types.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/templates/two_tables.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/-complex_header.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/-iDraw.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/2512.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/2530-2.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/2530.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/2569.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/2600.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/2608.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/2635.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/2746-stable-sort.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/2799.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/2840-restore-table-width.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/2914-state-save-sort.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/5396-fnUpdate-arrays-mData.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/5396-fnUpdate-arrays.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/5508-xscroll-zero-content.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/6776-scrolling-table-grows.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/_getDataFunctions.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/_setDataFunctions.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/_zero_config.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/aaSorting.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/aaSortingFixed.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/aoColumns.bSearchable.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/aoColumns.bSortable.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/aoColumns.bUseRendered.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/aoColumns.bVisible.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/aoColumns.bVisible2.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/aoColumns.fnRender.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/aoColumns.iDataSort.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/aoColumns.sClass.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/aoColumns.sName.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/aoColumns.sTitle.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/aoColumns.sWidth.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/aoSearchCols.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/asStripClasses.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/bAutoWidth.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/bFilter.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/bInfiniteScroll.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/bInfo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/bJQueryUI.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/bLengthChange.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/bPaginate.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/bProcessing.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/bServerSide.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/bSort.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/bSortCellsTop.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/bSortClasses.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/fnCookieCallback.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/fnCreatedCell.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/fnCreatedRow.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/fnDeleteRow.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/fnDrawCallback.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/fnFilter.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/fnFooterCallback.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/fnHeaderCallback.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/fnInfoCallback.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/fnInitComplete.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/fnRowCallback.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/fnSetColumnVis.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/fnSetColumnVis2.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/gh125 - stripe stripping.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/html-autodetect-sort.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/iDisplayLength.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/oLanguage.oPaginate.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/oLanguage.sInfo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/oLanguage.sInfoEmpty.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/oLanguage.sInfoPostFix.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/oLanguage.sLengthMenu.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/oLanguage.sProcessing.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/oLanguage.sSearch.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/oLanguage.sUrl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/oLanguage.sZeroRecords.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/oSearch.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/sAjaxSource.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/sDom.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/sPaginationType.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/sScrollXY.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/1_dom/th_in_body.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/2_js/39-nested-null.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/2_js/6872-default-content-missing-props.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/2_js/8549--string-sorting-nonstrings.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/2_js/_zero_config.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/2_js/aaSorting.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/2_js/aaSortingFixed.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/2_js/aoColumns.bSearchable.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/2_js/aoColumns.bSortable.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/2_js/aoColumns.bUseRendered.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/2_js/aoColumns.bVisible.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/2_js/aoColumns.fnRender.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/2_js/aoColumns.iDataSort.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/2_js/aoColumns.sClass.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/2_js/aoColumns.sName.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/2_js/aoColumns.sTitle.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/2_js/aoColumns.sWidth.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/2_js/aoSearchCols.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/2_js/asStripClasses.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/2_js/bAutoWidth.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/2_js/bFilter.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/2_js/bInfo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/2_js/bLengthChange.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/2_js/bPaginate.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/2_js/bProcessing.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/2_js/bServerSide.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/2_js/bSort.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/2_js/bSortClasses.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/2_js/fnCreatedCell.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/2_js/fnCreatedRow.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/2_js/fnDrawCallback.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/2_js/fnFooterCallback.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/2_js/fnHeaderCallback.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/2_js/fnInitComplete.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/2_js/fnRowCallback.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/2_js/iDisplayLength.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/2_js/js_data_mixed_types.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/2_js/oLanguage.oPaginate.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/2_js/oLanguage.sInfo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/2_js/oLanguage.sInfoEmpty.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/2_js/oLanguage.sInfoPostFix.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/2_js/oLanguage.sLengthMenu.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/2_js/oLanguage.sProcessing.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/2_js/oLanguage.sSearch.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/2_js/oLanguage.sUrl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/2_js/oLanguage.sZeroRecords.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/2_js/oSearch.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/2_js/sAjaxSource.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/2_js/sDom.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/2_js/sPaginationType.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/3_ajax/_zero_config.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/3_ajax/aaSorting.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/3_ajax/aaSortingFixed.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/3_ajax/aoColumns.bSearchable.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/3_ajax/aoColumns.bSortable.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/3_ajax/aoColumns.bUseRendered.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/3_ajax/aoColumns.bVisible.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/3_ajax/aoColumns.fnRender.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/3_ajax/aoColumns.iDataSort.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/3_ajax/aoColumns.sClass.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/3_ajax/aoColumns.sName.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/3_ajax/aoColumns.sTitle.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/3_ajax/aoColumns.sWidth.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/3_ajax/aoSearchCols.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/3_ajax/asStripClasses.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/3_ajax/bAutoWidth.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/3_ajax/bFilter.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/3_ajax/bInfo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/3_ajax/bLengthChange.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/3_ajax/bPaginate.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/3_ajax/bProcessing.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/3_ajax/bServerSide.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/3_ajax/bSort.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/3_ajax/bSortClasses.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/3_ajax/fnCreatedCell.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/3_ajax/fnCreatedRow.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/3_ajax/fnDrawCallback.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/3_ajax/fnHeaderCallback.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/3_ajax/fnInitComplete.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/3_ajax/fnRowCallback.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/3_ajax/fnServerData.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/3_ajax/iDisplayLength.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/3_ajax/oLanguage.oPaginate.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/3_ajax/oLanguage.sInfo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/3_ajax/oLanguage.sInfoEmpty.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/3_ajax/oLanguage.sInfoPostFix.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/3_ajax/oLanguage.sLengthMenu.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/3_ajax/oLanguage.sLoadingRecords.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/3_ajax/oLanguage.sProcessing.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/3_ajax/oLanguage.sSearch.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/3_ajax/oLanguage.sUrl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/3_ajax/oLanguage.sZeroRecords.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/3_ajax/oSearch.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/3_ajax/sAjaxDataProp.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/3_ajax/sAjaxDataProp2.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/3_ajax/sAjaxSource.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/3_ajax/sDom.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/3_ajax/sPaginationType.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/-iDraw.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/2440.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/2569.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/2600.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/_zero_config.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/aaSorting.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/aaSortingFixed.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/aoColumns.bSearchable.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/aoColumns.bSortable.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/aoColumns.bUseRendered.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/aoColumns.bVisible.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/aoColumns.fnRender.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/aoColumns.sClass.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/aoColumns.sName.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/aoColumns.sTitle.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/aoColumns.sWidth.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/aoSearchCols.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/asStripClasses.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/bAutoWidth.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/bFilter.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/bInfiniteScroll.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/bInfo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/bLengthChange.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/bPaginate.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/bProcessing.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/bServerSide.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/bSort.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/bSortClasses.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/fnCreatedCell.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/fnCreatedRow.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/fnDrawCallback.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/fnHeaderCallback.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/fnInitComplete.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/fnRowCallback.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/iDeferLoading.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/iDisplayLength.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/oLanguage.oPaginate.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/oLanguage.sInfo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/oLanguage.sInfoEmpty.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/oLanguage.sInfoPostFix.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/oLanguage.sLengthMenu.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/oLanguage.sProcessing.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/oLanguage.sSearch.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/oLanguage.sUrl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/oLanguage.sZeroRecords.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/oSearch.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/sAjaxDataProp.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/sAjaxSource.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/sDom.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/4_server-side/sPaginationType.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/5_ajax_objects/_zero_config.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/5_ajax_objects/_zero_config_arrays_subobjects.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/5_ajax_objects/_zero_config_deep.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/5_ajax_objects/_zero_config_mDataProp.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/5_ajax_objects/_zero_config_null_source.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/5_ajax_objects/_zero_config_objects.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/5_ajax_objects/_zero_config_objects_subarrays.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/5_ajax_objects/aaSorting.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/5_ajax_objects/aaSortingFixed.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/5_ajax_objects/aoColumns.bSearchable.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/5_ajax_objects/aoColumns.bSortable.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/5_ajax_objects/aoColumns.bUseRendered.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/5_ajax_objects/aoColumns.bVisible.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/5_ajax_objects/aoColumns.fnRender.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/5_ajax_objects/aoColumns.iDataSort.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/5_ajax_objects/aoColumns.sClass.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/5_ajax_objects/aoColumns.sName.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/5_ajax_objects/aoColumns.sTitle.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/5_ajax_objects/aoColumns.sWidth.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/5_ajax_objects/aoSearchCols.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/5_ajax_objects/asStripClasses.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/5_ajax_objects/bAutoWidth.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/5_ajax_objects/bFilter.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/5_ajax_objects/bInfo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/5_ajax_objects/bLengthChange.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/5_ajax_objects/bPaginate.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/5_ajax_objects/bProcessing.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/5_ajax_objects/bServerSide.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/5_ajax_objects/bSort.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/5_ajax_objects/bSortClasses.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/5_ajax_objects/fnDrawCallback.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/5_ajax_objects/fnHeaderCallback.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/5_ajax_objects/fnInitComplete.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/5_ajax_objects/fnRowCallback.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/5_ajax_objects/fnServerData.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/5_ajax_objects/iDisplayLength.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/5_ajax_objects/oLanguage.oPaginate.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/5_ajax_objects/oLanguage.sInfo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/5_ajax_objects/oLanguage.sInfoEmpty.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/5_ajax_objects/oLanguage.sInfoPostFix.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/5_ajax_objects/oLanguage.sLengthMenu.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/5_ajax_objects/oLanguage.sProcessing.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/5_ajax_objects/oLanguage.sSearch.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/5_ajax_objects/oLanguage.sUrl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/5_ajax_objects/oLanguage.sZeroRecords.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/5_ajax_objects/oSearch.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/5_ajax_objects/sAjaxSource.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/5_ajax_objects/sDom.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/5_ajax_objects/sPaginationType.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/6_delayed_rendering/_zero_config.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/6_delayed_rendering/aaSorting.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/6_delayed_rendering/aaSortingFixed.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/6_delayed_rendering/aoColumns.bSearchable.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/6_delayed_rendering/aoColumns.bSortable.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/6_delayed_rendering/aoColumns.bUseRendered.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/6_delayed_rendering/aoColumns.bVisible.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/6_delayed_rendering/aoColumns.fnRender.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/6_delayed_rendering/aoColumns.iDataSort.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/6_delayed_rendering/aoColumns.sClass.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/6_delayed_rendering/aoColumns.sName.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/6_delayed_rendering/aoColumns.sTitle.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/6_delayed_rendering/aoColumns.sWidth.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/6_delayed_rendering/aoSearchCols.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/6_delayed_rendering/asStripClasses.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/6_delayed_rendering/bAutoWidth.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/6_delayed_rendering/bFilter.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/6_delayed_rendering/bInfo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/6_delayed_rendering/bLengthChange.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/6_delayed_rendering/bPaginate.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/6_delayed_rendering/bProcessing.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/6_delayed_rendering/bServerSide.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/6_delayed_rendering/bSort.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/6_delayed_rendering/bSortClasses.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/6_delayed_rendering/fnDrawCallback.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/6_delayed_rendering/fnHeaderCallback.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/6_delayed_rendering/fnInitComplete.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/6_delayed_rendering/fnRowCallback.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/6_delayed_rendering/fnServerData.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/6_delayed_rendering/iDisplayLength.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/6_delayed_rendering/oLanguage.oPaginate.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/6_delayed_rendering/oLanguage.sInfo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/6_delayed_rendering/oLanguage.sInfoEmpty.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/6_delayed_rendering/oLanguage.sInfoPostFix.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/6_delayed_rendering/oLanguage.sLengthMenu.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/6_delayed_rendering/oLanguage.sProcessing.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/6_delayed_rendering/oLanguage.sSearch.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/6_delayed_rendering/oLanguage.sUrl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/6_delayed_rendering/oLanguage.sZeroRecords.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/6_delayed_rendering/oSearch.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/6_delayed_rendering/sAjaxDataProp.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/6_delayed_rendering/sAjaxDataProp2.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/6_delayed_rendering/sAjaxSource.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/6_delayed_rendering/sDom.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/tests_onhold/6_delayed_rendering/sPaginationType.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datatables/unit_testing/unit_test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/datepicker/daterangepicker.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/dropzone/dropzone.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/easypie/jquery.easypiechart.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/echart/echarts-all.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/echart/green.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/editor/bootstrap-wysiwyg.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/editor/external/google-code-prettify/lang-apollo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/editor/external/google-code-prettify/lang-basic.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/editor/external/google-code-prettify/lang-clj.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/editor/external/google-code-prettify/lang-css.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/editor/external/google-code-prettify/lang-dart.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/editor/external/google-code-prettify/lang-erlang.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/editor/external/google-code-prettify/lang-go.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/editor/external/google-code-prettify/lang-hs.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/editor/external/google-code-prettify/lang-lisp.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/editor/external/google-code-prettify/lang-llvm.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/editor/external/google-code-prettify/lang-lua.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/editor/external/google-code-prettify/lang-matlab.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/editor/external/google-code-prettify/lang-ml.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/editor/external/google-code-prettify/lang-mumps.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/editor/external/google-code-prettify/lang-n.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/editor/external/google-code-prettify/lang-pascal.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/editor/external/google-code-prettify/lang-proto.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/editor/external/google-code-prettify/lang-r.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/editor/external/google-code-prettify/lang-rd.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/editor/external/google-code-prettify/lang-scala.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/editor/external/google-code-prettify/lang-sql.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/editor/external/google-code-prettify/lang-tcl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/editor/external/google-code-prettify/lang-tex.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/editor/external/google-code-prettify/lang-vb.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/editor/external/google-code-prettify/lang-vhdl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/editor/external/google-code-prettify/lang-wiki.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/editor/external/google-code-prettify/lang-xq.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/editor/external/google-code-prettify/lang-yaml.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/editor/external/google-code-prettify/prettify.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/editor/external/google-code-prettify/run_prettify.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/editor/external/jquery.hotkeys.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/flot/curvedLines.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/flot/date.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/flot/jquery.flot.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/flot/jquery.flot.orderBars.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/flot/jquery.flot.pie.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/flot/jquery.flot.resize.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/flot/jquery.flot.spline.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/flot/jquery.flot.stack.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/flot/jquery.flot.time.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/flot/jquery.flot.tooltip.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/gauge/gauge.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/gauge/gauge_demo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/icheck/icheck.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/input_mask/jquery.inputmask.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/ion_range/ion.rangeSlider.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/jquery.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/knob/jquery.knob.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/maps/gdp-data.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/maps/jquery-jvectormap-2.0.1.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/maps/jquery-jvectormap-us-aea-en.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/maps/jquery-jvectormap-world-mill-en.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/maps/us-unemployment.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/moment.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/moment.min2.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/moris/example.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/moris/jquery.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/moris/morris.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/moris/morris.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/moris/raphael-min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/nicescroll/jquery.nicescroll.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/notify/pnotify.buttons.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/notify/pnotify.core.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/notify/pnotify.nonblock.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/nprogress.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/parsley/parsley.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/progressbar/bootstrap-progressbar.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/select/select2.full.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/sidebar/classie.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/sidebar/component.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/sidebar/modernizr.custom.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/sidebar/sidebarEffects.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/skycons/skycons.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/sparkline/jquery.sparkline.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/switchery/switchery.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/tags/jquery.tagsinput.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/textarea/autosize.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/validator/validator.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/wizard/jquery.smartWizard.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/less/custom.css" />
     </list>
     <ignored path="MoraSpirit.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -751,11 +25,105 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="routes.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.21364452">
-              <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="36" column="3" selection-start-line="36" selection-start-column="3" selection-end-line="36" selection-end-column="3" />
+              <folding>
+                <marker date="1452148750708" expanded="false" signature="9:390" placeholder="..." />
+                <marker date="1452148750708" expanded="true" signature="450:493" placeholder="..." />
+                <marker date="1452148750708" expanded="true" signature="469:492" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MoraController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MoraController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/projectViews/login.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="25" column="24" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DataBase.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/DataBase/DataBase.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="131" column="29" selection-start-line="131" selection-start-column="20" selection-end-line="131" selection-end-column="29" />
+              <folding>
+                <element signature="e#6#89#0#PHP" expanded="true" />
+                <element signature="e#115#136#0#PHP" expanded="true" />
+                <marker date="1452148750670" expanded="true" signature="631:668" placeholder="INSERT INTO Student..." />
+                <marker date="1452148750670" expanded="true" signature="891:927" placeholder="INSERT INTO Resource..." />
+                <marker date="1452148750670" expanded="true" signature="1140:1188" placeholder="INSERT INTO PracticeSchedule..." />
+                <marker date="1452148750670" expanded="true" signature="1516:1564" placeholder="INSERT INTO PracticeSchedule..." />
+                <marker date="1452148750670" expanded="true" signature="1806:1838" placeholder="INSERT INTO Achieve..." />
+                <marker date="1452148750670" expanded="true" signature="1992:2035" placeholder="INSERT INTO Equipment..." />
+                <marker date="1452148750670" expanded="true" signature="2359:2395" placeholder="INSERT INTO Borrow..." />
+                <marker date="1452148750670" expanded="true" signature="2626:2653" placeholder="INSERT INTO Sport..." />
+                <marker date="1452148750670" expanded="true" signature="2761:2802" placeholder="INSERT INTO SportsResources..." />
+                <marker date="1452148750670" expanded="true" signature="2966:2993" placeholder="INSERT INTO Admin..." />
+                <marker date="1452148750670" expanded="true" signature="3114:3126" placeholder="INSERT INTO Admin..." />
+                <marker date="1452148750670" expanded="true" signature="3114:3144" placeholder="INSERT INTO Keeper..." />
+                <marker date="1452148750670" expanded="true" signature="3301:3330" placeholder="INSERT INTO Coach..." />
+                <marker date="1452148750670" expanded="true" signature="3482:3515" placeholder="INSERT INTO Users..." />
+                <marker date="1452148750670" expanded="true" signature="3704:3744" placeholder="INSERT INTO EquipmentRequest..." />
+                <marker date="1452148750670" expanded="true" signature="4349:4362" placeholder="select * fro..users..." />
+                <marker date="1452148750670" expanded="true" signature="4675:4726" placeholder="SELECT * FRO..users..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="showUsers.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/projectViews/showUsers.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="52" column="62" selection-start-line="52" selection-start-column="62" selection-end-line="52" selection-end-column="62" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/test.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".env" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.env">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.19932999">
+              <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Sport.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Domain/Sport.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="22" column="27" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -769,11 +137,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/resources/views/layout/template.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layout/test.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/MyControllers/.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/MyController.php" />
         <option value="$PROJECT_DIR$/database/dbOperations/DataBase.php" />
-        <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/resources/views/projectViews/login.blade.php" />
         <option value="$PROJECT_DIR$/app/DataBase.php" />
         <option value="$PROJECT_DIR$/resources/views/projectViews/regiter.blade.php" />
@@ -794,11 +162,11 @@
         <option value="$PROJECT_DIR$/app/Domain/Sport.php" />
         <option value="$PROJECT_DIR$/resources/views/projectViews/showUsers.blade.php" />
         <option value="$PROJECT_DIR$/app/DataBase/DataBase.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/MoraController.php" />
         <option value="$PROJECT_DIR$/resources/test.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/test.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/MoraController.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
-        <option value="$PROJECT_DIR$/resources/views/layout/template.blade.php" />
+        <option value="$PROJECT_DIR$/.env" />
       </list>
     </option>
   </component>
@@ -817,10 +185,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="x" value="-7" />
+    <option name="width" value="1378" />
+    <option name="height" value="735" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -848,7 +215,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -899,28 +265,99 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MoraSpirit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MoraSpirit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MoraSpirit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MoraSpirit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MoraSpirit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MoraSpirit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MoraSpirit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MoraSpirit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DataBase" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../MoraSpirit2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files (x86)\nodejs\node.exe" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\Laravel\MoraSpirit\public" />
+      <recent name="C:\xampp\htdocs\Laravel\MoraSpirit\app" />
+      <recent name="C:\xampp\htdocs\Larevel\MoraSpirit\public" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\Laravel\MoraSpirit\resources\views" />
       <recent name="C:\xampp\htdocs\Laravel\MoraSpirit\resources\views\vendor" />
       <recent name="C:\xampp\htdocs\Laravel\MoraSpirit\app\DataBase" />
       <recent name="C:\xampp\htdocs\Larevel\MoraSpirit\public\css" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\Laravel\MoraSpirit\public" />
-      <recent name="C:\xampp\htdocs\Laravel\MoraSpirit\public\fonts" />
-      <recent name="C:\xampp\htdocs\Laravel\MoraSpirit\public\css" />
-      <recent name="C:\xampp\htdocs\Laravel\MoraSpirit\app" />
-      <recent name="C:\xampp\htdocs\Larevel\MoraSpirit\public" />
     </key>
   </component>
   <component name="RunManager">
@@ -967,11 +404,11 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <frame x="-7" y="0" width="1378" height="735" extended-state="1" />
+    <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28971255" sideWeight="0.5057283" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27458397" sideWeight="0.4942717" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26358297" sideWeight="0.4942717" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1001,16 +438,39 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1452148750708" expanded="false" signature="9:390" placeholder="..." />
+            <marker date="1452148750708" expanded="true" signature="450:493" placeholder="..." />
+            <marker date="1452148750708" expanded="true" signature="469:492" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1060,7 +520,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1452148750708" expanded="false" signature="9:390" placeholder="..." />
+            <marker date="1452148750708" expanded="true" signature="450:493" placeholder="..." />
+            <marker date="1452148750708" expanded="true" signature="469:492" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1274,6 +738,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/icheck/flat/red.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/projectViews/register.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.08438061">
@@ -1285,6 +756,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="22" column="27" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1295,17 +767,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20411664">
-          <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/DataBase/DataBase.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="131" column="29" selection-start-line="131" selection-start-column="20" selection-end-line="131" selection-end-column="29" />
+          <folding>
+            <element signature="e#6#89#0#PHP" expanded="true" />
+            <element signature="e#115#136#0#PHP" expanded="true" />
+            <marker date="1452148750670" expanded="true" signature="631:668" placeholder="INSERT INTO Student..." />
+            <marker date="1452148750670" expanded="true" signature="891:927" placeholder="INSERT INTO Resource..." />
+            <marker date="1452148750670" expanded="true" signature="1140:1188" placeholder="INSERT INTO PracticeSchedule..." />
+            <marker date="1452148750670" expanded="true" signature="1516:1564" placeholder="INSERT INTO PracticeSchedule..." />
+            <marker date="1452148750670" expanded="true" signature="1806:1838" placeholder="INSERT INTO Achieve..." />
+            <marker date="1452148750670" expanded="true" signature="1992:2035" placeholder="INSERT INTO Equipment..." />
+            <marker date="1452148750670" expanded="true" signature="2359:2395" placeholder="INSERT INTO Borrow..." />
+            <marker date="1452148750670" expanded="true" signature="2626:2653" placeholder="INSERT INTO Sport..." />
+            <marker date="1452148750670" expanded="true" signature="2761:2802" placeholder="INSERT INTO SportsResources..." />
+            <marker date="1452148750670" expanded="true" signature="2966:2993" placeholder="INSERT INTO Admin..." />
+            <marker date="1452148750670" expanded="true" signature="3114:3126" placeholder="INSERT INTO Admin..." />
+            <marker date="1452148750670" expanded="true" signature="3114:3144" placeholder="INSERT INTO Keeper..." />
+            <marker date="1452148750670" expanded="true" signature="3301:3330" placeholder="INSERT INTO Coach..." />
+            <marker date="1452148750670" expanded="true" signature="3482:3515" placeholder="INSERT INTO Users..." />
+            <marker date="1452148750670" expanded="true" signature="3704:3744" placeholder="INSERT INTO EquipmentRequest..." />
+            <marker date="1452148750670" expanded="true" signature="4349:4362" placeholder="select * fro..users..." />
+            <marker date="1452148750670" expanded="true" signature="4675:4726" placeholder="SELECT * FRO..users..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1313,6 +799,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="25" column="24" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1320,6 +807,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="52" column="62" selection-start-line="52" selection-start-column="62" selection-end-line="52" selection-end-column="62" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1327,41 +815,34 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/flot/date.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MoraController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="24" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/calendar/fullcalendar.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layout/template.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6182796">
-          <caret line="57" column="61" selection-start-line="57" selection-start-column="61" selection-end-line="57" selection-end-column="61" />
+          <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21364452">
-          <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="36" column="3" selection-start-line="36" selection-start-column="3" selection-end-line="36" selection-end-column="3" />
+          <folding>
+            <marker date="1452148750708" expanded="false" signature="9:390" placeholder="..." />
+            <marker date="1452148750708" expanded="true" signature="450:493" placeholder="..." />
+            <marker date="1452148750708" expanded="true" signature="469:492" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19932999">
+          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
           <folding />
         </state>
       </provider>
