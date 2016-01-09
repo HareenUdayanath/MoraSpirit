@@ -10,9 +10,40 @@ use App\Domain\User;
 
 class AdminController extends Controller
 {
-    public function displayHome(){
+    public function displayHomePage(){
         $user = new User();
         $user->setName("Anthony Fernando");
-        return view('adminViews.admin')->with('user',$user);
+        return view('adminViews.adminHome')->with('user',$user);
     }
+
+    public function displayUserPage(){
+        $user = new User();
+        $user->setName("Anthony Fernando");
+        return view('adminViews.adminUsers')->with('user',$user);
+    }
+
+    public function displaySportPage(){
+        $user = new User();
+        $user->setName("Anthony Fernando");
+        return view('adminViews.adminSports')->with('user',$user);
+    }
+
+    public function displayEquipmentPage(){
+        $user = new User();
+        $user->setName("Anthony Fernando");
+        return view('adminViews.adminEquipments')->with('user',$user);
+    }
+
+    public function displayResourcePage(){
+        $user = new User();
+        $user->setName("Anthony Fernando");
+        return view('adminViews.adminResources')->with('user',$user);
+    }
+
+    public function displayStudentPage(){
+        $user = new User();
+        $user->setName("Anthony Fernando");
+        return view('adminViews.adminStudents')->with('user',$user);
+    }
+
 }

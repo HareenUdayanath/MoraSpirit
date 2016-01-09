@@ -36,4 +36,14 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 
-Route::get('admin', 'AdminController@displayHome');
+Route::get('adminHome', array('as'=>'adminHome','uses'=>'AdminController@displayHomePage'));
+
+Route::get('adminUsers', array('as'=>'adminUsers','uses'=>'AdminController@displayUserPage'));
+
+Route::get('adminSports', array('as'=>'adminSports','uses'=>'AdminController@displaySportPage'));
+
+Route::get('adminEquipments', array('as'=>'adminEquipments','uses'=>'AdminController@displayEquipmentPage'));
+
+Route::get('adminResources', array('as'=>'adminResources','uses'=>'AdminController@displayResourcePage'));
+
+Route::get('adminStudents', array('as'=>'adminStudents','uses'=>'AdminController@displayStudentPage'));
