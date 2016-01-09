@@ -3,13 +3,13 @@
 
 @section('siderBar')
     <div class="menu_section">
-        <h3>General</h3>
+        <h3>Admin</h3>
         <ul class="nav side-menu">
-            <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
-                <ul class="nav child_menu" style="display: none">
+            <li><a href={{route('first')}}><i class="fa fa-home"></i> Home <!--span class="fa fa-chevron-down"></--span--></a>
+                <!--ul class="nav child_menu" style="display: none">
                     <li><a href="index.html">Home</a>
                     </li>
-                </ul>
+                </ul-->
             </li>
         </ul>
     </div>

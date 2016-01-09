@@ -36,4 +36,4 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 
-Route::get('admin', 'MoraController@showAdmin');
+Route::get('admin', 'AdminController@displayHome');
