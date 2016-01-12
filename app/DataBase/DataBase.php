@@ -8,6 +8,7 @@
 
 namespace App\DataBase;
 use App\Domain\Sport;
+use App\Domain\TimeSlot;
 use DB;
 
 class DataBase{
@@ -118,15 +119,78 @@ class DataBase{
      */
 
     public function loadSports(){
+        return DB::select('SELECT * FROM Sport');
+    }
 
-        /*$sportList = array();
-        $sports = DB::select('SELECT * FROM Sport');
-        if(count($sports)<=0) {
-            $sport = new Sport();
-            $sport
-            array_push($sportList, $utilization);
+    public function loadResource(){
+        return DB::select('SELECT * FROM Resource');
+    }
+
+    public function loadResourceOf($sportName){
+        return DB::select('SELECT * FROM Resource NATURAL JOIN
+            (SELECT ResourceID as ID FROM SportsResources WHERE SportName = ?)'
+            ,[$sportName]);
+    }
+
+    public function loadPracticeSchedule(){
+        return DB::select('SELECT * FROM PracticeSchedule');
+    }
+
+    public function loadEquipments(){
+        return DB::select('SELECT * FROM Equipment');
+    }
+
+    public function loadEquipmentsOf($sportName){
+        return DB::select('SELECT * FROM Equipment WHERE SportName = ?'
+                            ,[$sportName]);
+    }
+
+    public function loadAvailableEquipments(){
+        return DB::select('SELECT * FROM Equipment WHERE Availability = TRUE');
+    }
+
+    public function getEquipment($equipmentNo){
+        return DB::select('SELECT * FROM Equipment WHERE ItemNo = ?'
+                            ,[$equipmentNo]);
+    }
+
+    public function getAvailableEquipments($equipmentType,$sportName){
+        return DB::select('SELECT * FROM Equipment WHERE Type = ? AND
+                            SportName = ? AND Availability = ?'
+                            ,[$equipmentType,$sportName]);
+    }
+
+    public function getResourceReservedTime($resourceID,$date){
+        $timeSlotList = array();
+        $timeSlots =  DB::select('SELECT StartTime,EndTime FROM Booking WHERE
+                            Resources_ID = ? AND Date = ? '
+                            ,[$resourceID,$date]);
+        foreach($timeSlots as $ts){
+            $timeSlot = new TimeSlot();
+            $timeSlot->setStartTime($ts->StartTime);
+            $timeSlot->setEndTime($ts->EndTime);
+            array_push($timeSlotList,$timeSlot);
         }
-        return true;*/
+
+        $timeSlots =  DB::select('SELECT StartTime,EndTime FROM PracticeSchedule
+                 WHERE Resources_ID = ? AND Date = ? '
+            ,[$resourceID,$date]);
+        foreach($timeSlots as $ts){
+            $timeSlot = new TimeSlot();
+            $timeSlot->setStartTime($ts->StartTime);
+            $timeSlot->setEndTime($ts->EndTime);
+            array_push($timeSlotList,$timeSlot);
+        }
+        return $timeSlotList;
+    }
+
+    public function searchStudentByName($name){
+        return DB::select('SELECT * FROM Student WHERE FirstName LIKE \'%'.$name.'%\' OR
+               LastName LIKE \'%'.$name.'%\'');
+    }
+
+    public function searchStudentByIndex($index){
+        return DB::select('SELECT * FROM Student WHERE ID = ?',[$index]);
     }
 
     public function loadUsers(){
@@ -138,6 +202,14 @@ class DataBase{
     /*
      * Check Data...........................
      * */
+
+    public function checkEquipmentAvailability($equipmentNo){
+        $avilabilities = DB::select('SELECT Availability FROM Equipment WHERE ItemNo = ?'
+            ,[$equipmentNo]);
+        if(count($avilabilities)<=0)
+            return false;
+        return $avilabilities->Availability;
+    }
 
     public function checkUser($username,$password){
         $users = DB::select('SELECT * FROM users WHERE Name = ? AND Password = ?',[$username,$password]);
