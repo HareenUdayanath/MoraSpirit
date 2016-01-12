@@ -37,3 +37,11 @@ Route::controllers([
 ]);
 
 Route::get('admin', 'MoraController@showAdmin');
+
+Route::get('eqprecieval', 'KeeperController@getEqpRc');
+
+Route::get('res_res', 'KeeperController@getReserve');
+
+Route::get('eqplending', 'KeeperController@getEqpLn');
+
+Route::get('eqpUpdateDetails', 'KeeperController@getUpDt');
