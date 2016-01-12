@@ -37,3 +37,7 @@ Route::controllers([
 ]);
 
 Route::get('admin', 'MoraController@showAdmin');
+
+Route::get('addPra', 'CoachController@addPracticeSchedule');
+
+Route::get('addAchi', 'CoachController@addAchievement');
