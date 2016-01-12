@@ -10,7 +10,6 @@
 
             </li>
             <li><a><i class="fa fa-edit"></i> Practice Schedule</a>
-
         </ul>
     </div>
 @endsection
