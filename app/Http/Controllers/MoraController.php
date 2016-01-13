@@ -56,4 +56,5 @@ class MoraController extends Controller
         return view('projectViews.login');
     }
 
+
 }

@@ -39,5 +39,12 @@ class KeeperController extends Controller
 
     }
 
+    public function getSports()
+    {
+        $database = DataBase::getInstance();
+        $sports = $database->
+
+    }
+
 
 }
