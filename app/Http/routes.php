@@ -46,6 +46,7 @@ Route::get('adminEquipments', array('as'=>'adminEquipments','uses'=>'AdminContro
 
 Route::get('adminResources', array('as'=>'adminResources','uses'=>'AdminController@displayResourcePage'));
 
+
 Route::get('adminStudents', array('as'=>'adminStudents','uses'=>'AdminController@displayStudentPage'));
 
 Route::get('admin', 'MoraController@showAdmin');
@@ -56,4 +57,16 @@ Route::get('res_res', 'KeeperController@getReserve');
 
 Route::get('eqplending', 'KeeperController@getEqpLn');
 
-Route::get('eqpUpdateDetails', 'KeeperController@getUpDt');
+Route::get('eqpUpdateDetails', 'KeeperController@getUpDt');Route::get('adminStudents', array('as'=>'adminStudents','uses'=>'AdminController@displayStudentPage'));
+
+Route::get('adminAddUser', array('as'=>'adminAddUser','uses'=>'AdminController@displayAddUserPage'));
+
+Route::get('admin', 'MoraController@showAdmin');
+
+Route::get('addPra', 'CoachController@addPracticeSchedule');
+
+Route::get('addAchi', 'CoachController@addAchievement');
+
+Route::get('diplaySchedule', array('as'=>'diplaySchedule','uses'=>'CoachController@displayPracticeSchedulePage'));
+
+Route::get('diplayAchieve', array('as'=>'diplayAchieve','uses'=>'CoachController@displayAchievementPage'));
