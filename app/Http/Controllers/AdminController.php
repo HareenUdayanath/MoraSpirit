@@ -1,5 +1,7 @@
 <?php namespace App\Http\Controllers;
+
 use App\Domain\User;
+use App\DataBase\DataBase;
 
 /**
  * Created by PhpStorm.
@@ -19,7 +21,7 @@ class AdminController extends Controller
     public function displayUserPage(){
         $user = new User();
         $user->setName("Anthony Fernando");
-        return view('adminViews.adminUsers')->with('user',$user);
+        return view('adminViews.adminUsers')->with('user',$user)->with('users',DataBase::getInstance()->loadUsers());
     }
 
     public function displaySportPage(){
@@ -44,6 +46,12 @@ class AdminController extends Controller
         $user = new User();
         $user->setName("Anthony Fernando");
         return view('adminViews.adminStudents')->with('user',$user);
+    }
+
+    public function displayAddUserPage(){
+        $user = new User();
+        $user->setName("Anthony Fernando");
+        return view('adminViews.adminAddUser')->with('user',$user)->with('user',$user)->with('users',DataBase::getInstance()->loadUsers());
     }
 
 }

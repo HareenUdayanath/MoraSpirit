@@ -48,6 +48,8 @@ Route::get('adminResources', array('as'=>'adminResources','uses'=>'AdminControll
 
 Route::get('adminStudents', array('as'=>'adminStudents','uses'=>'AdminController@displayStudentPage'));
 
+Route::get('adminAddUser', array('as'=>'adminAddUser','uses'=>'AdminController@displayAddUserPage'));
+
 Route::get('admin', 'MoraController@showAdmin');
 
 Route::get('addPra', 'CoachController@addPracticeSchedule');

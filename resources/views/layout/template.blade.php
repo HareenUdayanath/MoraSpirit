@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Gentallela Alela! | </title>
+    <title> MoraSpirit </title>
 
     <!-- Bootstrap core CSS -->
 
@@ -33,19 +33,6 @@
     <script src={{asset("https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js")}}></script>
     <script src={{asset("https://oss.maxcdn.com/respond/1.4.2/respond.min.js")}}></script>
     <![endif]-->
-
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-
-            $('#birthday').daterangepicker({
-                singleDatePicker: true,
-                calender_style: "picker_4"
-            }, function (start, end, label) {
-                console.log(start.toISOString(), end.toISOString(), label);
-            });
-        });
-    </script>
 
 </head>
 
@@ -168,9 +155,7 @@
 <script src={{asset("/js/moris/raphael-min.js")}}></script>
 <script src={{asset("/js/moris/morris.js")}}></script>
 <script src={{asset("/js/moris/example.js")}}></script>
-
-
-
+@yield('requiredJS')
 </body>
 
 </html>
