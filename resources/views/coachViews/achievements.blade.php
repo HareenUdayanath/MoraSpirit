@@ -56,36 +56,19 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="sport-name">Sport Name <span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Sport Name <span class="required">*</span>
                             </label>
                             <!--div class="col-md-6 col-sm-6 col-xs-12">
                                 <input type="text" id="sport-name" name="sport-name" required="required" class="form-control col-md-7 col-xs-12">
                             </div-->
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <select id="sport-name" name="sport-name">
-                                    <option value="select sport name">Select sport name</option>
-                                    <option value="Cricket">Cricket</option>
-                                    <option value="Volyball">Volyball</option>
-                                    <option value="Badminton">Badminton</option>
+                                <select class="form-control">
+                                    <option>Select sport name</option>
+                                    <option>Cricket</option>
+                                    <option>Vollyball</option>
+                                    <option>Badminton</option>
                                 </select>
                             </div>
-                            <!--div class="col-md-6 col-sm-6 col-xs-12">
-                                <button type="button" class="btn btn-default">Select sport name</button>
-                                <button type="button" id="sport-name" name="sport-name" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                    <span class="caret"></span>
-                                    <span class="sr-only">Toggle Dropdown</span>
-                                </button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">Cricket</a>
-                                    </li>
-                                    <li><a href="#">Volyball</a>
-                                    </li>
-                                    <li><a href="#">Badminton</a>
-                                    </li>
-
-                                </ul>
-                            </div-->
-
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Date <span class="required">*</span>

@@ -34,6 +34,19 @@
     <script src={{asset("https://oss.maxcdn.com/respond/1.4.2/respond.min.js")}}></script>
     <![endif]-->
 
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#birthday').daterangepicker({
+                singleDatePicker: true,
+                calender_style: "picker_4"
+            }, function (start, end, label) {
+                console.log(start.toISOString(), end.toISOString(), label);
+            });
+        });
+    </script>
+
 </head>
 
 
@@ -155,6 +168,8 @@
 <script src={{asset("/js/moris/raphael-min.js")}}></script>
 <script src={{asset("/js/moris/morris.js")}}></script>
 <script src={{asset("/js/moris/example.js")}}></script>
+
+
 
 </body>
 
