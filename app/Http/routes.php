@@ -47,3 +47,5 @@ Route::get('adminEquipments', array('as'=>'adminEquipments','uses'=>'AdminContro
 Route::get('adminResources', array('as'=>'adminResources','uses'=>'AdminController@displayResourcePage'));
 
 Route::get('adminStudents', array('as'=>'adminStudents','uses'=>'AdminController@displayStudentPage'));
+
+Route::get('adminAddUser', array('as'=>'adminAddUser','uses'=>'AdminController@displayAddUserPage'));

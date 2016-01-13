@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Gentallela Alela! | </title>
+    <title> MoraSpirit </title>
 
     <!-- Bootstrap core CSS -->
 
@@ -155,7 +155,7 @@
 <script src={{asset("/js/moris/raphael-min.js")}}></script>
 <script src={{asset("/js/moris/morris.js")}}></script>
 <script src={{asset("/js/moris/example.js")}}></script>
-
+@yield('requiredJS')
 </body>
 
 </html>
