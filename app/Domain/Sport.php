@@ -9,6 +9,7 @@
 class Sport
 {
     private $sportName;
+    private $sportID;
     private $utilizationList;
 
 
@@ -29,6 +30,20 @@ class Sport
      */
     public function setSportName($sportName) {
         $this->sportName = $sportName;
+    }
+
+    /**
+     * @return the sportID
+     */
+    public function getSportID() {
+        return $this->sportID;
+    }
+
+    /**
+     * @param sportName the sportID to set
+     */
+    public function setSportID($sportID) {
+        $this->sportID = $sportID;
     }
 
     public function addUtilization($utilization){
