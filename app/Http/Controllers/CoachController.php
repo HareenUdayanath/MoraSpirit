@@ -26,4 +26,18 @@ class CoachController extends Controller
         return view('coachViews.achievements')->with('user',$user);
     }
 
+    public function displayPracticeSchedulePage()
+    {
+        $user = new User();
+        $user->setName("Anthony Fernando");
+        return view('coachViews.practiceSchedule')->with('user',$user);
+    }
+
+    public function displayAchievementPage()
+    {
+        $user = new User();
+        $user->setName("Anthony Fernando");
+        return view('coachViews.achievements')->with('user',$user);
+    }
+
 }

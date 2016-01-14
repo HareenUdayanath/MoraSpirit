@@ -55,3 +55,7 @@ Route::get('admin', 'MoraController@showAdmin');
 Route::get('addPra', 'CoachController@addPracticeSchedule');
 
 Route::get('addAchi', 'CoachController@addAchievement');
+
+Route::get('diplaySchedule', array('as'=>'diplaySchedule','uses'=>'CoachController@displayPracticeSchedulePage'));
+
+Route::get('diplayAchieve', array('as'=>'diplayAchieve','uses'=>'CoachController@displayAchievementPage'));
