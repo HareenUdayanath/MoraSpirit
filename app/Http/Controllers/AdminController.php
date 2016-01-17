@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\Domain\Equipment;
 use App\Domain\Sport;
 use App\Domain\User;
 use App\DataBase\DataBase;
@@ -83,14 +84,34 @@ class AdminController extends Controller
         return $this->displaySportPage();
     }
 
+    public function addNewEquipment(){
+        $database = DataBase::getInstance();
+        $equip = new Equipment();
+        $equip->setItemNo(Input::get('equip-id'));
+        $equip->setType(Input::get('equip-type'));
+        $purchDate = explode('/',Input::get('purch-date'));
+        $purchDate = $purchDate[2].'/'.$purchDate[1].'/'.$purchDate[0];
+        $equip->setPurchaseDate($purchDate);
+        $equip->setPurchasePrice(Input::get('equip-price'));
+        $equip->setCondition(Input::get('equip-cond'));
+        $availability = 0;
+        if (Input::get('equip-avail')=="Available"){
+            $availability = 1;
+        }
+        $equip->setAvailability($availability);
+        $equip->setSportName(Input::get('equip-sport'));
+        $database->addEquipment($equip);
+        return $this->displayEquipmentPage();
+    }
+
     public function searchUserID($ID){
         $database = DataBase::getInstance();
-
+        $users = $database->searchUserByID($ID);
+        return view('adminViews.ajaxViews.userTable')->with('users',$users);
 
     }
 
     public function searchUserName($name){
-        if ($name)
         $database = DataBase::getInstance();
         $users = $database->searchUserByName($name);
         return view('adminViews.ajaxViews.userTable')->with('users',$users);

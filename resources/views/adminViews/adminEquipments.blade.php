@@ -15,7 +15,7 @@
                 <a href={{route('adminSports')}}><i class="fa fa-soccer-ball-o"></i> Sports </a>
             </li>
             <li>
-                <a><i class="fa fa-cubes"></i> Sport Equipments </a>
+                <a href={{route('adminEquipments')}}><i class="fa fa-cubes"></i> Sport Equipments </a>
             </li>
             <li>
                 <a href={{route('adminResources')}}><i class="fa fa-building-o"></i> Resources </a>
@@ -88,25 +88,25 @@
                         <div class="x_panel">
                             <div class="x_content">
                                 <br />
-                                <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                                <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action={{route('adminAddEquip')}}>
                                     <div class="form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="equip-id"> Item No. <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input type="text" id="equip-id" required="required" class="form-control col-md-7 col-xs-12">
+                                            <input type="text" id="equip-id" name="equip-id" required="required" class="form-control col-md-7 col-xs-12">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="equip-type"> Type <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input type="text" id="equip-type" required="required" class="form-control col-md-7 col-xs-12">
+                                            <input type="text" id="equip-type" name="equip-type" required="required" class="form-control col-md-7 col-xs-12">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12"> Purchase Date </label>
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="purch-date"> Purchase Date </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input type="text" class="form-control" data-inputmask="'mask': '99/99/9999'">
+                                            <input type="text" id="purch-date" name="purch-date" class="form-control" data-inputmask="'mask': '99/99/9999'">
                                         </div>
                                     </div>
                                     <!-- input_mask -->
@@ -119,13 +119,15 @@
                                     <div class="form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="equip-price"> Purchase Price </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input type="text" id="contact-num" required="required" class="form-control col-md-7 col-xs-12">
+                                            <input type="text" id="equip-price" name="equip-price" class="form-control col-md-7 col-xs-12">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12"> Condition </label>
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="equip-cond"> Condition <span class="required">*</span>
+                                        </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <select class="form-control">
+                                            <select class="form-control" id="equip-cond" name="equip-cond" required="required">
+                                                <option hidden> Select Condition... </option>
                                                 <option> Good </option>
                                                 <option> Need to be repaired </option>
                                                 <option> Discarded </option>
@@ -133,9 +135,11 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12"> Availability </label>
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="equip-avail"> Availability <span class="required">*</span>
+                                        </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <select class="form-control">
+                                            <select class="form-control" id="equip-avail" name="equip-avail" required="required">
+                                                <option hidden> Select Availability... </option>
                                                 <option> Available </option>
                                                 <option> Not Available </option>
                                             </select>
@@ -143,10 +147,11 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12"> Sport </label>
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="equip-sport"> Sport <span class="required">*</span>
+                                            </label>
                                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <select class="form-control">
-                                                    <option>Choose option</option>
+                                                <select class="form-control" id="equip-sport" name="equip-sport" required="required">
+                                                    <option>Cricket</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -154,7 +159,7 @@
                                     <div class="ln_solid"></div>
                                     <div class="form-group">
                                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                            <button type="submit" class="btn btn-primary">Cancel</button>
+                                            <button type="button" class="btn btn-primary">Cancel</button>
                                             <button type="submit" class="btn btn-success">Add Equipment</button>
                                         </div>
                                     </div>

@@ -191,7 +191,7 @@ class DataBase{
     }
 
     public function searchUserByID($ID){
-        return DB::select('SELECT * FROM users WHERE ID = ?',[$ID]);
+        return DB::select('SELECT * FROM users WHERE ID LIKE \'%'.$ID.'%\'');
     }
 
     public function searchUserByName($name){

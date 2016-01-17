@@ -8,7 +8,7 @@
                 <a href={{route('adminHome')}}> <i class="fa fa-home"></i> Home </a>
             </li>
             <li>
-                <a> <i class="fa fa-users"></i> Users </a>
+                <a href={{route('adminUsers')}}> <i class="fa fa-users"></i> Users </a>
             </li>
             <li>
                 <a href={{route('adminSports')}}><i class="fa fa-soccer-ball-o"></i> Sports </a>

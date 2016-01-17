@@ -12,7 +12,7 @@
                 <a href={{route('adminUsers')}}> <i class="fa fa-users"></i> Users </a>
             </li>
             <li>
-                <a><i class="fa fa-soccer-ball-o"></i> Sports </a>
+                <a href={{route('adminSports')}}><i class="fa fa-soccer-ball-o"></i> Sports </a>
             </li>
             <li>
                 <a href={{route('adminEquipments')}}><i class="fa fa-cubes"></i> Sport Equipments </a>
@@ -28,7 +28,7 @@
 @endsection
 
 @section('content')
-    <h3>Users</h3>
+    <h3>Sports</h3>
     <div class="" role="tabpanel" data-example-id="togglable-tabs">
         <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
             <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Manage Sports</a>

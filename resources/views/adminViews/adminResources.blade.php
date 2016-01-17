@@ -18,7 +18,7 @@
                 <a href={{route('adminEquipments')}}><i class="fa fa-cubes"></i> Sport Equipments </a>
             </li>
             <li>
-                <a><i class="fa fa-building-o"></i> Resources </a>
+                <a href={{route('adminResources')}}><i class="fa fa-building-o"></i> Resources </a>
             </li>
             <li>
                 <a href={{route('adminStudents')}}><i class="fa fa-child"></i> Students </a>
