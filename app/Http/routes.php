@@ -11,11 +11,7 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
-
-Route::get('test', function(){
-	return View('test');
-});
+Route::get('/', 'MoraController@home');
 
 Route::get('first', array('as'=>'first','uses'=>'MoraController@first'));
 
@@ -23,11 +19,15 @@ Route::get('reg', array('as'=>'register','uses'=>'MoraController@addUser'));
 
 Route::get('home', 'HomeController@index');
 
-Route::get('temp', 'MoraController@temp');
+Route::get('moraLogin', 'MoraController@login');
 
-Route::get('user', 'MoraController@seeUser');
+Route::get('in', 'MoraController@in');
+Route::get('getUsers/{id}',array('as'=>'getUsers','uses'=>'MoraController@getUsersOf'));
 
-Route::get('login', 'MoraController@login');
+
+Route::get('auth/login', 'Auth\AuthController@getLogin');
+Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
 Route::get('register', array('as'=>'registerForm','uses'=>'MoraController@register'));
 
