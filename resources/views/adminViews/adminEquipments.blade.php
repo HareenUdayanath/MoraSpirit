@@ -43,8 +43,8 @@
                         <label class=" col-md-1 col-sm-1 col-xs-1" style="padding-top: 5px;"> Search By: </label>
                         <div class="col-md-2 col-sm-2 col-xs-2">
                             <select class="form-control">
-                                <option> Item No. </option>
                                 <option> Type </option>
+                                <option> Item No. </option>
                             </select>
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-6 top_search">

@@ -48,7 +48,13 @@ Route::get('adminResources', array('as'=>'adminResources','uses'=>'AdminControll
 
 Route::get('adminStudents', array('as'=>'adminStudents','uses'=>'AdminController@displayStudentPage'));
 
-Route::get('adminAddUser', array('as'=>'adminAddUser','uses'=>'AdminController@displayAddUserPage'));
+Route::get('adminAddUser', array('as'=>'adminAddUser','uses'=>'AdminController@addNewUser'));
+
+Route::get('adminAddSport', array('as'=>'adminAddSport','uses'=>'AdminController@addNewSport'));
+
+Route::get('adminSearchUserID/{Id}','AdminController@searchUserID');
+
+Route::get('adminSearchUserName/{name}','AdminController@searchUserName');
 
 Route::get('admin', 'MoraController@showAdmin');
 

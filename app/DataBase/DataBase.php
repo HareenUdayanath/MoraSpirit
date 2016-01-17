@@ -184,6 +184,19 @@ class DataBase{
         return $timeSlotList;
     }
 
+    public function getResourceID($resourceName){
+        $id = DB::select('SELECT ID FROM resources WHERE Name=?',[$resourceName]);
+        return $id[0]->ID;
+    }
+
+    public function searchUserByID($ID){
+        return DB::select('SELECT * FROM users WHERE ID = ?',[$ID]);
+    }
+
+    public function searchUserByName($name){
+        return DB::select('SELECT * FROM users WHERE Name LIKE \'%'.$name.'%\'');
+    }
+
     public function searchStudentByName($name){
         return DB::select('SELECT * FROM Student WHERE FirstName LIKE \'%'.$name.'%\' OR
                LastName LIKE \'%'.$name.'%\'');
@@ -217,6 +230,5 @@ class DataBase{
             return false;
         return true;
     }
-
 
 }

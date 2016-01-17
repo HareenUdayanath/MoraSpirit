@@ -41,21 +41,52 @@
                     <div class="row">
                         <label class=" col-md-1 col-sm-1 col-xs-1" style="padding-top: 5px;"> Search By: </label>
                         <div class="col-md-2 col-sm-2 col-xs-2">
-                            <select class="form-control">
+                            <select class="form-control" id="search-type">
                                 <option> ID </option>
                                 <option> Name </option>
                             </select>
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-6 top_search">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search for...">
+                                <input type="text" class="form-control" id="search-term" placeholder="Search for...">
                                     <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button">Go!</button>
+                                    <button class="btn btn-default" type="button" onclick="searchUserByName();">Go!</button>
                                     </span>
                             </div>
                         </div>
+                        <script type="text/javascript">
+                            function searchUserByName(){
+                                var keyword = document.getElementById('search-term').value;
+                                if (keyword==''){
+                                    alert('empty');
+                                }
+                                var searchType = document.getElementById('search-type');
+                                var selectedtype = searchType.options[searchType.selectedIndex].text;
+                                if (selectedtype=='Name'){
+                                    $.ajax({
+                                        url:'{{url('adminSearchUserName')}}/'+keyword,
+                                        success:function(data){
+                                            if(data==1){}
+                                            else{
+                                                $('#tblusers').html(data).show();
+                                            }
+                                        }
+                                    });
+                                }else{
+                                    $.ajax({
+                                        url:'{{url('adminSearchUserID')}}/'+keyword,
+                                        success:function(data){
+                                            if(data==1){}
+                                            else{
+                                                $('#tblusers').html(data).show();
+                                            }
+                                        }
+                                    });
+                                }
+                            }
+                        </script>
                         <div class="col-xs-12">
-                            <div class="table-responsive">
+                            <div class="table-responsive" id="tblusers">
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                     <tr>
@@ -86,12 +117,12 @@
                         <div class="x_panel">
                             <div class="x_content">
                                 <br />
-                                <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                                <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action={{route('adminAddUser')}}>
                                     <div class="form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="user-id"> ID <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input type="text" id="user-id" required="required" class="form-control col-md-7 col-xs-12">
+                                            <input type="text" id="user-id" name="user-id" required="required" class="form-control col-md-7 col-xs-12">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -131,14 +162,14 @@
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="contact-num"> Address </span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input type="text" id="contact-num" required="required" class="form-control col-md-7 col-xs-12">
+                                            <input type="text" id="contact-num" class="form-control col-md-7 col-xs-12">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="contact-num"> Contact Number <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input type="text" id="contact-num" required="required" class="form-control col-md-7 col-xs-12">
+                                            <input type="text" id="contact-num" name="contact-num" required="required" class="form-control col-md-7 col-xs-12">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -164,7 +195,7 @@
                                     <div class="ln_solid"></div>
                                     <div class="form-group">
                                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                            <button type="submit" class="btn btn-primary">Cancel</button>
+                                            <button type="button" class="btn btn-primary">Cancel</button>
                                             <button type="submit" class="btn btn-success">Add User</button>
                                         </div>
                                     </div>
