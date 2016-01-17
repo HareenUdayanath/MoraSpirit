@@ -7,6 +7,7 @@
  */
 
 namespace App\DataBase;
+use App\Domain\Equipment;
 use App\Domain\Sport;
 use App\Domain\TimeSlot;
 use DB;
@@ -123,11 +124,11 @@ class DataBase{
     }
 
     public function loadResource(){
-        return DB::select('SELECT * FROM Resources');
+        return DB::select('SELECT * FROM Resource');
     }
 
     public function loadResourceOf($sportName){
-        return DB::select('SELECT * FROM Resources NATURAL JOIN
+        return DB::select('SELECT * FROM Resource NATURAL JOIN
             (SELECT ResourceID as ID FROM SportsResources WHERE SportName = ?)as A'
             ,[$sportName]);
     }
@@ -156,7 +157,7 @@ class DataBase{
 
     public function getAvailableEquipments($equipmentType,$sportName){
         return DB::select('SELECT * FROM Equipment WHERE Type = ? AND
-                            SportName = ? AND Availability = ?'
+                            SportName = ? AND Availability = True'
                             ,[$equipmentType,$sportName]);
     }
 
@@ -195,6 +196,11 @@ class DataBase{
 
     public function loadUsers(){
       return DB::select('SELECT * FROM users');
+    }
+
+    public function loadUsersOf($ID){
+        //echo $ID;
+        return DB::select('SELECT Name FROM users WHERE ID = ?',[$ID]);
     }
 
     //DB::statement("UPDATE favorite_contents,
