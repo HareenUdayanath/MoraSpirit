@@ -50,7 +50,7 @@
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Student Index <span class="required">*</span>
                     </label>
                     <div class="col-md-4 col-sm-6 col-xs-12">
-                        <input type="text" id="first-name" required="required" class="form-control col-md-4 col-xs-12">
+                        <input type="text" id="stIndex" required="required" class="form-control col-md-4 col-xs-12">
                     </div>
                 </div>
 
@@ -58,48 +58,54 @@
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Equipment ID <span class="required">*</span>
                     </label>
                     <div class="col-md-4 col-sm-6 col-xs-12">
-                        <input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-4 col-xs-12">
+                        <input type="text" id="eqpID" name="last-name" required="required" class="form-control col-md-4 col-xs-12">
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                    <button type="submit" class="btn btn-primary">Check</button>
+                    <button type="submit" class="btn btn-primary" onclick="checkeqp()">Check</button>
 
                 </div>
 
+                <script>
+                    function checkeqp() {
+                        var stIndex = document.getElementById('stIndex').value;
+                        var eqpID = document.getElementById('eqpID').value;
+                        alert(stIndex+" "+eqpID);
+                        window.location="{{URL::to('home')}}";
+
+                    }
 
 
-                <div class="col-md-9 col-sm-6 col-xs-12">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">Details</div>
-                        <div class="panel-body">
-                            <div class="x_content">
-                                <br />
-                                <form class="form-horizontal form-label-left input_mask">
+                </script>
 
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Borrowwed Date</label>
-                                        <div class="col-md-4 col-sm-9 col-xs-12">
-                                            <input type="text" class="form-control" readonly="readonly" placeholder="">
-                                        </div>
-                                    </div>
+                <script type = "text/javascript">
+                    function getbrw(){
+                        var stIndex = document.getElementById('stIndex').value;
+                        var eqpID = document.getElementById('eqpID').value;
+                        var studentID = stIndex.options[stIndex.text];
+                        var itemNo = eqpID.options[eqpID.text];
+                        //alert(sport);
+                        $.ajax({
+                            url:'{{url('loadeqp')}}/'+ studentID + '/' + itemNo,
+                            success: function(data){
+                                if (data ==1){
 
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Due Date</label>
-                                        <div class="col-md-4 col-sm-9 col-xs-12">
-                                            <input type="text" class="form-control" readonly="readonly" placeholder="">
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
+                                }
+                                else{
+                                    //alert(data);
+                                    $('#itemdetails').html(data).show();
+                                }
 
-                            <div class="form-group">
-                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                    <button type="submit" class="btn btn-primary">Confirm</button>
-                                    <button type="" class="btn btn-success">Cancel</button>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
+                            }
+                        })
+                    }
+
+                    </script>
+
+
+
+                <div class="col-md-9 col-sm-6 col-xs-12" id="itemdetails">
+
                     </div>
 
             </form>

@@ -55,9 +55,11 @@ Route::get('eqprecieval', 'KeeperController@getEqpRc');
 
 Route::get('res_res', 'KeeperController@getReserve');
 
-Route::get('eqplending', 'KeeperController@getEqpLn');
+Route::get('eqplending', 'KeeperController@getSports');
 
-Route::get('eqpUpdateDetails', 'KeeperController@getUpDt');Route::get('adminStudents', array('as'=>'adminStudents','uses'=>'AdminController@displayStudentPage'));
+Route::get('eqpUpdateDetails', 'KeeperController@getUpDt');
+
+Route::get('adminStudents', array('as'=>'adminStudents','uses'=>'AdminController@displayStudentPage'));
 
 Route::get('adminAddUser', array('as'=>'adminAddUser','uses'=>'AdminController@displayAddUserPage'));
 
@@ -70,3 +72,9 @@ Route::get('addAchi', 'CoachController@addAchievement');
 Route::get('diplaySchedule', array('as'=>'diplaySchedule','uses'=>'CoachController@displayPracticeSchedulePage'));
 
 Route::get('diplayAchieve', array('as'=>'diplayAchieve','uses'=>'CoachController@displayAchievementPage'));
+
+Route::get('loadeqp/{sport}', 'KeeperController@loadeqp');
+
+Route::get('chkAv/{equipment}/{sport}', 'KeeperController@checkEqpAv');
+
+Route::get('getUpEqp/{eqpID}', 'KeeperController@getUpEqp');

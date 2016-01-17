@@ -1,5 +1,8 @@
 @extends('layout.template')
 
+@section('imports')
+
+@endsection
 
 @section('siderBar')
     <div class="menu_section">
@@ -44,79 +47,48 @@
             <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
                 <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Student Index <span class="required">*</span>
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Equipment ID<span class="required">*</span>
                     </label>
                     <div class="col-md-4 col-sm-6 col-xs-12">
-                        <input type="text" id="first-name" required="required" class="form-control col-md-4 col-xs-12">
+                        <input type="text" id="updateEqpID" required="required" class="form-control col-md-4 col-xs-12">
                     </div>
 
-                        <button type="button" class="btn btn-round btn-primary">Search</button>
+                        <button type="button" class="btn btn-round btn-primary" onclick="updateEqp()">Search</button>
 
                 </div>
 
+                <script type="text/javascript">
+                    function check(){
+
+                    }
+
+                </script>
 
                 <div class="col-md-9 col-sm-6 col-xs-12">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">Details</div>
-                    <div class="panel-body"><div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Equipment Type</label>
-                            <div class="col-md-4 col-sm-9 col-xs-12">
-                                <input type="text" class="form-control" readonly="readonly" placeholder="">
-                            </div>
-                        </div>
+                <div class="panel panel-primary" id ="updatePanel" >
 
-                        <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Sport</label>
-                            <div class="col-md-4 col-sm-9 col-xs-12">
-                                <input type="text" class="form-control" readonly="readonly" placeholder="">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Status</label>
-                            <div class="col-md-4 col-sm-9 col-xs-12">
-                                <select class="form-control">
-                                    <option>Available</option>
-                                    <option>Borrowed</option>
-
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Condition</label>
-                            <div class="col-md-4 col-sm-9 col-xs-12">
-                                <select class="form-control">
-                                    <option>Good</option>
-                                    <option>Needs to be repaired</option>
-                                    <option>Discarded</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Purchased Date</label>
-                            <div class="col-md-4 col-sm-9 col-xs-12">
-                                <input type="text" class="form-control" readonly="readonly" placeholder="">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Purchase Price</label>
-                            <div class="col-md-4 col-sm-9 col-xs-12">
-                                <input type="text" class="form-control" readonly="readonly" placeholder="">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                <button type="submit" class="btn btn-primary">Update</button>
-
-                            </div>
-                        </div>
-                    </div>
                 </div>
                     </div>
+
+                <script type = "text/javascript">
+                    function updateEqp(){
+                        var eqpID = document.getElementById('updateEqpID').value
+                        //alert(eqpID);
+                        $.ajax({
+                            url:'{{url('getUpEqp')}}/'+ eqpID,
+                            success: function(data){
+                                if (data ==1){
+
+                                }
+                                else{
+                                    //alert(data);
+                                    $('#updatePanel').html(data).show();
+                                }
+
+                            }
+                        })
+                    }
+                    </script>
 
 
     </form>

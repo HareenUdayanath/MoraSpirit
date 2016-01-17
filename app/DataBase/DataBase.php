@@ -7,6 +7,7 @@
  */
 
 namespace App\DataBase;
+use App\Domain\Equipment;
 use App\Domain\Sport;
 use App\Domain\TimeSlot;
 use DB;
@@ -123,7 +124,7 @@ class DataBase{
     }
 
     public function loadResource(){
-        return DB::select('SELECT * FROM Resource');
+        return DB::select('SELECT * FROM Resources');
     }
 
     public function loadResourceOf($sportName){
@@ -156,7 +157,7 @@ class DataBase{
 
     public function getAvailableEquipments($equipmentType,$sportName){
         return DB::select('SELECT * FROM Equipment WHERE Type = ? AND
-                            SportName = ? AND Availability = ?'
+                            SportName = ? AND Availability = True'
                             ,[$equipmentType,$sportName]);
     }
 
@@ -218,5 +219,11 @@ class DataBase{
         return true;
     }
 
-
+    public function getE(){
+        $eq = new Equipment();
+        $eq->setItemNo('01');
+        $eq->setType('bat');
+        $eq->setPurchaseDate('01-01-2000');
+        return $eq;
+    }
 }
