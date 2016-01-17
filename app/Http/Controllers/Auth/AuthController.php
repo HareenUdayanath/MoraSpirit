@@ -4,6 +4,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Http\Request;
 
 class AuthController extends Controller {
 
@@ -20,6 +21,12 @@ class AuthController extends Controller {
 
 	use AuthenticatesAndRegistersUsers;
 
+
+	protected $loginPath = "moraLogin";
+	protected $redirectPath = "/";
+	protected $username="id";
+
+
 	/**
 	 * Create a new authentication controller instance.
 	 *
@@ -34,5 +41,53 @@ class AuthController extends Controller {
 
 		$this->middleware('guest', ['except' => 'getLogout']);
 	}
+
+	public function getLogin()
+	{
+		return view('auth.login');
+	}
+
+	public function postLogin(Request $request)
+	{
+		$this->validate($request, [
+				'id' => 'required', 'password' => 'required',
+		]);
+
+		$credentials = $request->only('id', 'password');
+
+		if ($this->auth->attempt($credentials, $request->has('remember')))
+		{
+			return redirect()->intended($this->redirectPath());
+		}
+
+		return redirect($this->loginPath())
+				->withInput($request->only('id', 'remember'))
+				->withErrors([
+						'id' => $this->getFailedLoginMessage(),
+				]);
+	}
+
+	public function getLogout()
+	{
+		$this->auth->logout();
+
+		return redirect('/');
+	}
+
+	public function redirectPath()
+	{
+		if (property_exists($this, 'redirectPath'))
+		{
+			return $this->redirectPath;
+		}
+
+		return property_exists($this, 'redirectTo') ? $this->redirectTo : '/home';
+	}
+
+	public function loginPath()
+	{
+		return property_exists($this, 'loginPath') ? $this->loginPath : '/auth/login';
+	}
+
 
 }

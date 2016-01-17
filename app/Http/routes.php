@@ -11,11 +11,7 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
-
-Route::get('test', function(){
-	return View('test');
-});
+Route::get('/', 'MoraController@home');
 
 Route::get('first', array('as'=>'first','uses'=>'MoraController@first'));
 
@@ -23,11 +19,14 @@ Route::get('reg', array('as'=>'register','uses'=>'MoraController@addUser'));
 
 Route::get('home', 'HomeController@index');
 
-Route::get('temp', 'MoraController@temp');
+Route::get('moraLogin', 'MoraController@login');
 
-Route::get('user', 'MoraController@seeUser');
+Route::get('in', 'MoraController@in');
+Route::get('getUsers/{id}',array('as'=>'getUsers','uses'=>'MoraController@getUsersOf'));
 
-Route::get('login', 'MoraController@login');
+Route::get('auth/login', 'Auth\AuthController@getLogin');
+Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
 Route::get('register', array('as'=>'registerForm','uses'=>'MoraController@register'));
 
@@ -58,6 +57,30 @@ Route::get('adminSearchUserName/{name}','AdminController@searchUserName');
 
 Route::get('admin', 'MoraController@showAdmin');
 
+Route::get('eqprecieval', 'KeeperController@getEqpRc');
+
+Route::get('res_res', 'KeeperController@getReserve');
+
+Route::get('eqplending', 'KeeperController@getSports');
+
+Route::get('eqpUpdateDetails', 'KeeperController@getUpDt');
+
+Route::get('admin', 'MoraController@showAdmin');
+
 Route::get('addPra', 'CoachController@addPracticeSchedule');
 
-Route::get('addAchi', 'CoachController@addAchievement');
+Route::get('displaySchedule', array('as'=>'displaySchedule','uses'=>'CoachController@displayPracticeSchedulePage'));
+
+Route::get('displayAchieve', array('as'=>'displayAchieve','uses'=>'CoachController@displayAchievementPage'));
+
+Route::get('addPS', array('as'=>'addPracticeSchedule','uses'=>'CoachController@addPracticeSchedule'));
+
+Route::get('addAC', array('as'=>'addAchievement','uses'=>'CoachController@addAchievement'));
+
+Route::get('getRes/{sportName}', 'CoachController@getResources');
+
+Route::get('loadeqp/{sport}', 'KeeperController@loadeqp');
+
+Route::get('chkAv/{equipment}/{sport}', 'KeeperController@checkEqpAv');
+
+Route::get('getUpEqp/{eqpID}', 'KeeperController@getUpEqp');

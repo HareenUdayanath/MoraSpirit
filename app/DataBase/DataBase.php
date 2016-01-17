@@ -7,6 +7,7 @@
  */
 
 namespace App\DataBase;
+use App\Domain\Equipment;
 use App\Domain\Sport;
 use App\Domain\TimeSlot;
 use DB;
@@ -128,7 +129,7 @@ class DataBase{
 
     public function loadResourceOf($sportName){
         return DB::select('SELECT * FROM Resource NATURAL JOIN
-            (SELECT ResourceID as ID FROM SportsResources WHERE SportName = ?)'
+            (SELECT ResourceID as ID FROM SportsResources WHERE SportName = ?)as A'
             ,[$sportName]);
     }
 
@@ -156,7 +157,7 @@ class DataBase{
 
     public function getAvailableEquipments($equipmentType,$sportName){
         return DB::select('SELECT * FROM Equipment WHERE Type = ? AND
-                            SportName = ? AND Availability = ?'
+                            SportName = ? AND Availability = True'
                             ,[$equipmentType,$sportName]);
     }
 
@@ -210,6 +211,11 @@ class DataBase{
       return DB::select('SELECT * FROM users');
     }
 
+    public function loadUsersOf($ID){
+        //echo $ID;
+        return DB::select('SELECT Name FROM users WHERE ID = ?',[$ID]);
+    }
+
     //DB::statement("UPDATE favorite_contents,
     // contents SET favorite_contents.type = contents.type where favorite_contents.content_id = contents.id");
     /*
@@ -229,6 +235,19 @@ class DataBase{
         if(count($users)<=0)
             return false;
         return true;
+    }
+
+    public function addPracticeSchedule1($practiceSchedule){
+        DB::insert('INSERT INTO PracticeSchedule VALUES(?,?,?,?,?)',
+            [$practiceSchedule->getSessionID(),$practiceSchedule->getSportName(),$practiceSchedule->getDate(),
+                $practiceSchedule->getStartTime(),$practiceSchedule->getEndTime()]);
+    }
+
+    public function addAchievementt($achievement){
+        DB::insert('INSERT INTO Achievement(AchievementID,Contest,Place,SportName,Date) VALUES(?,?,?,?,?)',
+            [$achievement->getAchievementID(),$achievement->getContest(),
+                $achievement->getPlace(),
+                $achievement->getSportName(),$achievement->getDate()]);
     }
 
 }

@@ -2,119 +2,211 @@
 
 
 @section('siderBar')
-
     <div class="menu_section">
-        <h3>General</h3>
+        <h3>Keeper</h3>
         <ul class="nav side-menu">
-            <li><a><i class="fa fa-home"></i> Home</a>
-
+            <li><a><i class="fa fa-home"></i> Home </a> </li>
+            <li><a><i class="fa fa-edit"></i> Reserve </a>
             </li>
-            <li><a href={{route('displaySchedule')}}><i class="fa fa-calendar"></i> Practice Schedule</a>
+            <li><a><i class="fa fa-desktop"></i> Equipment Lending </a>
+            </li>
+            <li><a><i class="fa fa-table"></i> Equipment Recieval </a>
+            </li>
+            <li><a><i class="fa fa-bar-chart-o"></i> Update Details </a>
         </ul>
     </div>
 @endsection
 
 @section('content')
-    <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="x_panel">
-                <div class="x_title">
-                    <h2>Achievements <small>adding achievements of students</small></h2>
-                    <div class="clearfix"></div>
+    <div class="right_col" role="main">
+        <div class="">
+            <div class="page-title">
+                <div class="title_left">
+                    <h3>Equipment Lending</h3>
                 </div>
-                <div class="x_content">
-                    <br />
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action={{route('addAchievement')}}>
-                        <!--div class="col-md-2 col-sm-2 col-xs-12 form-group pull-right top_search">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search for...">
+
+                <div class="title_right">
+                    <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search for...">
                                     <span class="input-group-btn">
                             <button class="btn btn-default" type="button">Go!</button>
                         </span>
-                            </div>
-                        </div-->
-
-                        <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="student-name">Student Name <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="text" id="student-name" required="required" class="form-control col-md-7 col-xs-12">
-                            </div>
                         </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="index-number">Index Number <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="text" id="index-number" name="index-number" required="required" class="form-control col-md-7 col-xs-12">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Sport Name <span class="required">*</span>
-                            </label>
-                            <div class="col-md-3 col-sm-3 col-xs-12">
-                                <select name = "sport" class="form-control">
-                                    <option>Select sport name</option>
-                                    @foreach($sports as $sport)
-                                        <option>{{$sport->SportName}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Date <span class="required">*</span>
-                            </label>
-                            <div class="col-md-3 col-sm-3 col-xs-12">
-                                <input id="scheduleDay" name="scheduleDay" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="place">Place <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="text" id="place" name="place" required="required" class="form-control col-md-7 col-xs-12">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="contest">Contest <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="text" id="contest" name="contest" required="required" class="form-control col-md-7 col-xs-12">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="description">Description
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <textarea id="description" required="required" name="description" class="form-control col-md-7 col-xs-12"></textarea>
-                            </div>
-                        </div>
-                        <div class="ln_solid"></div>
-                        <div class="form-group">
-                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                <button type="reset" class="btn btn-primary">Cancel</button>
-                                <button type="submit" class="btn btn-success">Submit</button>
-                            </div>
-                        </div>
-
-
-                    </form>
+                    </div>
                 </div>
             </div>
+            <div class="clearfix"></div>
+
         </div>
+        <div class="x_content">
+            <br />
+            <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Sport</label>
+                    <div class="col-md-4 col-sm-9 col-xs-12">
+                        <select class="form-control" id="spselect" onchange="geteqp(this.options[this.selectedIndex].text);">
+                            @foreach($sports as $sport)
+                                <option >{{$sport->SportName}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Equipment</label>
+                    <div class="col-md-4 col-sm-9 col-xs-12" id="eqpselect">
+                        <select class="form-control" id="eqselect">
+                        </select>
+                    </div>
+                </div>
+
+                <script type = "text/javascript">
+                    function geteqp(sport){
+                        //alert(sport);
+                        $.ajax({
+                            url:'{{url('loadeqp')}}/'+ sport,
+                            success: function(data){
+                                if (data ==1){
+
+                                }
+                                else{
+                                    //alert(data);
+                                    $('#eqpselect').html(data).show();
+                                }
+
+                            }
+                        })
+                    }
+
+                    function getAveqp(){
+
+                        var sportele = document.getElementById("spselect");
+                        var eqp = document.getElementById("eqselect");
+                        var sport = sportele.options[sportele.selectedIndex].text;
+                        var equipment = eqp.options[eqp.selectedIndex].text;
+
+                        $.ajax({
+                            url:'{{url('chkAv')}}/'+ equipment + '/' + sport,
+                            success: function(data){
+                                if (data ==1){
+
+                                }
+                                else{
+                                   // alert(data);
+                                    $('#eqID').html(data).show();
+                                }
+
+                            }
+                        })
+
+                    }
+
+                </script>
+
+                <div>
+                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                        <button class="btn btn-primary" type="button" onclick="getAveqp();" >Check Availability</button>
+
+                    </div>
+                </div>
+
+                <script>
+
+                    function displaySelects(){
+                        var sport = document.getElementById("spselect");
+                        var eqp = document.getElementById("eqselect");
+                        var selectedSport = sport.options[sport.selectedIndex].text;
+                        var selectedEqp = eqp.options[eqp.selectedIndex].text;
+                        alert(selectedEqp+" "+selectedSport);
+                    }
+
+                </script>
+
+
+
+
+                <div class="col-md-9 col-sm-6 col-xs-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">Reserve Equipment</div>
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Student Index <span class="required">*</span>
+                                </label>
+                                <div class="col-md-4 col-sm-6 col-xs-12">
+                                    <input type="text" id="first-name"  class="form-control col-md-4 col-xs-12">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                    <button type="submit" class="btn btn-primary">Reserve</button>
+                                    <button type="" class="btn btn-success">Cancel</button>
+                                </div>
+                            </div>
+
+                            </div>
+                    </div>
+                </div>
+
+                <div class="col-md-9 col-sm-6 col-xs-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">Lend Equipment</div>
+                        <div class="panel-body">
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Student Index <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="first-name"  class="form-control col-md-4 col-xs-12">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Equipment ID <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12" id="eqID">
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Due Date</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="birthday" class="date-picker form-control col-md-7 col-xs-12 active"  type="text" data-parsley-id="2514"><ul class="parsley-errors-list" id="parsley-id-2514"></ul>
+                                </div>
+                            </div>
+                            <script type="text/javascript">
+                                $(document).ready(function () {
+                                    $('#birthday').daterangepicker({
+                                        singleDatePicker: true,
+                                        calender_style: "picker_4"
+                                    }, function (start, end, label) {
+                                        console.log(start.toISOString(), end.toISOString(), label);
+                                    });
+                                });
+                            </script>
+
+                            <div class="form-group">
+                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                    <button type="submit" class="btn btn-primary">Confirm</button>
+                                    <button type="" class="btn btn-success">Cancel</button>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </form>
     </div>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#scheduleDay').daterangepicker({
-                singleDatePicker: true,
-                calender_style: "picker_4"
-            }, function (start, end, label) {
-                console.log(start.toISOString(), end.toISOString(), label);
-            });
-        });
-    </script>
-
-
+    </div>
 @endsection
+
 @section('requiredJS')
     <script src="js/bootstrap.min.js"></script>
 
@@ -269,8 +361,8 @@
                     container: 'body'
                 });
                 $('.dropdown-menu input').click(function () {
-                            return false;
-                        })
+                    return false;
+                })
                         .change(function () {
                             $(this).parent('.dropdown-menu').siblings('.dropdown-toggle').dropdown('toggle');
                         })
@@ -312,4 +404,6 @@
             window.prettyPrint && prettyPrint();
         });
     </script>
+
 @endsection
+
