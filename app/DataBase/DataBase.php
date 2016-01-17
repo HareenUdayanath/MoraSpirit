@@ -198,6 +198,11 @@ class DataBase{
       return DB::select('SELECT * FROM users');
     }
 
+    public function loadUsersOf($ID){
+        //echo $ID;
+        return DB::select('SELECT Name FROM users WHERE ID = ?',[$ID]);
+    }
+
     //DB::statement("UPDATE favorite_contents,
     // contents SET favorite_contents.type = contents.type where favorite_contents.content_id = contents.id");
     /*

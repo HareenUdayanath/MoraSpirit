@@ -9,24 +9,36 @@
 use App\DataBase\DataBase;
 use App\Domain\User;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\View;
+use Log;
 
 class MoraController extends Controller
 {
-    public function login()
+
+    public function __construct()
     {
-        return view('projectViews.login');
+        $this->middleware('auth');
     }
 
-    public function temp()
-    {
-        $user = new User();
-        $user->setName("Anthony Fernando");
-        return view('projectViews.home')->with('user',$user);
+    public function login(){
+        if(Auth::attempt(['id'=>Input::get('id'),'password'=>Input::get('password')])){
+            return redirect()->to('/ss');
+        }
+
+        return back()->with('errors',"Check your credentials");
     }
 
-    public function seeUser()
+    public function home(){
+        if(Auth::check()){
+            return view('projectViews.home');
+        }
+        return view('auth.login');
+    }
+
+    public function getUsersOf($id)
     {
-        return view('projectViews.showUsers')->with('users',DataBase::getInstance()->loadUsers());
+        $users =  DataBase::getInstance()->loadUsersOf($id);
+        return View('projectViews.intest')->with('users',$users);
     }
 
     public function register()
@@ -56,5 +68,12 @@ class MoraController extends Controller
         return view('projectViews.login');
     }
 
+    public function in()
+    {
+        $user = new User();
+        $user->setName("Anthony Fernando");
+        return view('projectViews.in')->with('user',$user);
+
+    }
 
 }
