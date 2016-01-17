@@ -123,12 +123,12 @@ class DataBase{
     }
 
     public function loadResource(){
-        return DB::select('SELECT * FROM Resource');
+        return DB::select('SELECT * FROM Resources');
     }
 
     public function loadResourceOf($sportName){
-        return DB::select('SELECT * FROM Resource NATURAL JOIN
-            (SELECT ResourceID as ID FROM SportsResources WHERE SportName = ?)'
+        return DB::select('SELECT * FROM Resources NATURAL JOIN
+            (SELECT ResourceID as ID FROM SportsResources WHERE SportName = ?)as A'
             ,[$sportName]);
     }
 
@@ -218,5 +218,17 @@ class DataBase{
         return true;
     }
 
+    public function addPracticeSchedule1($practiceSchedule){
+        DB::insert('INSERT INTO PracticeSchedule VALUES(?,?,?,?,?)',
+            [$practiceSchedule->getSessionID(),$practiceSchedule->getSportName(),$practiceSchedule->getDate(),
+                $practiceSchedule->getStartTime(),$practiceSchedule->getEndTime()]);
+    }
+
+    public function addAchievementt($achievement){
+        DB::insert('INSERT INTO Achievement(AchievementID,Contest,Place,SportName,Date) VALUES(?,?,?,?,?)',
+            [$achievement->getAchievementID(),$achievement->getContest(),
+                $achievement->getPlace(),
+                $achievement->getSportName(),$achievement->getDate()]);
+    }
 
 }

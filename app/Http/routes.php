@@ -52,10 +52,13 @@ Route::get('adminAddUser', array('as'=>'adminAddUser','uses'=>'AdminController@d
 
 Route::get('admin', 'MoraController@showAdmin');
 
-Route::get('addPra', 'CoachController@addPracticeSchedule');
 
-Route::get('addAchi', 'CoachController@addAchievement');
+Route::get('displaySchedule', array('as'=>'displaySchedule','uses'=>'CoachController@displayPracticeSchedulePage'));
 
-Route::get('diplaySchedule', array('as'=>'diplaySchedule','uses'=>'CoachController@displayPracticeSchedulePage'));
+Route::get('displayAchieve', array('as'=>'displayAchieve','uses'=>'CoachController@displayAchievementPage'));
 
-Route::get('diplayAchieve', array('as'=>'diplayAchieve','uses'=>'CoachController@displayAchievementPage'));
+Route::get('addPS', array('as'=>'addPracticeSchedule','uses'=>'CoachController@addPracticeSchedule'));
+
+Route::get('addAC', array('as'=>'addAchievement','uses'=>'CoachController@addAchievement'));
+
+Route::get('getRes/{sportName}', 'CoachController@getResources');

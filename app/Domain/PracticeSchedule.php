@@ -54,7 +54,9 @@ class PracticeSchedule
      * @param date the date to set
      */
     public function setDate($date) {
-        $this->date = $date;
+        $array=explode('/',$date);
+        $newDate=$array[2]."-".$array[0]."-".$array[1];
+        $this->date = $newDate;
     }
 
     /**
