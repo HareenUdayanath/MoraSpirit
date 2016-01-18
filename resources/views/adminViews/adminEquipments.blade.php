@@ -42,21 +42,53 @@
                     <div class="row">
                         <label class=" col-md-1 col-sm-1 col-xs-1" style="padding-top: 5px;"> Search By: </label>
                         <div class="col-md-2 col-sm-2 col-xs-2">
-                            <select class="form-control">
+                            <select class="form-control" id="search-type">
                                 <option> Type </option>
                                 <option> Item No. </option>
                             </select>
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-6 top_search">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search for...">
+                                <input type="text" class="form-control" placeholder="Search for..." id="search-term">
                                     <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button">Go!</button>
+                                    <button class="btn btn-default" type="button" onclick="searchEquipment()">Go!</button>
                                     </span>
                             </div>
                         </div>
+                        <script type="text/javascript">
+                            function searchEquipment(){
+                                var keyword = document.getElementById('search-term').value;
+                                if (keyword==''){
+                                    alert('Please enter a key word');
+                                }else{
+                                    var searchType = document.getElementById('search-type');
+                                    var selectedtype = searchType.options[searchType.selectedIndex].text;
+                                    if (selectedtype=='Type'){
+                                        $.ajax({
+                                            url:'{{url('adminSearchEquipType')}}/'+keyword,
+                                            success:function(data){
+                                                if(data==1){}
+                                                else{
+                                                    $('#tblEquipments').html(data).show();
+                                                }
+                                            }
+                                        });
+                                    }else{
+                                        $.ajax({
+                                            url:'{{url('adminSearchEquipID')}}/'+keyword,
+                                            success:function(data){
+                                                if(data==1){}
+                                                else{
+                                                    $('#tblEquipments').html(data).show();
+                                                }
+                                            }
+                                        });
+                                    }
+                                }
+                            }
+                        </script>
                         <div class="col-xs-12">
-                            <div class="table-responsive">
+                            <div class="table-responsive" id="tblEquipments">
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                     <tr>
@@ -66,15 +98,16 @@
                                         <th> Availabilty </th>
                                     </tr>
                                     </thead>
-                                    {{--<tbody>
-                                    @foreach($users as $usr)
+                                    <tbody>
+                                    @foreach($equips as $equip)
                                         <tr>
-                                            <td>{{$usr->ID}}</td>
-                                            <td>{{$usr->Name}}</td>
-                                            <td>{{$usr->ContactNo}}</td>
+                                            <td>{{$equip->ItemNo}}</td>
+                                            <td>{{$equip->EquipType}}</td>
+                                            <td>{{$equip->Condition}}</td>
+                                            <td>{{$equip->Availability}}</td>
                                         </tr>
                                     @endforeach
-                                    </tbody>--}}
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
@@ -126,8 +159,8 @@
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="equip-cond"> Condition <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <select class="form-control" id="equip-cond" name="equip-cond" required="required">
-                                                <option hidden> Select Condition... </option>
+                                            <select class="form-control" id="equip-cond" name="equip-cond" required>
+                                                <option hidden value=""> Select Condition... </option>
                                                 <option> Good </option>
                                                 <option> Need to be repaired </option>
                                                 <option> Discarded </option>
@@ -138,10 +171,10 @@
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="equip-avail"> Availability <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <select class="form-control" id="equip-avail" name="equip-avail" required="required">
-                                                <option hidden> Select Availability... </option>
-                                                <option> Available </option>
-                                                <option> Not Available </option>
+                                            <select class="form-control" id="equip-avail" name="equip-avail" required>
+                                                <option hidden value=""> Select Availability... </option>
+                                                <option value="1"> Available </option>
+                                                <option value="0"> Not Available </option>
                                             </select>
                                         </div>
                                     </div>

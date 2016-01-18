@@ -1,7 +1,9 @@
 <?php namespace App\Http\Controllers;
 
 use App\Domain\Equipment;
+use App\Domain\Resource;
 use App\Domain\Sport;
+use App\Domain\Student;
 use App\Domain\User;
 use App\DataBase\DataBase;
 use App\Domain\Utilization;
@@ -37,7 +39,7 @@ class AdminController extends Controller
     public function displayEquipmentPage(){
         $user = new User();
         $user->setName("Anthony Fernando");
-        return view('adminViews.adminEquipments')->with('user',$user);
+        return view('adminViews.adminEquipments')->with('user',$user)->with('equips',DataBase::getInstance()->loadEquipments());
     }
 
     public function displayResourcePage(){
@@ -49,7 +51,7 @@ class AdminController extends Controller
     public function displayStudentPage(){
         $user = new User();
         $user->setName("Anthony Fernando");
-        return view('adminViews.adminStudents')->with('user',$user);
+        return view('adminViews.adminStudents')->with('user',$user)->with('students',DataBase::getInstance()->loadStudents());
     }
 
     public function addNewUser(){
@@ -68,9 +70,6 @@ class AdminController extends Controller
         $sport = new Sport();
         $sport->setSportName(Input::get('sport-name'));
         $rows = Input::get('num-of-rows');
-        $txt = "num of rows1 \n";
-        $myfile = fopen("newfile.txt", "w");
-        fwrite($myfile,$txt);
         for($i=0; $i<$rows;$i++){
             $util = new Utilization();
             $resourceID = $database->getResourceID(Input::get('resource'.$i));
@@ -79,7 +78,6 @@ class AdminController extends Controller
             $util->setUtilization(Input::get('util'.$i));
             $sport->addUtilization($util);
         }
-        fclose($myfile);
         $database->addSport($sport);
         return $this->displaySportPage();
     }
@@ -94,14 +92,33 @@ class AdminController extends Controller
         $equip->setPurchaseDate($purchDate);
         $equip->setPurchasePrice(Input::get('equip-price'));
         $equip->setCondition(Input::get('equip-cond'));
-        $availability = 0;
-        if (Input::get('equip-avail')=="Available"){
-            $availability = 1;
-        }
-        $equip->setAvailability($availability);
+        $equip->setAvailability(Input::get('equip-avail'));
         $equip->setSportName(Input::get('equip-sport'));
         $database->addEquipment($equip);
         return $this->displayEquipmentPage();
+    }
+
+    public function addNewResource(){
+        $database = DataBase::getInstance();
+        $resource = new Resource();
+        $resource->setID(Input::get('res-id'));
+        $resource->setName(Input::get('res-name'));
+        $resource->setLocation(Input::get('res-location'));
+        $resource->setKeeperID(Input::get('res-keeper'));
+        $database->addResource($resource);
+        return $this->displayResourcePage();
+    }
+
+    public function addnewStudent(){
+        $database = DataBase::getInstance();
+        $student = new Student();
+        $student->setID(Input::get('std-id'));
+        $student->setFirstName(Input::get('std-name'));
+        $student->setDepartment(Input::get('std-dept'));
+        $student->setFaculty(Input::get('std-faculty'));
+        $student->setSportName(Input::get('std-sport'));
+        $database->addStudent($student);
+        return $this->displayStudentPage();
     }
 
     public function searchUserID($ID){
@@ -113,8 +130,41 @@ class AdminController extends Controller
 
     public function searchUserName($name){
         $database = DataBase::getInstance();
-        $users = $database->searchUserByName($name);
+        $users = $database->searchStudentByName($name);
         return view('adminViews.ajaxViews.userTable')->with('users',$users);
+    }
+
+    public function searchStudentID($ID){
+        $database = DataBase::getInstance();
+        $students = $database->searchStudentByID($ID);
+        return view('adminViews.ajaxViews.studentTable')->with('students',$students);
+
+    }
+
+    public function searchStudentName($name){
+        $database = DataBase::getInstance();
+        $students = $database->searchStudentByName($name);
+        return view('adminViews.ajaxViews.studentTable')->with('students',$students);
+    }
+
+    public function searchEquipID($ID){
+        $database = DataBase::getInstance();
+        $equips = $database->searchEquipmentByID($ID);
+        return view('adminViews.ajaxViews.equipmentTable')->with('equips',$equips);
+
+    }
+
+    public function searchEquipType($name){
+        $database = DataBase::getInstance();
+        $equips = $database->searchEquipmentByType($name);
+        /*$txt = "num of rows2 \n";
+        $myfile = fopen("newfile.txt", "w");
+        fwrite($myfile,$txt);
+        foreach($equips as $equip){
+            fwrite($myfile,$equip->ItemNo);
+        }
+        fclose($myfile);*/
+        return view('adminViews.ajaxViews.equipmentTable')->with('equips',$equips);
     }
 
 }

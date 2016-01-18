@@ -42,21 +42,53 @@
                     <div class="row">
                         <label class=" col-md-1 col-sm-1 col-xs-1" style="padding-top: 5px;"> Search By: </label>
                         <div class="col-md-2 col-sm-2 col-xs-2">
-                            <select class="form-control">
+                            <select class="form-control" id="search-type">
                                 <option> Name </option>
                                 <option> Student ID </option>
                             </select>
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-6 top_search">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search for...">
+                                <input type="text" class="form-control" placeholder="Search for..." id="search-term">
                                     <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button">Go!</button>
+                                    <button class="btn btn-default" type="button" onclick="searchStudent()">Go!</button>
                                     </span>
                             </div>
                         </div>
+                        <script type="text/javascript">
+                            function searchStudent(){
+                                var keyword = document.getElementById('search-term').value;
+                                if (keyword==''){
+                                    alert('Please enter a key word');
+                                }else{
+                                    var searchType = document.getElementById('search-type');
+                                    var selectedtype = searchType.options[searchType.selectedIndex].text;
+                                    if (selectedtype=='Name'){
+                                        $.ajax({
+                                            url:'{{url('adminSearchStudentName')}}/'+keyword,
+                                            success:function(data){
+                                                if(data==1){}
+                                                else{
+                                                    $('#tblStudents').html(data).show();
+                                                }
+                                            }
+                                        });
+                                    }else{
+                                        $.ajax({
+                                            url:'{{url('adminSearchStudentID')}}/'+keyword,
+                                            success:function(data){
+                                                if(data==1){}
+                                                else{
+                                                    $('#tblStudents').html(data).show();
+                                                }
+                                            }
+                                        });
+                                    }
+                                }
+                            }
+                        </script>
                         <div class="col-xs-12">
-                            <div class="table-responsive">
+                            <div class="table-responsive" id="tblStudents">
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                     <tr>
@@ -66,15 +98,16 @@
                                         <th> Faculty</th>
                                     </tr>
                                     </thead>
-                                    {{--<tbody>
-                                    @foreach($users as $usr)
+                                    <tbody>
+                                    @foreach($students as $std)
                                         <tr>
-                                            <td>{{$usr->ID}}</td>
-                                            <td>{{$usr->Name}}</td>
-                                            <td>{{$usr->ContactNo}}</td>
+                                            <td>{{$std->ID}}</td>
+                                            <td>{{$std->FirstName}}</td>
+                                            <td>{{$std->Department}}</td>
+                                            <td>{{$std->Faculty}}</td>
                                         </tr>
                                     @endforeach
-                                    </tbody>--}}
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
@@ -88,19 +121,19 @@
                         <div class="x_panel">
                             <div class="x_content">
                                 <br />
-                                <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                                <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action={{route('adminAddStudent')}}>
                                     <div class="form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="std-id"> ID <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input type="text" id="std-id" required="required" class="form-control col-md-7 col-xs-12">
+                                            <input type="text" id="std-id" name="std-id" required="required" class="form-control col-md-7 col-xs-12">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="std-name"> Name <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input type="text" id="std-name" name="user-name" required="required" class="form-control col-md-7 col-xs-12">
+                                            <input type="text" id="std-name" name="std-name" required="required" class="form-control col-md-7 col-xs-12">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -132,37 +165,40 @@
                                     <div class="form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="std-address"> Address </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input type="text" id="std-address" required="required" class="form-control col-md-7 col-xs-12">
+                                            <input type="text" id="std-address" class="form-control col-md-7 col-xs-12">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="std-faculty"> Faculty </label>
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="std-faculty"> Faculty <span class="required">*</span>
+                                        </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input type="text" id="std-faculty" required="required" class="form-control col-md-7 col-xs-12">
+                                            <input type="text" id="std-faculty" name="std-faculty" required="required" class="form-control col-md-7 col-xs-12">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="std-dept"> Department </label>
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="std-dept"> Department <span class="required">*</span>
+                                        </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input type="text" id="std-dept" required="required" class="form-control col-md-7 col-xs-12">
+                                            <input type="text" id="std-dept" name="std-dept" required="required" class="form-control col-md-7 col-xs-12">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="std-emrg-per"> Emergency Contact Person </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input type="text" id="std-emrg-per" required="required" class="form-control col-md-7 col-xs-12">
+                                            <input type="text" id="std-emrg-per" class="form-control col-md-7 col-xs-12">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="std-emrg-num"> Emergency Contact Number </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input type="text" id="std-emrg-num" required="required" class="form-control col-md-7 col-xs-12">
+                                            <input type="text" id="std-emrg-num" class="form-control col-md-7 col-xs-12">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12"> Blood Group </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <select class="form-control">
+                                                <option hidden> Choose a blood group... </option>
                                                 <option> A+ </option>
                                                 <option> A- </option>
                                                 <option> B+ </option>
@@ -183,7 +219,7 @@
                                     <div class="ln_solid"></div>
                                     <div class="form-group">
                                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                            <button type="submit" class="btn btn-primary">Cancel</button>
+                                            <button type="reset" class="btn btn-primary">Cancel</button>
                                             <button type="submit" class="btn btn-success">Submit</button>
                                         </div>
                                     </div>

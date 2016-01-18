@@ -50,38 +50,39 @@
                             <div class="input-group">
                                 <input type="text" class="form-control" id="search-term" placeholder="Search for...">
                                     <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button" onclick="searchUserByName();">Go!</button>
+                                    <button class="btn btn-default" type="button" onclick="searchUser();">Go!</button>
                                     </span>
                             </div>
                         </div>
                         <script type="text/javascript">
-                            function searchUserByName(){
+                            function searchUser(){
                                 var keyword = document.getElementById('search-term').value;
                                 if (keyword==''){
-                                    alert('empty');
-                                }
-                                var searchType = document.getElementById('search-type');
-                                var selectedtype = searchType.options[searchType.selectedIndex].text;
-                                if (selectedtype=='Name'){
-                                    $.ajax({
-                                        url:'{{url('adminSearchUserName')}}/'+keyword,
-                                        success:function(data){
-                                            if(data==1){}
-                                            else{
-                                                $('#tblusers').html(data).show();
-                                            }
-                                        }
-                                    });
+                                    alert('Please enter a key word');
                                 }else{
-                                    $.ajax({
-                                        url:'{{url('adminSearchUserID')}}/'+keyword,
-                                        success:function(data){
-                                            if(data==1){}
-                                            else{
-                                                $('#tblusers').html(data).show();
+                                    var searchType = document.getElementById('search-type');
+                                    var selectedtype = searchType.options[searchType.selectedIndex].text;
+                                    if (selectedtype=='Name'){
+                                        $.ajax({
+                                            url:'{{url('adminSearchUserName')}}/'+keyword,
+                                            success:function(data){
+                                                if(data==1){}
+                                                else{
+                                                    $('#tblusers').html(data).show();
+                                                }
                                             }
-                                        }
-                                    });
+                                        });
+                                    }else{
+                                        $.ajax({
+                                            url:'{{url('adminSearchUserID')}}/'+keyword,
+                                            success:function(data){
+                                                if(data==1){}
+                                                else{
+                                                    $('#tblusers').html(data).show();
+                                                }
+                                            }
+                                        });
+                                    }
                                 }
                             }
                         </script>
