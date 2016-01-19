@@ -12,7 +12,7 @@ class Equipment
     private $type;
     private $purchaseDate;
     private $availability;
-    private $purchasePrice;
+    private $purchasePrice = null;
     private $condition;
     private $sportName;
 
@@ -69,7 +69,9 @@ class Equipment
      * @param purchaseType the purchaseType to set
      */
     public function setPurchasePrice($purchasePrice) {
-        $this->purchasePrice = $purchasePrice;
+        if($purchasePrice!=''){
+            $this->purchasePrice = $purchasePrice;
+        }
     }
 
     /**

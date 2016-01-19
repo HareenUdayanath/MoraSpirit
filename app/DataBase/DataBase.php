@@ -7,6 +7,7 @@
  */
 
 namespace App\DataBase;
+use App\Domain\Equipment;
 use App\Domain\Sport;
 use App\Domain\TimeSlot;
 use DB;
@@ -39,9 +40,9 @@ class DataBase{
     }
 
     public function addResource($resource){
-        DB::insert('INSERT INTO Resource VALUES(?,?,?,?)',
+        DB::insert('INSERT INTO Resource VALUES(?,?,?)',
             [$resource->getID(),$resource->getName(),
-                $resource->getLocation(),$resource->getKeeperID()]);
+                $resource->getLocation()]);
     }
 
     public function addPracticeSchedule($practiceSchedule){
@@ -110,6 +111,18 @@ class DataBase{
             [$studentID,$equipmentType]);
 
     }
+
+    public function updateEquipmentAvailability($equipmentID){
+        DB::update('UPDATE equipment SET Availability= "1" WHERE ItemNo = ?',
+            [$equipmentID]);
+
+    }
+
+    public function updateEquipmentDetails($eqpAv,$eqpCon,$equipmentID){
+        DB::update('UPDATE equipment SET Availability= ?,EquipCondition= ? WHERE ItemNo = ?',
+            [$eqpAv,$eqpCon,$equipmentID]);
+
+    }
     /*
      * Update data.............................................................................
      */
@@ -128,7 +141,7 @@ class DataBase{
 
     public function loadResourceOf($sportName){
         return DB::select('SELECT * FROM Resource NATURAL JOIN
-            (SELECT ResourceID as ID FROM SportsResources WHERE SportName = ?)'
+            (SELECT ResourceID as ID FROM SportsResources WHERE SportName = ?)as A'
             ,[$sportName]);
     }
 
@@ -145,19 +158,28 @@ class DataBase{
                             ,[$sportName]);
     }
 
+    public function loadKeepers(){
+        return DB::select('SELECT Name From Users NATURAL JOIN Keeper');
+    }
+
     public function loadAvailableEquipments(){
         return DB::select('SELECT * FROM Equipment WHERE Availability = TRUE');
     }
 
-    public function getEquipment($equipmentNo){
-        return DB::select('SELECT * FROM Equipment WHERE ItemNo = ?'
-                            ,[$equipmentNo]);
-    }
-
     public function getAvailableEquipments($equipmentType,$sportName){
         return DB::select('SELECT * FROM Equipment WHERE Type = ? AND
-                            SportName = ? AND Availability = ?'
+                            SportName = ? AND Availability = True'
                             ,[$equipmentType,$sportName]);
+    }
+
+    public function getBorrowEquipment($studentID){
+        return DB::select('SELECT * FROM borrow WHERE StudentID =?'
+            ,[$studentID]);
+    }
+
+    public function getBorrowedEqp($itemNo){
+        return DB::select('SELECT * FROM borrow WHERE ItemNo =?'
+            ,[$itemNo]);
     }
 
     public function getResourceReservedTime($resourceID,$date){
@@ -184,21 +206,45 @@ class DataBase{
         return $timeSlotList;
     }
 
-    public function searchStudentByName($name){
-        return DB::select('SELECT * FROM Student WHERE FirstName LIKE \'%'.$name.'%\' OR
-               LastName LIKE \'%'.$name.'%\'');
+    public function getResourceID($resourceName){
+        $id = DB::select('SELECT ID FROM resource WHERE Name=?',[$resourceName]);
+        return $id[0]->ID;
     }
 
-    public function searchStudentByIndex($index){
-        return DB::select('SELECT * FROM Student WHERE ID = ?',[$index]);
+    public function searchUserByID($ID){
+        return DB::select('SELECT * FROM users WHERE ID LIKE \'%'.$ID.'%\'');
     }
+
+    public function searchUserByName($name){
+        return DB::select('SELECT * FROM users WHERE Name LIKE \'%'.$name.'%\'');
+    }
+
+    public function loadStudents(){
+        return DB::select('SELECT * FROM student');
+    }
+
+    public function searchStudentByName($name){
+        return DB::select('SELECT * FROM Student WHERE FirstName LIKE \'%'.$name.'%\'');
+    }
+
+    public function searchStudentByID($id){
+        return DB::select('SELECT * FROM Student WHERE ID LIKE \'%'.$id.'%\'');
+    }
+
+    public function searchEquipmentByID($equipmentNo){
+        return DB::select('SELECT * FROM Equipment WHERE ItemNo LIKE \'%'.$equipmentNo.'%\'');
+    }
+
+    public function searchEquipmentByType($equipType){
+        return DB::select('SELECT * FROM Equipment WHERE EquipType LIKE \'%'.$equipType.'%\'');
+    }
+
 
     public function loadUsers(){
       return DB::select('SELECT * FROM users');
     }
 
     public function loadUsersOf($ID){
-        //echo $ID;
         return DB::select('SELECT Name FROM users WHERE ID = ?',[$ID]);
     }
 
@@ -223,5 +269,22 @@ class DataBase{
         return true;
     }
 
+    public function addPracticeSchedule1($practiceSchedule){
+        DB::insert('INSERT INTO PracticeSchedule VALUES(?,?,?,?,?)',
+            [$practiceSchedule->getSessionID(),$practiceSchedule->getSportName(),$practiceSchedule->getDate(),
+                $practiceSchedule->getStartTime(),$practiceSchedule->getEndTime()]);
+    }
+
+    public function addAchievementt($achievement){
+        DB::insert('INSERT INTO Achievement(AchievementID,Contest,Place,SportName,Date) VALUES(?,?,?,?,?)',
+            [$achievement->getAchievementID(),$achievement->getContest(),
+                $achievement->getPlace(),
+                $achievement->getSportName(),$achievement->getDate()]);
+    }
+
+    public function updateStudent($student){
+        DB::update('UPDATE Student SET ID=?,FirstName=?,Faculty=?,Department=? WHERE ID=?',
+            [$student->getID(),$student->getFirstName(),$student->getFaculty(),$student->getDepartment(),$student->getID()]);
+    }
 
 }

@@ -7,7 +7,7 @@
         <ul class="nav side-menu">
             <li><a><i class="fa fa-home"></i> Home</a>
 
-            <li><a href={{route('diplayAchieve')}}><i class="fa fa-trophy"></i> Achievements</a>
+            <li><a href={{route('displayAchieve')}}><i class="fa fa-trophy"></i> Achievements</a>
 
             </li>
         </ul>
@@ -21,83 +21,158 @@
                 <div class="x_panel">
                     <div class="x_title">
                         <h2>Practice Schedule <small>addding schedules for coaches</small></h2>
-                        <ul class="nav navbar-right panel_toolbox">
-                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">Settings 1</a>
-                                    </li>
-                                    <li><a href="#">Settings 2</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li><a class="close-link"><i class="fa fa-close"></i></a>
-                            </li>
-                        </ul>
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
                         <br />
-                        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action={{route('addPracticeSchedule')}} >
 
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="sport-name">Sport Name <span class="required">*</span>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12"  for="sport-name">Sport Name <span class="required">*</span>
                                 </label>
                                 <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <select class="form-control">
+                                    <select name = "sport" class="form-control" onchange="getResources(this.options[this.selectedIndex].text)">
                                         <option>Select sport name</option>
-                                        <option>Cricket</option>
-                                        <option>Vollyball</option>
-                                        <option>Badminton</option>
+                                        @foreach($sports as $sport)
+                                            <option>{{$sport->SportName}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
+                            <script type = "text/javascript">
+                                function getResources(sportName){
+
+                                    $.ajax({
+                                        url:'{{url('getRes')}}/'+sportName,
+                                        success:function(data){
+
+                                            if (data==1){
+
+                                            }else{
+                                                $("#resource-name").html(data).show();
+                                            }
+                                        }
+                                    });
+                                }
+                            </script>
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="resource-name">Resource Name <span class="required">*</span>
                                 </label>
-                                <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <select class="form-control">
-                                        <option>Select resource name</option>
-                                        <option>Cricket Stadium</option>
-                                        <option>Indoor Stadium</option>
-                                        <option>New Gym</option>
+                                <div class="col-md-3 col-sm-3 col-xs-12" id="resource-name">
+                                    <select name = "resource" class="form-control" id="resourceList">
+
                                     </select>
                                 </div>
                             </div>
-
 
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Date <span class="required">*</span>
                                 </label>
                                 <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <input id="scheduleDay" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+                                    <input id="scheduleDay" name="date" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
                                 </div>
                             </div>
+                            <script type="text/javascript">
+                                $(document).ready(function () {
+                                    $('#scheduleDay').daterangepicker({
+                                        singleDatePicker: true,
+                                        calender_style: "picker_4"
+                                    }, function (start, end, label) {
+                                        console.log(start.toISOString(), end.toISOString(), label);
+                                    });
+                                });
+                            </script>
+                            <div class="form-group">
+                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                    <button type="reset" class="btn btn-primary">Cancel</button>
+                                    <button type="submit" class="btn btn-success">Check</button>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-1" name="reseverdSlots" id="reserved-list">
+                                    <div class="x_panel">
+                                        <div class="x_title">
+                                            <h2>Resevered Time Slots <small>for the given particular date</small></h2>
+                                            <ul class="nav navbar-right panel_toolbox">
 
+                                                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                                </li>
+                                            </ul>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="x_content">
+                                            <table class="table table-striped responsive-utilities jambo_table bulk_action" id="reservedTable" name="reservedList">
+                                                <thead>
+                                                <tr class="headings">
+
+                                                    <th class="column-title">Start Time </th>
+                                                    <th class="column-title">End Time </th>
+
+
+                                                    <th class="bulk-actions" colspan="7">
+                                                        <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+                                                    </th>
+                                                </tr>
+                                                </thead>
+
+                                                <tbody>
+                                                <tr class="even pointer">
+                                                    <th class="column-title">10:00 </th>
+                                                    <th class="column-title">12:00 </th>
+                                                </tr>
+                                                <tr class="odd pointer">
+
+                                                </tr>
+                                                <tr class="even pointer">
+
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
 
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="start-time">Start Time <span class="required">*</span>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" >Start Time <span class="required">*</span>
                                 </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="start-time" name="start-time" required="required" class="form-control col-md-7 col-xs-12">
+                                <div class="col-md-2 col-sm-1 col-xs-12">
+                                    <input type="number" id="start-hour" name="start-hour" required="required" data-validate-minmax="0,12" placeholder="hour" class="form-control col-md-7 col-xs-12">
+                                </div>
+
+                                <div class="col-md-2 col-sm-1 col-xs-12">
+                                    <input type="number" id="start-minute" name="start-minute" required="required" data-validate-minmax="0,59" placeholder="minute" class="form-control col-md-7 col-xs-12">
+                                </div>
+                                <div class="col-md-2 col-sm-12 col-xs-12">
+                                    <select class="form-control">
+                                        <option>am</option>
+                                        <option>pm</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="end-time">End Time <span class="required">*</span>
                                 </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="end-time" name="end-time" required="required" class="form-control col-md-7 col-xs-12">
+                                <div class="col-md-2 col-sm-1 col-xs-12">
+                                    <input type="number" id="end-time" name="end-hour" required="required" data-validate-minmax="0,12" placeholder="hour" class="form-control col-md-7 col-xs-12">
+                                </div>
+                                <div class="col-md-2 col-sm-1 col-xs-12">
+                                    <input type="number" id="end-time" name="end-minute" required="required" data-validate-minmax="0,59" placeholder="minute" class="form-control col-md-7 col-xs-12">
+                                </div>
+                                <div class="col-md-2 col-sm-12 col-xs-12">
+                                    <select class="form-control">
+                                        <option>am</option>
+                                        <option>pm</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="ln_solid"></div>
                             <div class="form-group">
                                 <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                    <button type="submit" class="btn btn-primary">Cancel</button>
+                                    <button type="reset" class="btn btn-primary">Cancel</button>
                                     <button type="submit" class="btn btn-success">Submit</button>
                                 </div>
                             </div>
+
 
                         </form>
                     </div>
@@ -105,16 +180,7 @@
             </div>
         </div>
 
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $('#scheduleDay').daterangepicker({
-                    singleDatePicker: true,
-                    calender_style: "picker_4"
-                }, function (start, end, label) {
-                    console.log(start.toISOString(), end.toISOString(), label);
-                });
-            });
-        </script>
+
 
 
 @endsection
@@ -209,6 +275,50 @@
     </script>
     <!-- /input tags -->
     <!-- form validation -->
+    <script src="js/validator/validator.js"></script>
+    <script>
+        // initialize the validator function
+        validator.message['date'] = 'not a real date';
+
+        // validate a field on "blur" event, a 'select' on 'change' event & a '.reuired' classed multifield on 'keyup':
+        $('form')
+                .on('blur', 'input[required], input.optional, select.required', validator.checkField)
+                .on('change', 'select.required', validator.checkField)
+                .on('keypress', 'input[required][pattern]', validator.keypress);
+
+        $('.multi.required')
+                .on('keyup blur', 'input', function () {
+                    validator.checkField.apply($(this).siblings().last()[0]);
+                });
+
+        // bind the validation to the form submit event
+        //$('#send').click('submit');//.prop('disabled', true);
+
+        $('form').submit(function (e) {
+            e.preventDefault();
+            var submit = true;
+            // evaluate the form using generic validaing
+            if (!validator.checkAll($(this))) {
+                submit = false;
+            }
+
+            if (submit)
+                this.submit();
+            return false;
+        });
+
+        /* FOR DEMO ONLY */
+        $('#vfields').change(function () {
+            $('form').toggleClass('mode2');
+        }).prop('checked', false);
+
+        $('#alerts').change(function () {
+            validator.defaults.alerts = (this.checked) ? false : true;
+            if (this.checked)
+                $('form .alert').remove();
+        }).prop('checked', false);
+    </script>
+
     <script type="text/javascript">
         $(document).ready(function () {
             $.listen('parsley:field:validate', function () {
@@ -317,3 +427,4 @@
         });
     </script>
 @endsection
+
