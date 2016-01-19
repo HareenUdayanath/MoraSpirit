@@ -66,7 +66,7 @@
                 </div>
                 <script type="text/javascript">
                     $(document).ready(function () {
-                        $('#birthday').daterangepicker({
+                        $('#resdate').daterangepicker({
                             singleDatePicker: true,
                             calender_style: "picker_4"
                         }, function (start, end, label) {
@@ -95,8 +95,6 @@
                     }
 
                     function loadtimes(){
-                        var resource = document.getElementById("resource");
-                        var reqres = resource.options[resource.selectedIndex].text;
 
 
                     }
@@ -198,7 +196,7 @@
                                 <tbody>
                                 <tr class="even pointer" id ="restimes">
 
---}}
+
                                 </tr>
 
                                 </tbody>
@@ -208,8 +206,32 @@
                     </div>
                 </div>
 
+                <script type = "text/javascript">
+                    function loadtimes(){
 
-    </form>
+                        var reqres = resource.options[resource.selectedIndex].text;
+                        var resource = document.getElementById("resource").value;
+
+                        //alert(sport);
+                        $.ajax({
+                            url:'{{url('loadeqp')}}/'+ reqres + '/' ,
+                            success: function(data){
+                                if (data ==1){
+
+                                }
+                                else{
+                                    //alert(data);
+                                    $('#restimes').html(data).show();
+                                }
+
+                            }
+                        })
+                    }
+                    </script>
+
+
+
+                    </form>
 
     </div>
     </div>

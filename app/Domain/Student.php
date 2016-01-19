@@ -16,7 +16,7 @@ class Student
     private $department;
     private $achievementList;
 
-    protected function  __construct()
+    public function  __construct()
     {
         $this->achievementList = array();
     }

@@ -72,7 +72,7 @@
 
                 <script type = "text/javascript">
                     function updateEqp(){
-                        var eqpID = document.getElementById('updateEqpID').value
+                        var eqpID = document.getElementById('updateEqpID').value;
                         //alert(eqpID);
                         $.ajax({
                             url:'{{url('getUpEqp')}}/'+ eqpID,
@@ -83,6 +83,35 @@
                                 else{
                                     //alert(data);
                                     $('#updatePanel').html(data).show();
+                                }
+
+                            }
+                        })
+                    }
+
+                    function sendData(){
+
+                        var eqpID = document.getElementById('updateEqpID').value;
+                        var Availability = document.getElementById("availability");
+                        var eqpAvText = Availability.options[Availability.selectedIndex].text;
+                        var condition = document.getElementById("condition");
+                        var eqpCon = condition.options[condition.selectedIndex].text;
+                        if(eqpAvText=="Available"){
+                            var eqpAv=1;
+                        }
+                        else{
+                            var eqpAv=0;
+                        }
+                       $.ajax({
+                           // alert(eqpID,eqpAv,eqpCon);
+                            url:'{{url('upDetails')}}/'+ eqpID +'/'+ eqpAv +'/'+ eqpCon,
+                            success: function(data){
+                                if (data ==1){
+
+                                }
+                                else{
+                                    alert("Equipment details were updated successfully!");
+                                    //$('#updatePanel').html(data).show();
                                 }
 
                             }

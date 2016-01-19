@@ -13,6 +13,7 @@ class User
     private $name;
     private $contactNo;
     private $password;
+    private $role;
 
 
     /**
@@ -27,6 +28,20 @@ class User
      */
     public function setID($ID) {
         $this->ID = $ID;
+    }
+
+    /**
+     * @return the Role
+     */
+    public function getRole() {
+        return $this->role;
+    }
+
+    /**
+     * @param ID the Role to set
+     */
+    public function setRole($Role) {
+        $this->role = $Role;
     }
 
     /**

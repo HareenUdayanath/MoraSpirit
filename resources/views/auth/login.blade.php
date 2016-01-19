@@ -1,62 +1,62 @@
-@extends('app')
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>Mora Spirit</title>
 
-@section('content')
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
-			<div class="panel panel-default">
-				<div class="panel-heading">Login</div>
-				<div class="panel-body">
-					@if (count($errors) > 0)
-						<div class="alert alert-danger">
-							<strong>Whoops!</strong> There were some problems with your input.<br><br>
-							<ul>
-								@foreach ($errors->all() as $error)
-									<li>{{ $error }}</li>
-								@endforeach
-							</ul>
-						</div>
-					@endif
+    <link href="{{asset("/css/login/css/style.css")}}" rel="stylesheet" type="text/css" />
 
-					<form class="form-horizontal" role="form" method="POST" action="{{ url('auth/login') }}">
-						<input type="hidden" name="_token" value="{{ csrf_token() }}">
+    <script src={{asset("js/login/js/prefixfree.min.js")}}></script>
 
-						<div class="form-group">
-							<label class="col-md-4 control-label">ID</label>
-							<div class="col-md-6">
-								<input type="text" class="form-control" name="id" value="{{ old('id') }}">
-							</div>
-						</div>
 
-						<div class="form-group">
-							<label class="col-md-4 control-label">Password</label>
-							<div class="col-md-6">
-								<input type="password" class="form-control" name="password">
-							</div>
-						</div>
+</head>
 
-						<div class="form-group">
-							<div class="col-md-6 col-md-offset-4">
-								<div class="checkbox">
-									<label>
-										<input type="checkbox" name="remember"> Remember Me
-									</label>
-								</div>
-							</div>
-						</div>
+<body>
 
-						<div class="form-group">
-							<div class="col-md-6 col-md-offset-4">
-								<button type="submit" class="btn btn-primary">Login</button>
-								{{--
-								<a class="btn btn-link" href="{{ url('/password/email') }}">Forgot Your Password?</a>
-								--}}
-							</div>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
+<input type="submit" value="Login">
+
+<div class="body"></div>
+<div class="grad"></div>
+<div class="header">
+    <div>Mora<span>Spirit</span></div>
 </div>
-@endsection
+<br>
+
+
+<form role="form" method="POST" action="{{ url('login') }}">
+    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+    <div class="login">
+
+        <input type="text" placeholder="username" name="ID"><br>
+        <input type="password" placeholder="password" name="password"><br>
+        <input type="submit" value="Login">
+
+
+        <input type="button" onclick="home();" value="Home">
+        <script type="text/javascript">
+            function home() {
+                window.location = "{{route('public')}}";
+            }
+        </script>
+
+        @if (count($errors) > 0)
+            <div class="alert alert-danger">
+                <strong>Check Input!</strong> There were some problems with your input.<br><br>
+                <ul>
+                    @foreach ($errors as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+    </div>
+</form>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+
+
+
+
+</body>
+</html>

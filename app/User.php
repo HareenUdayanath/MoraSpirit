@@ -16,13 +16,14 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 * @var string
 	 */
 	protected $table = 'users';
+	protected $primaryKey = 'ID';
 
 	/**
 	 * The attributes that are mass assignable.
 	 *
 	 * @var array
 	 */
-	protected $fillable = ['id', 'password'];
+	protected $fillable = ['ID','Name','ContactNo','Password'];
 
 	/**
 	 * The attributes excluded from the model's JSON form.
@@ -30,5 +31,36 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 * @var array
 	 */
 	protected $hidden = ['password', 'remember_token'];
+
+	public function getAuthPassword() {
+		return $this->Password;
+	}
+
+	public function getRememberToken()
+	{
+		return null; // not supported
+	}
+
+	public function setRememberToken($value)
+	{
+		// not supported
+	}
+
+	public function getRememberTokenName()
+	{
+		return null; // not supported
+	}
+
+	/**
+	 * Overrides the method to ignore the remember token.
+	 */
+	public function setAttribute($key, $value)
+	{
+		$isRememberTokenAttribute = $key == $this->getRememberTokenName();
+		if (!$isRememberTokenAttribute) {
+			parent::setAttribute($key, $value);
+		}
+
+	}
 
 }
