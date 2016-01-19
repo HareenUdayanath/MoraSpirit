@@ -52,41 +52,68 @@
                     <div class="col-md-4 col-sm-6 col-xs-12">
                         <input type="text" id="stIndex" required="required" class="form-control col-md-4 col-xs-12">
                     </div>
+                    <div class="col-md-4 col-sm-6 col-xs-12 ">
+                        <button type="button" class="btn btn-primary" onclick="geteqplist()">Check</button>
+
+                    </div>
                 </div>
 
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Equipment ID <span class="required">*</span>
                     </label>
-                    <div class="col-md-4 col-sm-6 col-xs-12">
-                        <input type="text" id="eqpID" name="last-name" required="required" class="form-control col-md-4 col-xs-12">
+                    <div class="col-md-4 col-sm-6 col-xs-12" id="borrowedeqp">
+                        <select class="form-control" id="breqselect">
+                            </select>
+
+
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                    <button type="submit" class="btn btn-primary" onclick="checkeqp()">Check</button>
+                    <button type="button" class="btn btn-primary" onclick="getbrw()">Get Details</button>
 
                 </div>
 
-                <script>
+               {{-- <script>
                     function checkeqp() {
-                        var stIndex = document.getElementById('stIndex').value;
+                       // var stIndex = document.getElementById('stIndex').value;
                         var eqpID = document.getElementById('eqpID').value;
                         alert(stIndex+" "+eqpID);
                         window.location="{{URL::to('home')}}";
 
                     }
-
-
-                </script>
+                </script>--}}
 
                 <script type = "text/javascript">
-                    function getbrw(){
-                        var stIndex = document.getElementById('stIndex').value;
-                        var eqpID = document.getElementById('eqpID').value;
-                        var studentID = stIndex.options[stIndex.text];
-                        var itemNo = eqpID.options[eqpID.text];
-                        //alert(sport);
+
+                    function geteqplist(){
+                        var stID = document.getElementById('stIndex').value;
+                       // alert(stID);
                         $.ajax({
-                            url:'{{url('loadeqp')}}/'+ studentID + '/' + itemNo,
+                            url:'{{url('getbrlist')}}/'+ stID,
+                            success: function(data){
+                                if (data ==1){
+
+                                }
+                                else{
+                                   // alert(data);
+                                    $('#borrowedeqp').html(data).show();
+                                }
+
+                            }
+                        })
+
+                    }
+
+                    function getbrw(){
+
+
+                        var eqpID = document.getElementById("breqselect");
+                       // var studentID = stIndex.options[stIndex.text];
+                        var itemNo = eqpID.options[eqpID.selectedIndex].text;
+                        //alert("fghjk");
+                        //alert(itemNo);
+                        $.ajax({
+                            url:'{{url('loadbreqp')}}/'+ itemNo,
                             success: function(data){
                                 if (data ==1){
 
@@ -100,11 +127,33 @@
                         })
                     }
 
+                    function setAvailability(){
+
+                        var eqpID = document.getElementById("breqselect");
+                        var itemNo = eqpID.options[eqpID.selectedIndex].text;
+                        $.ajax({
+                            url:'{{url('setAv')}}/'+ itemNo,
+                            success: function(data){
+                                if (data ==1){
+
+                                }
+                                else{
+                                    alert("Equipment retrieval confirmed!");
+                                    //$('#itemdetails').html(data).show();
+                                }
+
+                            }
+                        })
+                    }
+
                     </script>
 
 
 
-                <div class="col-md-9 col-sm-6 col-xs-12" id="itemdetails">
+                <div class="col-md-9 col-sm-6 col-xs-12" >
+                    <div class="panel panel-primary" id="itemdetails">
+                        </div>
+
 
                     </div>
 

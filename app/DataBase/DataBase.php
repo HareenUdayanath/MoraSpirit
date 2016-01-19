@@ -111,6 +111,18 @@ class DataBase{
             [$studentID,$equipmentType]);
 
     }
+
+    public function updateEquipmentAvailability($equipmentID){
+        DB::update('UPDATE equipment SET Availability= "1" WHERE ItemNo = ?',
+            [$equipmentID]);
+
+    }
+
+    public function updateEquipmentDetails($eqpAv,$eqpCon,$equipmentID){
+        DB::update('UPDATE equipment SET Availability= ?,EquipCondition= ? WHERE ItemNo = ?',
+            [$eqpAv,$eqpCon,$equipmentID]);
+
+    }
     /*
      * Update data.............................................................................
      */
@@ -158,6 +170,16 @@ class DataBase{
         return DB::select('SELECT * FROM Equipment WHERE Type = ? AND
                             SportName = ? AND Availability = True'
                             ,[$equipmentType,$sportName]);
+    }
+
+    public function getBorrowEquipment($studentID){
+        return DB::select('SELECT * FROM borrow WHERE StudentID =?'
+            ,[$studentID]);
+    }
+
+    public function getBorrowedEqp($itemNo){
+        return DB::select('SELECT * FROM borrow WHERE ItemNo =?'
+            ,[$itemNo]);
     }
 
     public function getResourceReservedTime($resourceID,$date){

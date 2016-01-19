@@ -2,6 +2,7 @@
 
 
 use App\DataBase\DataBase;
+use App\Domain\Equipment;
 use App\Domain\User;
 use Illuminate\Support\Facades\Input;
 
@@ -92,6 +93,51 @@ class KeeperController extends Controller
 
 
     }
+
+    public function updateEq($eqpID,$eqpAv,$eqpCon){
+
+        $db = DataBase::getInstance();
+        $db->updateEquipmentDetails($eqpAv,$eqpCon,$eqpID);
+    }
+
+    public function getBorrowedItems($stid){
+
+        $eqplist = DataBase::getInstance()->getBorrowEquipment($stid);
+        return view('KeeperViews.ajaxViews.borrowedList')->with('borrows',$eqplist);
+    }
+
+    public function getBrDetails($itemNo){
+
+        $britem = DataBase::getInstance()->getBorrowedEqp($itemNo);
+        return view('KeeperViews.ajaxViews.eqpRecieval')->with('recEqp',$britem);
+    }
+
+    public function addEqpRequest($eqType,$stID){
+
+        $db = DataBase::getInstance();
+        $db->addEquipmentRequest($eqType,$stID);
+
+    }
+
+    public function lendEquipment($stID,$eqpID,$duedate){
+
+        $lendEq = new Borrow();
+        $lendEq-> setStudentID($stID);
+        $lendEq-> setItemNo($eqpID);
+        $lendEq-> setStartDate();
+        $lendEq-> setEndDate($duedate);
+
+        $db = DataBase::getInstance();
+        $db->addBorrow($lendEq);
+
+    }
+
+    public function setAvailability($eqpID){
+
+        $db = DataBase::getInstance();
+        $db->updateEquipmentAvailability($eqpID);
+    }
+
 
 
 
