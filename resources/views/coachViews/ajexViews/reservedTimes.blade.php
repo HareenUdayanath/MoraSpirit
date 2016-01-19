@@ -1,4 +1,4 @@
-<table class="table table-striped responsive-utilities jambo_table bulk_action" id="reservedTable" name="reservedList">
+<table class="table table-striped responsive-utilities jambo_table bulk_action" id="reservedTable" name="resourceList">
     <thead>
         <tr class="headings">
             <th class="column-title">Start Time </th>
@@ -11,8 +11,23 @@
     <tbody>
         @foreach($reservedList as $item)
             <tr class="even pointer">
-                <th class="column-title">10:00 </th>
-                <th class="column-title">12:00 </th>
+
+                @if(intval(explode(":",$item->getStartTime())[0])>12 and intval(explode(":",$item->getEndTime())[0])>12)
+                    <th class="column-title">{{strval(intval(explode(":",$item->getStartTime())[0])-12).":".explode(":",$item->getStartTime())[1]}} pm</th>
+                    <th class="column-title">{{strval(intval(explode(":",$item->getEndTime())[0])-12).":".explode(":",$item->getEndTime())[1]}} pm</th>
+
+                @elseif(intval(explode(":",$item->getStartTime())[0])<12 and intval(explode(":",$item->getEndTime())[0])<12)
+                    <th class="column-title">{{strval(intval(explode(":",$item->getStartTime())[0])).":".explode(":",$item->getStartTime())[1]}} am</th>
+                    <th class="column-title">{{strval(intval(explode(":",$item->getEndTime())[0])).":".explode(":",$item->getEndTime())[1]}} am</th>
+
+                @elseif(intval(explode(":",$item->getEndTime())[0])>12 and intval(explode(":",$item->getStartTime())[0])<12)
+                    <th class="column-title">{{strval(intval(explode(":",$item->getStartTime())[0])).":".explode(":",$item->getStartTime())[1]}} am</th>
+                    <th class="column-title">{{strval(intval(explode(":",$item->getEndTime())[0])-12).":".explode(":",$item->getEndTime())[1]}} pm</th>
+
+                @elseif(intval(explode(":",$item->getEndTime())[0])<12 and intval(explode(":",$item->getStartTime())[0])>12)
+                    <th class="column-title">{{strval(intval(explode(":",$item->getStartTime())[0])-12).":".explode(":",$item->getStartTime())[1]}} pm</th>
+                    <th class="column-title">{{strval(intval(explode(":",$item->getEndTime())[0])).":".explode(":",$item->getEndTime())[1]}} am</th>
+                @endif
             </tr>
         @endforeach
     </tbody>
