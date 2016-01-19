@@ -52,24 +52,29 @@
                 </div>
                 <div class="clearfix"></div>
 
-                <!-- menu prile quick info -->
-                <div class="profile">
-                    <div class="profile_pic">
-                        <img src={{asset("/images/Users")."/".$user->ID.".jpg"}} alt="..." class="img-circle profile_img">
-                    </div>
-                    <div class="profile_info">
-                        <span>Welcome,</span>
-                        <h2>{{$user->Name}}</h2>
-                    </div>
-                </div>
-                <!-- /menu prile quick info -->
+
 
                 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                        <h3>{{"Rool"}}</h3>
-                    </div>
 
-                    @yield('siderBar')
+                    <div class="menu_section">
+
+                        <ul class="nav side-menu">
+                            <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu" style="display: none">
+                                    <li><a href={{url('/')}}>Home</a>
+
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a><i class="fa fa-home"></i> Student <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu" style="display: none">
+                                    <li><a href={{url('/')}}>Practice Schedules</a></li>
+                                    <li><a href={{url('/')}}>Available Resources</a></li>
+                                    <li><a href={{url('/')}}>Available Equipments</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
 
                 </div>
                 <!-- /sidebar menu -->
@@ -91,29 +96,16 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li class="">
                             <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                <img src={{asset("/images/Users")."/".$user->ID.".jpg"}} alt="">{{$user->Name}}
+
                                 <span class=" fa fa-angle-down"></span>
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
-                                <li><a onclick="editProfile();" type="button">Edit Profile</a>
-                                </li>
-                                <li><a href="{{ url('/auth/logout') }}"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                                <li><a href="{{ route('getLogin') }}"><i class="fa fa-sign-out pull-right"></i>Login</a>
                                 </li>
                             </ul>
                         </li>
                     </ul>
-                    <script type="text/javascript">
-                        function editProfile(){
-                            $.ajax({
-                                url:'{{url('editProfileView')}}',
-                                success:function(data){
-                                    if(data!=1){
-                                        $('#ncontent').html(data).show();
-                                    }
-                                }
-                            });
-                        }
-                    </script>
+
                 </nav>
             </div>
 

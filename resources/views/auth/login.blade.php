@@ -1,62 +1,47 @@
-@extends('app')
+<!DOCTYPE html>
+<html class="bg-black">
+<head>
+    <meta charset="UTF-8">
+    <title>AdminLTE | Log in</title>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <!-- bootstrap 3.0.2 -->
+    <link href="{{asset("/css/login/bootstrap.min.css")}}" rel="stylesheet" type="text/css" />
+    <!-- font Awesome -->
+    <link href="{{asset("/css/login/font-awesome.min.css")}}" rel="stylesheet" type="text/css" />
+    <!-- Theme style -->
+    <link href="{{asset("/css/login/AdminLTE.css")}}" rel="stylesheet" type="text/css" />
 
-@section('content')
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
-			<div class="panel panel-default">
-				<div class="panel-heading">Login</div>
-				<div class="panel-body">
-					@if (count($errors) > 0)
-						<div class="alert alert-danger">
-							<strong>Whoops!</strong> There were some problems with your input.<br><br>
-							<ul>
-								@foreach ($errors->all() as $error)
-									<li>{{ $error }}</li>
-								@endforeach
-							</ul>
-						</div>
-					@endif
+</head>
+<body class="bg-black">
+@if (count($errors) > 0)
+    <div class="alert alert-danger">
+        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+        <ul>
+            @foreach ($errors as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
-					<form class="form-horizontal" role="form" method="POST" action="{{ url('auth/login') }}">
-						<input type="hidden" name="_token" value="{{ csrf_token() }}">
+<div class="form-box" id="login-box">
+    <img src="{{asset("/images/Other/SignIn.jpg")}}"alt="picture cannot find " height="70" width="360">
+    <form role="form" method="POST" action="{{ url('login') }}">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-						<div class="form-group">
-							<label class="col-md-4 control-label">ID</label>
-							<div class="col-md-6">
-								<input type="text" class="form-control" name="id" value="{{ old('id') }}">
-							</div>
-						</div>
+        <div class="body bg-gray">
+            <div class="form-group">
+                <input type="text" name="ID" class="form-control" placeholder="User ID"/>
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" class="form-control" placeholder="Password"/>
+            </div>
+        </div>
+        <div class="footer">
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
+        </div>
+    </form>
 
-						<div class="form-group">
-							<label class="col-md-4 control-label">Password</label>
-							<div class="col-md-6">
-								<input type="password" class="form-control" name="password">
-							</div>
-						</div>
-
-						<div class="form-group">
-							<div class="col-md-6 col-md-offset-4">
-								<div class="checkbox">
-									<label>
-										<input type="checkbox" name="remember"> Remember Me
-									</label>
-								</div>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<div class="col-md-6 col-md-offset-4">
-								<button type="submit" class="btn btn-primary">Login</button>
-								{{--
-								<a class="btn btn-link" href="{{ url('/password/email') }}">Forgot Your Password?</a>
-								--}}
-							</div>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
 </div>
-@endsection
+</body>
+</html>

@@ -10,28 +10,37 @@ use App\DataBase\DataBase;
 use App\Domain\User;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Hash;
 use Log;
+use Auth;
 
 class MoraController extends Controller
 {
 
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth',['except'=>['login','home']]);
     }
 
     public function login(){
-        if(Auth::attempt(['id'=>Input::get('id'),'password'=>Input::get('password')])){
-            return redirect()->to('/ss');
+        Log::info(Input::all());
+        if(Auth::attempt(['ID'=>Input::get('ID'),'password'=>Input::get('password')])){
+            return redirect()->to('/');
         }
 
-        return back()->with('errors',"Check your credentials");
+        return back()->with('errors',["Check your credentials"]);
     }
 
     public function home(){
+
         if(Auth::check()){
-            return view('projectViews.home');
+            return view('projectViews.home')->with('user',Auth::user());
         }
+        //return view('auth.login');
+        return view('projectViews.public');
+    }
+
+    public function loginView(){
         return view('auth.login');
     }
 
@@ -44,6 +53,11 @@ class MoraController extends Controller
     public function register()
     {
         return view('projectViews.register');
+    }
+
+    public function editProfileView()
+    {
+        return view('projectViews.editProfile')->with('user',Auth::user());
     }
 
     public function first()
@@ -63,7 +77,9 @@ class MoraController extends Controller
         $user->setID(Input::get('id'));
         $user->setName(Input::get('name'));
         $user->setContactNo(Input::get('contactNo'));
-        $user->setPassword(Input::get('password'));
+        $user->setPassword(Hash::make(Input::get('password')));
+        //$user->timestamps = false;
+        //$user->save();
         $database->addUser($user);
         return view('projectViews.login');
     }
@@ -74,6 +90,10 @@ class MoraController extends Controller
         $user->setName("Anthony Fernando");
         return view('projectViews.in')->with('user',$user);
 
+    }
+
+    public function publicView(){
+        return view('projectViews.public');
     }
 
 }
