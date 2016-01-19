@@ -31,7 +31,7 @@
     <h3>Sports</h3>
     <div class="" role="tabpanel" data-example-id="togglable-tabs">
         <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-            <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Manage Sports</a>
+            <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">View Sports</a>
             </li>
             <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab"  aria-expanded="false">Add New Sport</a>
             </li>
@@ -96,7 +96,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                     <div class="form-group">
-                                        <input type="hidden" name="num-of-rows" id="num-of-rows" value="1">
+                                        <input type="hidden" name="num-of-rows" id="num-of-rows" value="0">
                                     </div>
                                     <script type="text/javascript">
                                         function prepare(){
@@ -117,15 +117,18 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr id='addr0'>
+                                                <tr id="addr0">
                                                     <td>
-                                                        <input type="text" name='resource0' placeholder='Resource Name' class="form-control"/>
+                                                        <select class="form-control" name="resource0" required>
+                                                            <option hidden value=""> Choose a Resource... </option>
+                                                            @foreach($resources as $res)
+                                                                <option>{{$res->Name}}</option>
+                                                            @endforeach
+                                                        </select>
                                                     </td>
-                                                    <td>
-                                                        <input type="text" name='util0' placeholder='Utilization' class="form-control"/>
-                                                    </td>
+                                                    <td><input  name="util0" type="text" placeholder="Utilization"  class="form-control input-md" required></td>
                                                 </tr>
-                                                <tr id='addr1'></tr>
+                                                <tr id="addr1"></tr>
                                                 </tbody>
                                             </table>
                                             <a id="add_row" class="btn btn-default pull-left">Add Resource</a><a id='delete_row' class="pull-right btn btn-default">Remove Resource</a>
@@ -133,14 +136,14 @@
                                                 $(document).ready(function(){
                                                     var i=1;
                                                     $("#add_row").click(function(){
-                                                        $('#addr'+i).html("<td><input  name='resource"+i+"' type='text' placeholder='Resource Name'  class='form-control input-md'></td><td><input  name='util"+i+"' type='text' placeholder='Utilization'  class='form-control input-md'></td>");
+                                                        $('#addr'+i).html("<td><select class='form-control' required name='resource"+i+"'> <option hidden value=''> Choose a Resource... </option> @foreach($resources as $res)<option>{{$res->Name}}</option> @endforeach </select></td><td><input  name='util"+i+"' type='text' placeholder='Utilization'  class='form-control input-md' required></td>");
 
                                                         $('#tab_logic').append('<tr id="addr'+(i+1)+'"></tr>');
                                                         i++;
                                                         document.getElementById("num-of-rows").value = i;
                                                     });
                                                     $("#delete_row").click(function(){
-                                                        if(i>1){
+                                                        if(i>0){
                                                             $("#addr"+(i-1)).html('');
                                                             i--;
                                                             document.getElementById("num-of-rows").value = i;
@@ -155,7 +158,7 @@
                                     <div class="form-group">
                                         <div class="col-md-12 col-sm-12 col-xs-12">
                                             <button type="submit" class="btn btn-success pull-right">Add Sport</button>
-                                            <button type="button" class="btn btn-primary pull-right">Cancel</button>
+                                            <button type="reset" class="btn btn-primary pull-right">Cancel</button>
                                         </div>
                                     </div>
                                 </form>

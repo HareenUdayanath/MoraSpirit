@@ -31,7 +31,7 @@
     <h3>Sport Equipments</h3>
     <div class="" role="tabpanel" data-example-id="togglable-tabs">
         <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-            <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Manage Equipments</a>
+            <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">View Equipments</a>
             </li>
             <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab"  aria-expanded="false">Add New Equipment</a>
             </li>
@@ -89,7 +89,7 @@
                         </script>
                         <div class="col-xs-12">
                             <div class="table-responsive" id="tblEquipments">
-                                <table id="example1" class="table table-bordered table-striped">
+                                <table id="example1" class="table table-bordered">
                                     <thead>
                                     <tr>
                                         <th> Item No. </th>
@@ -100,7 +100,7 @@
                                     </thead>
                                     <tbody>
                                     @foreach($equips as $equip)
-                                        <tr>
+                                        <tr class="clickable-row">
                                             <td>{{$equip->ItemNo}}</td>
                                             <td>{{$equip->EquipType}}</td>
                                             <td>{{$equip->Condition}}</td>
@@ -109,6 +109,11 @@
                                     @endforeach
                                     </tbody>
                                 </table>
+                                <script type='text/javascript'>
+                                    $('#example1').on('click', '.clickable-row', function(event) {
+                                        $(this).addClass('bg-info').siblings().removeClass('bg-info');
+                                    });
+                                </script>
                             </div>
                         </div>
                     </div>
@@ -179,14 +184,15 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="equip-sport"> Sport <span class="required">*</span>
-                                            </label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <select class="form-control" id="equip-sport" name="equip-sport" required="required">
-                                                    <option>Cricket</option>
-                                                </select>
-                                            </div>
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="equip-sport"> Sport <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <select class="form-control" id="equip-sport" name="equip-sport" required="required">
+                                                <option hidden value=""> Select a Sport... </option>
+                                                @foreach($sports as $sport)
+                                                    <option>{{$sport->SportName}}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="ln_solid"></div>

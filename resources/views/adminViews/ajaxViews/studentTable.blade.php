@@ -1,4 +1,4 @@
-<table id="example1" class="table table-bordered table-striped">
+<table id="example1" class="table table-bordered">
     <thead>
     <tr>
         <th> Student ID </th>
@@ -9,7 +9,7 @@
     </thead>
     <tbody>
     @foreach($students as $std)
-        <tr>
+        <tr class="clickable-row">
             <td>{{$std->ID}}</td>
             <td>{{$std->FirstName}}</td>
             <td>{{$std->Department}}</td>
@@ -18,3 +18,9 @@
     @endforeach
     </tbody>
 </table>
+<script type='text/javascript'>
+    $('#example1').on('click', '.clickable-row', function(event) {
+        $(this).addClass('bg-info').siblings().removeClass('bg-info');
+        document.getElementById("selected-index").value = $(this).find('td:first').text();
+    });
+</script>

@@ -33,25 +33,33 @@ class AdminController extends Controller
     public function displaySportPage(){
         $user = new User();
         $user->setName("Anthony Fernando");
-        return view('adminViews.adminSports')->with('user',$user);
+        return view('adminViews.adminSports')->with('user',$user)->with('resources',DataBase::getInstance()->loadResource());
     }
 
     public function displayEquipmentPage(){
+        $database = DataBase::getInstance();
+        $equips = $database->loadEquipments();
+        $sports = $database->loadSports();
         $user = new User();
         $user->setName("Anthony Fernando");
-        return view('adminViews.adminEquipments')->with('user',$user)->with('equips',DataBase::getInstance()->loadEquipments());
+        return view('adminViews.adminEquipments')->with('user',$user)->with('equips',$equips)->with('sports',$sports);
     }
 
     public function displayResourcePage(){
+        $database = DataBase::getInstance();
+        $keepers = $database->loadKeepers();
         $user = new User();
         $user->setName("Anthony Fernando");
-        return view('adminViews.adminResources')->with('user',$user);
+        return view('adminViews.adminResources')->with('user',$user)->with('keepers',$keepers);
     }
 
     public function displayStudentPage(){
+        $database = DataBase::getInstance();
+        $students = $database->loadStudents();
+        $sports = $database->loadSports();
         $user = new User();
         $user->setName("Anthony Fernando");
-        return view('adminViews.adminStudents')->with('user',$user)->with('students',DataBase::getInstance()->loadStudents());
+        return view('adminViews.adminStudents')->with('user',$user)->with('students',$students)->with('sports',$sports);
     }
 
     public function addNewUser(){
@@ -130,7 +138,7 @@ class AdminController extends Controller
 
     public function searchUserName($name){
         $database = DataBase::getInstance();
-        $users = $database->searchStudentByName($name);
+        $users = $database->searchUserByName($name);
         return view('adminViews.ajaxViews.userTable')->with('users',$users);
     }
 
@@ -165,6 +173,53 @@ class AdminController extends Controller
         }
         fclose($myfile);*/
         return view('adminViews.ajaxViews.equipmentTable')->with('equips',$equips);
+    }
+
+    public function loadSports($requester){
+        $database = DataBase::getInstance();
+        $sports = $database->loadSports();
+        if ($requester=='user'){
+            return view('adminViews.ajaxViews.sportResourceSelect')->with('role','Sport')->with('roleitem',$sports);
+        }
+        else if($requester==''){
+
+        }
+    }
+
+    public function loadResources($requester){
+        $database = DataBase::getInstance();
+        $resources = $database->loadResource();
+        if ($requester=='user'){
+            return view('adminViews.ajaxViews.sportResourceSelect')->with('role','Resource')->with('roleitem',$resources);
+        }
+        else if($requester=='sport'){
+            return view('adminViews.ajaxViews.sportDropDown');
+        }
+    }
+
+    public  function loadStudent($id){
+        $database = DataBase::getInstance();
+        $student = $database->searchStudentByID($id);
+        $sports = $database->loadSports();
+        $myfile = fopen("newfile.txt", "w");
+        //fwrite($myfile,$txt);
+        foreach($student as $equip){
+            fwrite($myfile,$equip->ID);
+        }
+        fclose($myfile);
+        return view('adminViews.ajaxViews.editStudentForm')->with('student',$student[0])->with('sports',$sports);
+    }
+
+    public function updateStudent(){
+        $database = DataBase::getInstance();
+        $student = new Student();
+        $student->setID(Input::get('std-id'));
+        $student->setFirstName(Input::get('std-name'));
+        $student->setDepartment(Input::get('std-dept'));
+        $student->setFaculty(Input::get('std-faculty'));
+        $student->setSportName(Input::get('std-sport'));
+        $database->updateStudent($student);
+        return $this->displayStudentPage();
     }
 
 }

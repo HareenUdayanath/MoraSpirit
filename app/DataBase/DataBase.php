@@ -146,6 +146,10 @@ class DataBase{
                             ,[$sportName]);
     }
 
+    public function loadKeepers(){
+        return DB::select('SELECT Name From Users NATURAL JOIN Keeper');
+    }
+
     public function loadAvailableEquipments(){
         return DB::select('SELECT * FROM Equipment WHERE Availability = TRUE');
     }
@@ -181,7 +185,7 @@ class DataBase{
     }
 
     public function getResourceID($resourceName){
-        $id = DB::select('SELECT ID FROM resources WHERE Name=?',[$resourceName]);
+        $id = DB::select('SELECT ID FROM resource WHERE Name=?',[$resourceName]);
         return $id[0]->ID;
     }
 
@@ -254,6 +258,11 @@ class DataBase{
             [$achievement->getAchievementID(),$achievement->getContest(),
                 $achievement->getPlace(),
                 $achievement->getSportName(),$achievement->getDate()]);
+    }
+
+    public function updateStudent($student){
+        DB::update('UPDATE Student SET ID=?,FirstName=?,Faculty=?,Department=? WHERE ID=?',
+            [$student->getID(),$student->getFirstName(),$student->getFaculty(),$student->getDepartment(),$student->getID()]);
     }
 
 }

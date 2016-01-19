@@ -31,7 +31,7 @@
     <h3>Resources</h3>
     <div class="" role="tabpanel" data-example-id="togglable-tabs">
         <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-            <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Manage Resources</a>
+            <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">View Resources</a>
             </li>
             <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab"  aria-expanded="false">Add New Resource</a>
             </li>
@@ -57,7 +57,7 @@
                         </div>
                         <div class="col-xs-12">
                             <div class="table-responsive">
-                                <table id="example1" class="table table-bordered table-striped">
+                                <table id="example1" class="table table-bordered">
                                     <thead>
                                     <tr>
                                         <th>Resource ID</th>
@@ -116,7 +116,10 @@
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <select class="form-control" id="res-keeper" name="res-keeper">
-                                                <option>Choose option</option>
+                                                <option hidden value="">Select a Keeper... </option>
+                                                @foreach($keepers as $keeper)
+                                                    <option>{{$keeper->Name}}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>

@@ -31,9 +31,11 @@
     <h3>Students</h3>
     <div class="" role="tabpanel" data-example-id="togglable-tabs">
         <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-            <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Manage Students</a>
+            <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">View Srudents</a>
             </li>
             <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab"  aria-expanded="false">Add New Student</a>
+            </li>
+            <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab" data-toggle="tab"  aria-expanded="false">Edit Student</a>
             </li>
         </ul>
         <div id="myTabContent" class="tab-content">
@@ -61,6 +63,7 @@
                                 if (keyword==''){
                                     alert('Please enter a key word');
                                 }else{
+                                    document.getElementById("selected-index").value = "";
                                     var searchType = document.getElementById('search-type');
                                     var selectedtype = searchType.options[searchType.selectedIndex].text;
                                     if (selectedtype=='Name'){
@@ -87,9 +90,10 @@
                                 }
                             }
                         </script>
+                        <input type="hidden" name="selected-index" id="selected-index" value="">
                         <div class="col-xs-12">
                             <div class="table-responsive" id="tblStudents">
-                                <table id="example1" class="table table-bordered table-striped">
+                                <table id="example1" class="table table-bordered">
                                     <thead>
                                     <tr>
                                         <th> Student ID </th>
@@ -100,7 +104,7 @@
                                     </thead>
                                     <tbody>
                                     @foreach($students as $std)
-                                        <tr>
+                                        <tr class="clickable-row">
                                             <td>{{$std->ID}}</td>
                                             <td>{{$std->FirstName}}</td>
                                             <td>{{$std->Department}}</td>
@@ -109,9 +113,36 @@
                                     @endforeach
                                     </tbody>
                                 </table>
+                                <script type='text/javascript'>
+                                    $('#example1').on('click', '.clickable-row', function(event) {
+                                        $(this).addClass('bg-info').siblings().removeClass('bg-info');
+                                        document.getElementById("selected-index").value = $(this).find('td:first').text();
+                                    });
+                                </script>
                             </div>
                         </div>
+                        <button class="btn btn-primary pull-right" type="button" onclick="editStudent()">Edit Student</button>
                     </div>
+                    <script type="text/javascript">
+                        function editStudent(){
+                            var stdID = document.getElementById("selected-index").value;
+                            if (stdID==""){
+                                alert('Please select a student');
+                            }else{
+                                $.ajax({
+                                    url:'{{url('adminLoadStudent')}}/'+stdID,
+                                    success:function(data){
+                                        if(data!=1){
+                                            $('#tab_content3').html(data);
+                                            $('.nav-tabs a[href="#tab_content3"]').tab('show')
+                                            $("html, body").animate({ scrollTop: 0 }, "slow");
+                                        }
+                                    }
+                                });
+                            }
+                        }
+                    </script>
+                    <br />
                 </section>
             </div>
             <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
@@ -216,18 +247,70 @@
                                             <textarea class="form-control"></textarea>
                                         </div>
                                     </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12"> Sport(s) <span class="required">*</span> </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <table class="table table-bordered table-hover" id="tab_logic">
+                                                <tbody>
+                                                <tr id="addr0">
+                                                    <td>
+                                                        <select class="form-control" name="sport0" required>
+                                                            <option hidden value=""> Choose a Sport... </option>
+                                                            @foreach($sports as $sport)
+                                                                <option>{{$sport->SportName}}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                                <tr id="addr1"></tr>
+                                                </tbody>
+                                            </table>
+                                            <a id="add_row" class="btn btn-default pull-left">Add Sport</a><a id='delete_row' class="pull-right btn btn-default">Remove Sport</a>
+                                            <script>
+                                                $(document).ready(function(){
+                                                    var i=1;
+                                                    $("#add_row").click(function(){
+                                                        $('#addr'+i).html("<td><select class='form-control' required name='sport"+i+"'> <option hidden value=''> Choose a Sport... </option> @foreach($sports as $sport)<option>{{$sport->SportName}}</option> @endforeach </select></td>");
+
+                                                        $('#tab_logic').append('<tr id="addr'+(i+1)+'"></tr>');
+                                                        i++;
+                                                        document.getElementById("num-of-rows").value = i;
+                                                    });
+                                                    $("#delete_row").click(function(){
+                                                        if(i>1){
+                                                            $("#addr"+(i-1)).html('');
+                                                            i--;
+                                                            document.getElementById("num-of-rows").value = i;
+                                                        }
+                                                    });
+
+                                                });
+                                            </script>
+                                        </div>
+                                    </div>
                                     <div class="ln_solid"></div>
                                     <div class="form-group">
                                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                            <button type="reset" class="btn btn-primary">Cancel</button>
-                                            <button type="submit" class="btn btn-success">Submit</button>
+                                            <button type="button" class="btn btn-dark" onclick="goToView()">Cancel</button>
+                                            <button type="submit" class="btn btn-success pull-right">Submit</button>
+                                            <button type="reset" class="btn btn-primary pull-right">Reset</button>
                                         </div>
+                                        <script type="text/javascript">
+                                            function goToView(){
+                                                document.getElementById("demo-form2").reset();
+                                                $('.nav-tabs a[href="#tab_content1"]').tab('show');
+                                                $("html, body").animate({ scrollTop: 0 }, "slow");
+                                            }
+                                        </script>
                                     </div>
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
+                <p align="center"> Select a student in View tab to Edit here</p>
             </div>
         </div>
     </div>

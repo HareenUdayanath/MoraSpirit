@@ -30,7 +30,7 @@
     <h3>Users</h3>
     <div class="" role="tabpanel" data-example-id="togglable-tabs">
         <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-            <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Manage Users</a>
+            <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">View Users</a>
             </li>
             <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab"  aria-expanded="false">Add New User</a>
             </li>
@@ -88,17 +88,18 @@
                         </script>
                         <div class="col-xs-12">
                             <div class="table-responsive" id="tblusers">
-                                <table id="example1" class="table table-bordered table-striped">
+                                <table id="example1" class="table table-bordered">
                                     <thead>
                                     <tr>
                                         <th>ID</th>
                                         <th>Name</th>
                                         <th>Contact Number</th>
+                                        <th>Role</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     @foreach($users as $usr)
-                                        <tr>
+                                        <tr class="clickable-row">
                                             <td>{{$usr->ID}}</td>
                                             <td>{{$usr->Name}}</td>
                                             <td>{{$usr->ContactNo}}</td>
@@ -106,6 +107,11 @@
                                     @endforeach
                                     </tbody>
                                 </table>
+                                <script type='text/javascript'>
+                                    $('#example1').on('click', '.clickable-row', function(event) {
+                                        $(this).addClass('bg-info').siblings().removeClass('bg-info');
+                                    });
+                                </script>
                             </div>
                         </div>
                     </div>
@@ -174,29 +180,56 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12"> Role <span class="required">*</span>
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="user-role"> Role <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <select class="form-control">
+                                            <select class="form-control" required onchange="loadSportsOrResources()" id="user-role">
+                                                <option hidden value=""> Select a role... </option>
+                                                <option> Admin </option>
                                                 <option> Coach </option>
                                                 <option> Keeper </option>
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12"> Sport/Resource </label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <select class="form-control">
-                                                    <option>Choose option</option>
-                                                </select>
-                                            </div>
-                                        </div>
+                                    <script type="text/javascript">
+                                        function loadSportsOrResources(){
+                                            var roledrop = document.getElementById('user-role');
+                                            var role = roledrop.options[roledrop.selectedIndex].text;
+                                            if(role=='Coach'){
+                                                $.ajax({
+                                                    url:'{{url('adminLoadSports')}}/'+'user',
+                                                    success:function(data){
+                                                        if(data!=1){
+                                                            $('#sportResourcefield').html(data).show();
+                                                        }
+                                                    }
+                                                });
+                                            }else if(role=='Keeper'){
+                                                $.ajax({
+                                                    url:'{{url('adminLoadResources')}}/'+'user',
+                                                    success:function(data){
+                                                        if(data!=1){
+                                                            $('#sportResourcefield').html(data).show();
+                                                        }
+                                                    }
+                                                });
+                                            }else if(role=='Admin'){
+                                                $('#sportResourcefield').html('');
+                                            }
+                                        }
+                                    </script>
+                                    <div class="form-group" id="sportResourcefield">
+                                        <!--label class="control-label col-md-3 col-sm-3 col-xs-12" for="user-sport-or-res"> Sport/Resource </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <select class="form-control" id="user-sport-or-res">
+                                                <option hidden value=""> Select a role to display options </option>
+                                            </select>
+                                        </div-->
                                     </div>
                                     <div class="ln_solid"></div>
                                     <div class="form-group">
                                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                            <button type="button" class="btn btn-primary">Cancel</button>
+                                            <button type="reset" class="btn btn-primary">Cancel</button>
                                             <button type="submit" class="btn btn-success">Add User</button>
                                         </div>
                                     </div>

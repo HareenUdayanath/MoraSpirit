@@ -1,4 +1,4 @@
-<table id="example1" class="table table-bordered table-striped">
+<table id="example1" class="table table-bordered">
     <thead>
     <tr>
         <th> Item No. </th>
@@ -9,7 +9,7 @@
     </thead>
     <tbody>
     @foreach($equips as $equip)
-        <tr>
+        <tr class="clickable-row">
             <td>{{$equip->ItemNo}}</td>
             <td>{{$equip->EquipType}}</td>
             <td>{{$equip->Condition}}</td>
@@ -18,3 +18,8 @@
     @endforeach
     </tbody>
 </table>
+<script type='text/javascript'>
+    $('#example1').on('click', '.clickable-row', function(event) {
+        $(this).addClass('bg-info').siblings().removeClass('bg-info');
+    });
+</script>

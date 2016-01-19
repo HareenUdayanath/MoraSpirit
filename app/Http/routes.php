@@ -71,6 +71,14 @@ Route::get('adminSearchEquipID/{Id}','AdminController@searchEquipID');
 
 Route::get('adminSearchEquipType/{type}','AdminController@searchEquipType');
 
+Route::get('adminLoadSports/{requester}','AdminController@loadSports');
+
+Route::get('adminLoadResources/{requester}','AdminController@loadResources');
+
+Route::get('adminLoadStudent/{index}','AdminController@loadStudent');
+
+Route::get('adminUpdateStudent',array('as'=>'adminUpdateStudent','uses'=>'AdminController@updateStudent'));
+
 Route::get('admin', 'MoraController@showAdmin');
 
 Route::get('eqprecieval', 'KeeperController@getEqpRc');
