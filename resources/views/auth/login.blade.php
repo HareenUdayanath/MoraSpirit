@@ -1,47 +1,62 @@
 <!DOCTYPE html>
-<html class="bg-black">
+<html >
 <head>
     <meta charset="UTF-8">
-    <title>AdminLTE | Log in</title>
-    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-    <!-- bootstrap 3.0.2 -->
-    <link href="{{asset("/css/login/bootstrap.min.css")}}" rel="stylesheet" type="text/css" />
-    <!-- font Awesome -->
-    <link href="{{asset("/css/login/font-awesome.min.css")}}" rel="stylesheet" type="text/css" />
-    <!-- Theme style -->
-    <link href="{{asset("/css/login/AdminLTE.css")}}" rel="stylesheet" type="text/css" />
+    <title>Mora Spirit</title>
+
+    <link href="{{asset("/css/login/css/style.css")}}" rel="stylesheet" type="text/css" />
+
+    <script src={{asset("js/login/js/prefixfree.min.js")}}></script>
+
 
 </head>
-<body class="bg-black">
-@if (count($errors) > 0)
-    <div class="alert alert-danger">
-        <strong>Whoops!</strong> There were some problems with your input.<br><br>
-        <ul>
-            @foreach ($errors as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
 
-<div class="form-box" id="login-box">
-    <img src="{{asset("/images/Other/SignIn.jpg")}}"alt="picture cannot find " height="70" width="360">
-    <form role="form" method="POST" action="{{ url('login') }}">
-        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+<body>
 
-        <div class="body bg-gray">
-            <div class="form-group">
-                <input type="text" name="ID" class="form-control" placeholder="User ID"/>
-            </div>
-            <div class="form-group">
-                <input type="password" name="password" class="form-control" placeholder="Password"/>
-            </div>
-        </div>
-        <div class="footer">
-            <button type="submit" class="btn btn-primary btn-block">Login</button>
-        </div>
-    </form>
+<input type="submit" value="Login">
 
+<div class="body"></div>
+<div class="grad"></div>
+<div class="header">
+    <div>Mora<span>Spirit</span></div>
 </div>
+<br>
+
+
+<form role="form" method="POST" action="{{ url('login') }}">
+    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+    <div class="login">
+
+        <input type="text" placeholder="username" name="ID"><br>
+        <input type="password" placeholder="password" name="password"><br>
+        <input type="submit" value="Login">
+
+
+        <input type="button" onclick="home();" value="Home">
+        <script type="text/javascript">
+            function home() {
+                window.location = "{{route('public')}}";
+            }
+        </script>
+
+        @if (count($errors) > 0)
+            <div class="alert alert-danger">
+                <strong>Check Input!</strong> There were some problems with your input.<br><br>
+                <ul>
+                    @foreach ($errors as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+    </div>
+</form>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+
+
+
+
 </body>
 </html>

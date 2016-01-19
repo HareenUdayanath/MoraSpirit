@@ -19,7 +19,7 @@ class MoraController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth',['except'=>['login','home']]);
+        $this->middleware('auth',['except'=>['login','home','publicView']]);
     }
 
     public function login(){

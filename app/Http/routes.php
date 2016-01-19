@@ -21,6 +21,8 @@ Route::get('home', 'HomeController@index');
 
 Route::get('editProfileView', 'MoraController@editProfileView');
 
+Route::get('publicView', array('as'=>'public','uses'=>'MoraController@publicView'));
+
 Route::get('loginView', array('as'=>'getLogin','uses'=>'MoraController@loginView'));
 
 Route::get('in', 'MoraController@in');
