@@ -37,7 +37,7 @@ class Utilization
      * @param resourceID the resourceID to set
      */
     public function setResourceID($resourceID) {
-        $this->resourceID = resourceID;
+        $this->resourceID = $resourceID;
     }
 
     /**

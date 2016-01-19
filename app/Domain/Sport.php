@@ -47,8 +47,8 @@ class Sport
     }
 
     public function addUtilization($utilization){
-        $utilization->setSportName(sportName);
-        array_push($this->getUtilizationList(),$utilization );
+        $utilization->setSportName($this->sportName);
+        array_push($this->utilizationList,$utilization );
     }
 
     /**

@@ -9,7 +9,7 @@
             <li><a><i class="fa fa-home"></i> Home</a>
 
             </li>
-            <li><a href={{route('diplaySchedule')}}><i class="fa fa-file-text-o"></i> Practice Schedule</a>
+            <li><a href={{route('displaySchedule')}}><i class="fa fa-calendar"></i> Practice Schedule</a>
         </ul>
     </div>
 @endsection
@@ -20,26 +20,19 @@
             <div class="x_panel">
                 <div class="x_title">
                     <h2>Achievements <small>adding achievements of students</small></h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Settings 1</a>
-                                </li>
-                                <li><a href="#">Settings 2</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a class="close-link"><i class="fa fa-close"></i></a>
-                        </li>
-                    </ul>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
                     <br />
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action={{route('addAchievement')}}>
+                        <!--div class="col-md-2 col-sm-2 col-xs-12 form-group pull-right top_search">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search for...">
+                                    <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">Go!</button>
+                        </span>
+                            </div>
+                        </div-->
 
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="student-name">Student Name <span class="required">*</span>
@@ -59,11 +52,11 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Sport Name <span class="required">*</span>
                             </label>
                             <div class="col-md-3 col-sm-3 col-xs-12">
-                                <select class="form-control">
+                                <select name = "sport" class="form-control">
                                     <option>Select sport name</option>
-                                    <option>Cricket</option>
-                                    <option>Vollyball</option>
-                                    <option>Badminton</option>
+                                    @foreach($sports as $sport)
+                                        <option>{{$sport->SportName}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
@@ -71,7 +64,7 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Date <span class="required">*</span>
                             </label>
                             <div class="col-md-3 col-sm-3 col-xs-12">
-                                <input id="scheduleDay" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+                                <input id="scheduleDay" name="scheduleDay" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
                             </div>
                         </div>
                         <div class="form-group">
@@ -92,13 +85,13 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="description">Description
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="text" id="description" name="description"  class="form-control col-md-7 col-xs-12">
+                                <textarea id="description" required="required" name="description" class="form-control col-md-7 col-xs-12"></textarea>
                             </div>
                         </div>
                         <div class="ln_solid"></div>
                         <div class="form-group">
                             <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                <button type="submit" class="btn btn-primary">Cancel</button>
+                                <button type="reset" class="btn btn-primary">Cancel</button>
                                 <button type="submit" class="btn btn-success">Submit</button>
                             </div>
                         </div>

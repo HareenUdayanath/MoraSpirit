@@ -24,7 +24,6 @@ Route::get('moraLogin', 'MoraController@login');
 Route::get('in', 'MoraController@in');
 Route::get('getUsers/{id}',array('as'=>'getUsers','uses'=>'MoraController@getUsersOf'));
 
-
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
 Route::get('auth/logout', 'Auth\AuthController@getLogout');
@@ -46,8 +45,15 @@ Route::get('adminEquipments', array('as'=>'adminEquipments','uses'=>'AdminContro
 
 Route::get('adminResources', array('as'=>'adminResources','uses'=>'AdminController@displayResourcePage'));
 
-
 Route::get('adminStudents', array('as'=>'adminStudents','uses'=>'AdminController@displayStudentPage'));
+
+Route::get('adminAddUser', array('as'=>'adminAddUser','uses'=>'AdminController@addNewUser'));
+
+Route::get('adminAddSport', array('as'=>'adminAddSport','uses'=>'AdminController@addNewSport'));
+
+Route::get('adminSearchUserID/{Id}','AdminController@searchUserID');
+
+Route::get('adminSearchUserName/{name}','AdminController@searchUserName');
 
 Route::get('admin', 'MoraController@showAdmin');
 
@@ -59,19 +65,19 @@ Route::get('eqplending', 'KeeperController@getSports');
 
 Route::get('eqpUpdateDetails', 'KeeperController@getUpDt');
 
-Route::get('adminStudents', array('as'=>'adminStudents','uses'=>'AdminController@displayStudentPage'));
-
-Route::get('adminAddUser', array('as'=>'adminAddUser','uses'=>'AdminController@displayAddUserPage'));
-
 Route::get('admin', 'MoraController@showAdmin');
 
 Route::get('addPra', 'CoachController@addPracticeSchedule');
 
-Route::get('addAchi', 'CoachController@addAchievement');
+Route::get('displaySchedule', array('as'=>'displaySchedule','uses'=>'CoachController@displayPracticeSchedulePage'));
 
-Route::get('diplaySchedule', array('as'=>'diplaySchedule','uses'=>'CoachController@displayPracticeSchedulePage'));
+Route::get('displayAchieve', array('as'=>'displayAchieve','uses'=>'CoachController@displayAchievementPage'));
 
-Route::get('diplayAchieve', array('as'=>'diplayAchieve','uses'=>'CoachController@displayAchievementPage'));
+Route::get('addPS', array('as'=>'addPracticeSchedule','uses'=>'CoachController@addPracticeSchedule'));
+
+Route::get('addAC', array('as'=>'addAchievement','uses'=>'CoachController@addAchievement'));
+
+Route::get('getRes/{sportName}', 'CoachController@getResources');
 
 Route::get('loadeqp/{sport}', 'KeeperController@loadeqp');
 
