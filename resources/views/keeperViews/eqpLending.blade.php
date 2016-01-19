@@ -90,16 +90,62 @@
                         $.ajax({
                             url:'{{url('chkAv')}}/'+ equipment + '/' + sport,
                             success: function(data){
-                                if (data ==1){
+                                if (data == null){
+                                    alert("No equipments are available");
 
                                 }
                                 else{
-                                   // alert(data);
+                                   alert(data);
                                     $('#eqID').html(data).show();
                                 }
 
                             }
                         })
+
+                    }
+
+                    function reserveEqp(){
+                        var eqp = document.getElementById("eqselect");
+                        var equipment = eqp.options[eqp.selectedIndex].text;
+                        var studentID = document.getElementById("studentID").value;
+                        $.ajax({
+                            url:'{{url('reserveEqp')}}/'+ equipment + '/' + studentID,
+                            success: function(data){
+                                if (data == null){
+                                    alert("No equipments are available");
+
+                                }
+                                else{
+                                    alert("Request successful!");
+                                    //$('#eqID').html(data).show();
+                                }
+
+                            }
+                        })
+
+                    }
+
+                    function lendEqp(){
+                        var lendstID = document.getElementById("lendstid");
+                        var eqpID = document.getElementById("eqID");
+                        var duedate = document.getElementById("birthday");
+                        var lendID = eqpID.options[eqpID.selectedIndex].text
+                        $.ajax({
+                            url:'{{url('lendEqp')}}/'+ lendstID + '/' + lendID + '/' + duedate,
+                            success: function(data){
+                                if (data == null){
+                                    alert("No equipments are available");
+
+                                }
+                                else{
+                                    alert("Request successful!");
+                                    //$('#eqID').html(data).show();
+                                }
+
+                            }
+                        })
+
+
 
                     }
 
@@ -135,13 +181,13 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Student Index <span class="required">*</span>
                                 </label>
                                 <div class="col-md-4 col-sm-6 col-xs-12">
-                                    <input type="text" id="first-name"  class="form-control col-md-4 col-xs-12">
+                                    <input type="text" id="studentID"  class="form-control col-md-4 col-xs-12">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                    <button type="submit" class="btn btn-primary">Reserve</button>
+                                    <button type="button" class="btn btn-primary" onclick="reserveEqp();">Reserve</button>
                                     <button type="" class="btn btn-success">Cancel</button>
                                 </div>
                             </div>
@@ -159,7 +205,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Student Index <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="first-name"  class="form-control col-md-4 col-xs-12">
+                                    <input type="text" id="lendstid"  class="form-control col-md-4 col-xs-12">
                                 </div>
                             </div>
 
@@ -174,7 +220,7 @@
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Due Date</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="birthday" class="date-picker form-control col-md-7 col-xs-12 active"  type="text" data-parsley-id="2514"><ul class="parsley-errors-list" id="parsley-id-2514"></ul>
+                                    <input id="birthday" class="date-picker form-control col-md-7 col-xs-12 active"   type="text" data-parsley-id="2514"><ul class="parsley-errors-list" id="parsley-id-2514"></ul>
                                 </div>
                             </div>
                             <script type="text/javascript">

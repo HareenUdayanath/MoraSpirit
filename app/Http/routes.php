@@ -78,3 +78,15 @@ Route::get('loadeqp/{sport}', 'KeeperController@loadeqp');
 Route::get('chkAv/{equipment}/{sport}', 'KeeperController@checkEqpAv');
 
 Route::get('getUpEqp/{eqpID}', 'KeeperController@getUpEqp');
+
+Route::get('getbrlist/{stID}', 'KeeperController@getBorrowedItems');
+
+Route::get('loadbreqp/{itemNo}', 'KeeperController@getBrDetails');
+
+Route::get('reserveEqp/{equipment}/{studentID}', 'KeeperController@addEqpRequest');
+
+Route::get('lendEqp/{lendstID}/{lendID}/{duedate}', 'KeeperController@lendEquipment');
+
+Route::get('setAv/{eqpID}', 'KeeperController@setAvailability');
+
+Route::get('upDetails/{eqpID}/{eqpAv}/{eqpCon}', 'KeeperController@updateEq');

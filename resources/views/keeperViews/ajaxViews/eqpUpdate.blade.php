@@ -15,9 +15,9 @@
     </div>
 
     <div class="form-group">
-        <label class="control-label col-md-3 col-sm-3 col-xs-12">Status</label>
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">Availability</label>
         <div class="col-md-4 col-sm-9 col-xs-12">
-            <select class="form-control">
+            <select class="form-control" id="availability">
                 <option>Available</option>
                 <option>Borrowed</option>
 
@@ -28,7 +28,7 @@
     <div class="form-group">
         <label class="control-label col-md-3 col-sm-3 col-xs-12">Condition</label>
         <div class="col-md-4 col-sm-9 col-xs-12">
-            <select class="form-control">
+            <select class="form-control" id="condition">
                 <option>Good</option>
                 <option>Needs to be repaired</option>
                 <option>Discarded</option>
@@ -52,7 +52,7 @@
 
     <div class="form-group">
         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-            <button type="submit" class="btn btn-primary">Update</button>
+            <button type="button" class="btn btn-primary" id="update" onclick="sendData()">Update</button>
 
         </div>
     </div>
