@@ -10,7 +10,7 @@ class PracticeSchedule
 {
     private $sessionID;
     private $sportName;
-    private $resourceID;
+    private $resourceName;
     private $date;
     private $startTime;
     private $endTime;
@@ -88,16 +88,16 @@ class PracticeSchedule
     }
 
     /**
-     * @return the resourceID
+     * @return the resourceName
      */
-    public function getResourceID() {
-        return $this->resourceID;
+    public function getResourceName() {
+        return $this->resourceName;
     }
 
     /**
-     * @param resourceID the resourceID to set
+     * @param resourceID the resourceName to set
      */
-    public function setResourceID($resourceID) {
-        $this->resourceID = $resourceID;
+    public function setResourceName($resourceName) {
+        $this->resourceName = $resourceName;
     }
 }

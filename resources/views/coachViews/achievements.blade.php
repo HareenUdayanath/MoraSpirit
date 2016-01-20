@@ -34,18 +34,34 @@
                             </div>
                         </div-->
 
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="index-number">Index Number <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" id="index-number" name="index-number" required="required" class="form-control col-md-7 col-xs-12"   maxlength="1" onblur="getName(document.getElementsByName('index-number').value)">
+                            </div>
+                            <script type="text/javascript">
+                                function getName(ID){
+                                    alert('name alert');
+                                    $.ajax({
+                                        url: '{{url('getStdName')}}/' + ID,
+                                        success: function (data) {
+                                            if (data == 1) {
+
+                                            } else {
+                                                $("#student-name").html(data).show();
+                                            }
+                                        }
+                                    });
+                                }
+                            </script>
+                        </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="student-name">Student Name <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input type="text" id="student-name" required="required" class="form-control col-md-7 col-xs-12">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="index-number">Index Number <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="text" id="index-number" name="index-number" required="required" class="form-control col-md-7 col-xs-12">
                             </div>
                         </div>
                         <div class="form-group">

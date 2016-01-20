@@ -55,16 +55,19 @@
                 <!-- menu prile quick info -->
                 <div class="profile">
                     <div class="profile_pic">
-                        <img src={{asset("/images/img.jpg")}} alt="..." class="img-circle profile_img">
+                        <img src={{asset("/images/Users")."/".$user->ID.".jpg"}} alt="..." class="img-circle profile_img">
                     </div>
                     <div class="profile_info">
                         <span>Welcome,</span>
-                        <h2>{{$user->getName()}}</h2>
+                        <h2>{{$user->Name}}</h2>
                     </div>
                 </div>
                 <!-- /menu prile quick info -->
 
                 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                    <div class="col-md-offset-5">
+                        <h3>{{"Rool"}}</h3>
+                    </div>
 
                     @yield('siderBar')
 
@@ -88,20 +91,29 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li class="">
                             <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                <img src="images/img.jpg" alt="">{{$user->getName()}}
+                                <img src={{asset("/images/Users")."/".$user->ID.".jpg"}} alt="">{{$user->Name}}
                                 <span class=" fa fa-angle-down"></span>
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
-                                <li><a href="javascript:;">  Profile</a>
+                                <li><a onclick="editProfile();" type="button">Edit Profile</a>
                                 </li>
-                                <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                                <li><a href="{{ url('/auth/logout') }}"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                                 </li>
                             </ul>
                         </li>
-
-
-
                     </ul>
+                    <script type="text/javascript">
+                        function editProfile(){
+                            $.ajax({
+                                url:'{{url('editProfileView')}}',
+                                success:function(data){
+                                    if(data!=1){
+                                        $('#ncontent').html(data).show();
+                                    }
+                                }
+                            });
+                        }
+                    </script>
                 </nav>
             </div>
 
@@ -111,15 +123,15 @@
         <!-- page content -->
         <div class="right_col" role="main">
 
-            <div>
+            <div id="ncontent">
                 @yield('content')
             </div>
 
             <!-- footer content -->
             <footer>
                 <div class="">
-                    <p class="pull-right">MoraSpirit. |
-                        <span class="lead"> ITCope!</span>
+                    <p class="pull-right">MoraSpirit.
+                        <span class="lead"></span>
                     </p>
                 </div>
                 <div class="clearfix"></div>

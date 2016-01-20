@@ -19,13 +19,27 @@ Route::get('reg', array('as'=>'register','uses'=>'MoraController@addUser'));
 
 Route::get('home', 'HomeController@index');
 
-Route::get('moraLogin', 'MoraController@login');
+Route::get('editProfileView', 'MoraController@editProfileView');
+
+Route::get('publicView', array('as'=>'public','uses'=>'PublicController@publicView'));
+
+Route::get('publicPS', 'PublicController@loadPracticeSchedules');
+
+Route::get('publicEq', 'PublicController@loadEquipments');
+
+Route::get('publicRes', 'PublicController@loadResources');
+
+Route::get('publicResDates/{resourceID}', 'PublicController@loadResourceFreeTimes');
+
+Route::get('getReserveTime/{resourceName}/{date}','PublicController@getReservedTimes');
+
+Route::get('loginView', array('as'=>'getLogin','uses'=>'MoraController@loginView'));
 
 Route::get('in', 'MoraController@in');
 Route::get('getUsers/{id}',array('as'=>'getUsers','uses'=>'MoraController@getUsersOf'));
 
 Route::get('auth/login', 'Auth\AuthController@getLogin');
-Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::post('login', 'MoraController@login');
 Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
 Route::get('register', array('as'=>'registerForm','uses'=>'MoraController@register'));
@@ -51,9 +65,39 @@ Route::get('adminAddUser', array('as'=>'adminAddUser','uses'=>'AdminController@a
 
 Route::get('adminAddSport', array('as'=>'adminAddSport','uses'=>'AdminController@addNewSport'));
 
+Route::get('adminAddEquip',array('as'=>'adminAddEquip','uses'=>'AdminController@addNewEquipment'));
+
+Route::get('adminAddResource',array('as'=>'adminAddResource','uses'=>'AdminController@addNewResource'));
+
+Route::get('adminAddStudent',array('as'=>'adminAddStudent','uses'=>'AdminController@addnewStudent'));
+
 Route::get('adminSearchUserID/{Id}','AdminController@searchUserID');
 
 Route::get('adminSearchUserName/{name}','AdminController@searchUserName');
+
+Route::get('adminSearchSport','AdminController@searchSport');
+
+Route::get('adminSearchStudentID/{Id}','AdminController@searchStudentID');
+
+Route::get('adminSearchStudentName/{name}','AdminController@searchStudentName');
+
+Route::get('adminSearchEquipID/{Id}','AdminController@searchEquipID');
+
+Route::get('adminSearchEquipType/{type}','AdminController@searchEquipType');
+
+Route::get('adminLoadSports/{requester}','AdminController@loadSports');
+
+Route::get('adminLoadResources/{requester}','AdminController@loadResources');
+
+Route::get('adminLoadStudent/{ID}','AdminController@loadStudent');
+
+Route::get('adminLoadUser/{ID}','AdminController@loadUser');
+
+Route::get('adminLoadEquipment/{ID}','AdminController@loadEquip');
+
+Route::get('adminLoadUtils/{sport}','AdminController@loadUtils');
+
+Route::get('adminUpdateStudent',array('as'=>'adminUpdateStudent','uses'=>'AdminController@updateStudent'));
 
 Route::get('admin', 'MoraController@showAdmin');
 
@@ -78,6 +122,10 @@ Route::get('addPS', array('as'=>'addPracticeSchedule','uses'=>'CoachController@a
 Route::get('addAC', array('as'=>'addAchievement','uses'=>'CoachController@addAchievement'));
 
 Route::get('getRes/{sportName}', 'CoachController@getResources');
+
+Route::get('getReserveTime/{resourceName}/{date}','CoachController@getReservedTimes');
+
+Route::get('getStdName/{ID}','CoachController@getStdName');
 
 Route::get('loadeqp/{sport}', 'KeeperController@loadeqp');
 

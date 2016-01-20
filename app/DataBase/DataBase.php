@@ -34,33 +34,35 @@ class DataBase{
      * Insert Data.........................
      * */
     public function addStudent($student){
-        DB::insert('INSERT INTO Student VALUES(?,?,?,?,?)',
-            [$student->getID(),$student->getFirstName(),
-                $student->getLastName(),$student->getFaculty(),$student->getDepartment()]);
+        DB::insert('INSERT INTO Student VALUES(?,?,?,?,?,?,?,?,?,?,?)',
+            [$student->getID(),$student->getName(),
+                $student->getDateOfBirth(),$student->getGender(),getAddress(),
+                $student->getFaculty(),$student->getDepartment(),$student->getMedicalCondition(),
+                $student->getBloodGroup(),$student->getEmergencyContactPerson(),$student->getEmergencyContactNo()]);
     }
 
     public function addResource($resource){
-        DB::insert('INSERT INTO Resource VALUES(?,?,?,?)',
+        DB::insert('INSERT INTO Resource VALUES(?,?,?)',
             [$resource->getID(),$resource->getName(),
-                $resource->getLocation(),$resource->getKeeperID()]);
+                $resource->getLocation()]);
     }
 
     public function addPracticeSchedule($practiceSchedule){
-        DB::insert('INSERT INTO PracticeSchedule VALUES(?,?,?,?,?,?)',
-            [$practiceSchedule->getSessionID(),$practiceSchedule->getSportName(),
-                $practiceSchedule->getResourceID(),$practiceSchedule->getDate(),
+        DB::insert('INSERT INTO PracticeSchedule VALUES(DEFAULT,(SELECT ID FROM Sport WHERE SportName = ?)
+                          ,(SELECT ID FROM resource WHERE Name = ?),?,?,?)',
+            [$practiceSchedule->getSportName(),
+                $practiceSchedule->getResourceName(),$practiceSchedule->getDate(),
                 $practiceSchedule->getStartTime(),$practiceSchedule->getEndTime()]);
     }
 
     public function addAchievement($achievement){
-        DB::insert('INSERT INTO PracticeSchedule VALUES(?,?,?,?,?,?)',
-            [$achievement->getAchievementID(),$achievement->getContest(),
-                $achievement->getDate(),$achievement->getPlace(),
+        DB::insert('INSERT INTO Achievement VALUES(DEFAULT,(SELECT ID FROM Sport WHERE SportName = ?),?,?,?,?)',
+            [$achievement->getContest(),$achievement->getDate(),$achievement->getPlace(),
                 $achievement->getSportName(),$achievement->getDescription()]);
-        DB::insert('INSERT INTO Achieve VALUES(?,?))',
-            [$achievement->getStudentID(),$achievement->getAchievementID()]);
+        DB::insert('INSERT INTO Achieve VALUES(?,DEFAULT))',
+            [$achievement->getStudentID()]);
     }
-
+//hhhhhhhhhhhhhhhhhhhhhhh
     public function addEquipment($equipment){
         DB::insert('INSERT INTO Equipment VALUES(?,?,?,?,?,?,?)',
             [$equipment->getItemNo(),$equipment->getType(),
@@ -96,14 +98,14 @@ class DataBase{
     }
 
     public function addCoach($coach){
-        DB::insert('INSERT INTO Coach VALUES(?,?)',
-            [$coach->getID(),$coach->getResource()]);
         $this->addUser($coach);
+        DB::insert('INSERT INTO Coach VALUES(?,?)',
+            [$coach->getID(),$coach->getSportName()]);
     }
 
     public function addUser($user){
-        DB::insert('INSERT INTO Users VALUES(?,?,?,?)',
-            [$user->getID(),$user->getName(),$user->getContactNo(),$user->getPassword()]);
+        DB::insert('INSERT INTO Users VALUES(?,?,?,?,?)',
+            [$user->getID(),$user->getName(),$user->getContactNo(),$user->getPassword(),$user->getRole()]);
     }
 
     public function addEquipmentRequest($equipmentType,$studentID){
@@ -146,7 +148,8 @@ class DataBase{
     }
 
     public function loadPracticeSchedule(){
-        return DB::select('SELECT * FROM PracticeSchedule');
+        return DB::select('SELECT * FROM PracticeSchedule LEFT JOIN Resource ON
+                  PracticeSchedule.Resources_ID = Resource.ID ');
     }
 
     public function loadEquipments(){
@@ -158,8 +161,17 @@ class DataBase{
                             ,[$sportName]);
     }
 
+    public function loadKeepers(){
+        return DB::select('SELECT Name From Users NATURAL JOIN Keeper');
+    }
+
     public function loadAvailableEquipments(){
         return DB::select('SELECT * FROM Equipment WHERE Availability = TRUE');
+    }
+
+    public function loadAvailableEquipmentsWithSports(){
+        return DB::select('SELECT * FROM Equipment LEFT JOIN Sport ON
+                  Equipment.SportID = Sport.ID WHERE Availability = TRUE');
     }
 
     public function getEquipment($equipmentNo){
@@ -183,11 +195,11 @@ class DataBase{
             ,[$itemNo]);
     }
 
-    public function getResourceReservedTime($resourceID,$date){
+    public function getResourceReservedTime($resourceName,$date){
         $timeSlotList = array();
         $timeSlots =  DB::select('SELECT StartTime,EndTime FROM Booking WHERE
-                            Resources_ID = ? AND Date = ? '
-                            ,[$resourceID,$date]);
+                            Resources_ID = (SELECT ID FROM resource WHERE Name = ?) AND Date = ? '
+                            ,[$resourceName,$date]);
         foreach($timeSlots as $ts){
             $timeSlot = new TimeSlot();
             $timeSlot->setStartTime($ts->StartTime);
@@ -196,8 +208,8 @@ class DataBase{
         }
 
         $timeSlots =  DB::select('SELECT StartTime,EndTime FROM PracticeSchedule
-                 WHERE Resources_ID = ? AND Date = ? '
-            ,[$resourceID,$date]);
+                 WHERE Resources_ID = (SELECT ID FROM resource WHERE Name = ?) AND Date = ? '
+            ,[$resourceName,$date]);
         foreach($timeSlots as $ts){
             $timeSlot = new TimeSlot();
             $timeSlot->setStartTime($ts->StartTime);
@@ -207,34 +219,76 @@ class DataBase{
         return $timeSlotList;
     }
 
+    public function getReservedDatesFor($resourceID){
+        $resDates = array();
+        $datelist = DB::select('SELECT Date FROM Booking WHERE Resources_ID=?',[$resourceID]);
+        foreach($datelist as $date){
+            array_push($resDates,$date);
+        }
+        $datelist = DB::select('SELECT Date FROM PracticeSchedule WHERE Resources_ID=?',[$resourceID]);
+        foreach($datelist as $date){
+            array_push($resDates,$date);
+        }
+        return $resDates;
+    }
+
+    public function getNameOfResource($id){
+        return DB::select('SELECT Name FROM Resource WHERE ID=?',[$id]);
+    }
+
     public function getResourceID($resourceName){
-        $id = DB::select('SELECT ID FROM resources WHERE Name=?',[$resourceName]);
+        $id = DB::select('SELECT ID FROM resource WHERE Name=?',[$resourceName]);
         return $id[0]->ID;
     }
 
+    public function getKeeper($id){
+        $keeper = DB::select('SELECT * FROM Keeper WHERE ID=?',[$id]);
+        return $keeper[0];
+    }
+
+    public function getCoach($id){
+        $coach = DB::select('SELECT * FROM Coach WHERE ID=?',[$id]);
+        return $coach[0];
+    }
+
+    public function getUtils($sport){
+        return DB::select('SELECT Name,Utilization From SportsResources LEFT OUTER JOIN Resource ON SportsResources.ResourceID=Resource.ID WHERE SportName=?',[$sport]);
+    }
+
     public function searchUserByID($ID){
-        return DB::select('SELECT * FROM users WHERE ID = ?',[$ID]);
+        return DB::select('SELECT * FROM users WHERE ID LIKE \'%'.$ID.'%\'');
     }
 
     public function searchUserByName($name){
         return DB::select('SELECT * FROM users WHERE Name LIKE \'%'.$name.'%\'');
     }
 
-    public function searchStudentByName($name){
-        return DB::select('SELECT * FROM Student WHERE FirstName LIKE \'%'.$name.'%\' OR
-               LastName LIKE \'%'.$name.'%\'');
+    public function loadStudents(){
+        return DB::select('SELECT * FROM student');
     }
 
-    public function searchStudentByIndex($index){
-        return DB::select('SELECT * FROM Student WHERE ID = ?',[$index]);
+    public function searchStudentByName($name){
+        return DB::select('SELECT * FROM Student WHERE FirstName LIKE \'%'.$name.'%\'');
     }
+
+    public function searchStudentByID($id){
+        return DB::select('SELECT * FROM Student WHERE ID LIKE \'%'.$id.'%\'');
+    }
+
+    public function searchEquipmentByID($equipmentNo){
+        return DB::select('SELECT * FROM Equipment WHERE ItemNo LIKE \'%'.$equipmentNo.'%\'');
+    }
+
+    public function searchEquipmentByType($equipType){
+        return DB::select('SELECT * FROM Equipment WHERE EquipType LIKE \'%'.$equipType.'%\'');
+    }
+
 
     public function loadUsers(){
       return DB::select('SELECT * FROM users');
     }
 
     public function loadUsersOf($ID){
-        //echo $ID;
         return DB::select('SELECT Name FROM users WHERE ID = ?',[$ID]);
     }
 
@@ -260,9 +314,9 @@ class DataBase{
     }
 
     public function addPracticeSchedule1($practiceSchedule){
-        DB::insert('INSERT INTO PracticeSchedule VALUES(?,?,?,?,?)',
+        DB::insert('INSERT INTO PracticeSchedule VALUES(?,?,?,?,?,?)',
             [$practiceSchedule->getSessionID(),$practiceSchedule->getSportName(),$practiceSchedule->getDate(),
-                $practiceSchedule->getStartTime(),$practiceSchedule->getEndTime()]);
+                $practiceSchedule->getStartTime(),$practiceSchedule->getEndTime(),$practiceSchedule->getResourceID()]);
     }
 
     public function addAchievementt($achievement){
@@ -270,6 +324,16 @@ class DataBase{
             [$achievement->getAchievementID(),$achievement->getContest(),
                 $achievement->getPlace(),
                 $achievement->getSportName(),$achievement->getDate()]);
+    }
+
+    public function getStudentName($studentID){
+        $studentName=DB::select('SELECT FirstName,LastName FROM student WHERE ID = ? ',[$studentID]);
+        return $studentName[0]->FirstName." ".$studentName[0]->LastName;
+    }
+
+    public function updateStudent($student){
+        DB::update('UPDATE Student SET ID=?,FirstName=?,Faculty=?,Department=? WHERE ID=?',
+            [$student->getID(),$student->getFirstName(),$student->getFaculty(),$student->getDepartment(),$student->getID()]);
     }
 
 }

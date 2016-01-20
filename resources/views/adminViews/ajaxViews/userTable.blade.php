@@ -1,4 +1,4 @@
-<table id="example1" class="table table-bordered table-striped">
+<table id="example1" class="table table-bordered">
     <thead>
     <tr>
         <th>ID</th>
@@ -8,7 +8,7 @@
     </thead>
     <tbody>
     @foreach($users as $usr)
-        <tr>
+        <tr class="clickable-row">
             <td>{{$usr->ID}}</td>
             <td>{{$usr->Name}}</td>
             <td>{{$usr->ContactNo}}</td>
@@ -16,3 +16,8 @@
     @endforeach
     </tbody>
 </table>
+<script type='text/javascript'>
+    $('#example1').on('click', '.clickable-row', function(event) {
+        $(this).addClass('bg-info').siblings().removeClass('bg-info');
+    });
+</script>
