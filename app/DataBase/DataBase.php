@@ -11,6 +11,7 @@ use App\Domain\Equipment;
 use App\Domain\Sport;
 use App\Domain\TimeSlot;
 use DB;
+use Log;
 
 class DataBase{
     private static $instance;
@@ -68,6 +69,14 @@ class DataBase{
             [$equipment->getItemNo(),$equipment->getSportName(),$equipment->getType(),
                 $equipment->getPurchaseDate(),$equipment->isAvailable(),
                 $equipment->getPurchasePrice(),$equipment->getCondition()]);
+    }
+
+    public function addBookin($booking){
+        Log::info('s');
+        DB::insert('INSERT INTO Booking VALUES(?,?,?,?,?,?)',
+            [$booking->getResourceID(),$booking->getRequesterName(),
+                $booking->getRequesterContactNo(),$booking->getDate(),$booking->getStartTime(),
+                $booking->getEndTime()]);
     }
 
     public function addBorrow($borrow){
@@ -326,12 +335,27 @@ class DataBase{
 
     public function getStudentName($studentID){
         $studentName=DB::select('SELECT FirstName,LastName FROM student WHERE ID = ? ',[$studentID]);
-        return $studentName[0]->FirstName." ".$studentName[0]->LastName;
+        return $studentName;
     }
 
     public function updateStudent($student){
         DB::update('UPDATE Student SET ID=?,FirstName=?,Faculty=?,Department=? WHERE ID=?',
             [$student->getID(),$student->getFirstName(),$student->getFaculty(),$student->getDepartment(),$student->getID()]);
+    }
+
+    public function getAchievement($ID){
+        $achievement=DB::select('SELECT SportName,Date,Place,Contest,Description FROM Achievement WHERE ID= ?',[$ID]);
+        return  $achievement;
+    }
+
+    public function getAllSessionID(){
+        $sessionID=DB::select('SELECT SessionID FROM PracticeSchedule');
+        return $sessionID;
+    }
+
+    public function deleteSessionID($sessionID){
+        DB::delete('DELETE FROM PracticeSchedule WHERE sessionID = ?',[$sessionID]);
+
     }
 
 }

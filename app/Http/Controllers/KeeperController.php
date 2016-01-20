@@ -2,9 +2,11 @@
 
 
 use App\DataBase\DataBase;
+use App\Domain\Booking;
 use App\Domain\Equipment;
 use App\Domain\User;
 use Illuminate\Support\Facades\Input;
+use Log;
 
 class KeeperController extends Controller
 {
@@ -23,7 +25,7 @@ class KeeperController extends Controller
         $resources=DataBase::getInstance()->loadResource();
         return view('keeperViews.reserve')->with('user',$user)
             ->with('resources',$resources)
-            ->with('user',$user);;
+            ->with('user',$user);
 
     }
 
@@ -89,7 +91,7 @@ class KeeperController extends Controller
 
     public function getResTimes($resource,$date){
         $timelist =  DataBase::getInstance()->getResourceReservedTime($resource,$date);
-        return view('KeeperViews.ajaxViews.restimes')->with('$reservedtimes',$upeqp);
+        return view('KeeperViews.ajaxViews.restimes')->with('$reservedtimes',$timelist);
 
 
     }
@@ -120,12 +122,12 @@ class KeeperController extends Controller
     }
 
     public function lendEquipment($stID,$eqpID,$duedate){
-
+        $date=explode("/",$duedate);
         $lendEq = new Borrow();
         $lendEq-> setStudentID($stID);
         $lendEq-> setItemNo($eqpID);
-        $lendEq-> setStartDate();
-        $lendEq-> setEndDate($duedate);
+        $lendEq-> setStartDate(date("Y-m-d"));
+        $lendEq-> setEndDate($date[2]."-".$date[0]."-".$date[1]);
 
         $db = DataBase::getInstance();
         $db->addBorrow($lendEq);
@@ -138,7 +140,60 @@ class KeeperController extends Controller
         $db->updateEquipmentAvailability($eqpID);
     }
 
+    public function getReservedTimes($resourceName,$date){
+        $reservedList=DataBase::getInstance()->getResourceReservedTime($resourceName,$date);
+        return view('KeeperViews.ajaxViews.restimes')->with('reservedList',$reservedList);
+    }
 
+    public function addBooking(){
+        $db = DataBase::getInstance();
+        $bk=new Booking();
+        $bk->setResourceID($db->getResourceID(Input::get('resource')));
+        $bk->setRequesterName(Input::get('reqName'));
+        $bk->setRequesterContactNo(Input::get('conNum'));
+        $date=Input::get('resdate');
+        $dateArr=explode("/",$date);
+        Log::info($date);
+        $newDate=$dateArr[2]."-".$dateArr[0]."-".$dateArr[1];
+        $bk->setDate($newDate);
+        $str1=Input::get('start-am-pm');
+        $str2=Input::get('end-am-pm');
+
+        $startTime = strval(Input::get('start-hour'));
+        if($str1=="am"){
+            $startTime = $startTime.':'.strval(Input::get('start-minute'));
+        }else{
+            $startTime = strval(intval($startTime)+12).':'.strval(Input::get('start-minute'));
+        }
+        Log::info($startTime);
+        $bk->setStartTime($startTime);
+        $endTime = strval(Input::get('end-hour'));
+        if($str2=="am"){
+            $endTime = $endTime.':'.strval(Input::get('end-minute'));
+        }else{
+            $endTime = strval(intval($endTime)+12).':'.strval(Input::get('end-minute'));
+        }
+
+        Log::info($endTime);
+        $bk->setEndTime($endTime);
+        Log::info('dddd');
+        $db->addBookin($bk);
+        Log::info('dddd');
+        $user = new User();
+        $user->setName("Anthony Fernando");
+        $resources=DataBase::getInstance()->loadResource();
+        return view('keeperViews.reserve')->with('user',$user)
+            ->with('resources',$resources)
+            ->with('user',$user);
+    }
+
+
+    public function displayKeeperHome(){
+        $user = new User();
+        $user->setName("Anthony Fernando");
+        return view('keeperViews.keeperHome')
+            ->with('user',$user);
+    }
 
 
 }

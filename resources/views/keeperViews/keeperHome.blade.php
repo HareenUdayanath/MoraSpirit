@@ -2,123 +2,33 @@
 
 
 @section('siderBar')
-
     <div class="menu_section">
-        <h3>General</h3>
+        <h3>Keeper</h3>
         <ul class="nav side-menu">
-            <li><a href={{route('coahHome')}}><i class="fa fa-home"></i> Home</a>
 
+            <li><a href={{route('res_res')}}><i class="fa fa-edit"></i> Reserve </a>
             </li>
-            <li><a href={{route('displaySchedule')}}><i class="fa fa-calendar"></i> Practice Schedule</a>
-            <li><a href={{route('loadAchiPage')}}><i class="fa fa-line-chart"></i> View Achievements</a>
-            <li><a href={{route('deleteSession')}}><i class="fa fa-trash"></i> Delete Session</a>
+            <li><a href={{route('eqplending')}}><i class="fa fa-desktop"></i> Equipment Lending </a>
+            </li>
+            <li><a href={{route('eqprecieval')}}><i class="fa fa-table"></i> Equipment Recieval </a>
+            </li>
+            <li><a href={{route('eqpUpdateDetails')}}><i class="fa fa-bar-chart-o"></i> Update Details </a>
         </ul>
     </div>
 @endsection
+
 
 @section('content')
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Achievements <small>adding achievements of students</small></h2>
+                    <h2>Home Page <small>homepage of coach</small></h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
                     <br />
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action={{route('addAchievement')}}>
-                        <!--div class="col-md-2 col-sm-2 col-xs-12 form-group pull-right top_search">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search for...">
-                                    <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">Go!</button>
-                        </span>
-                            </div>
-                        </div-->
-
-
-                        <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="index-number">Index Number <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="text"   id="index-number" name="index-number" required="required" class="form-control col-md-7 col-xs-12"   maxlength="1" onblur="getName()">
-                            </div>
-                            <script type="text/javascript">
-                                function getName(){
-                                    var ID = document.getElementById('index-number').value;
-                                    //alert(ID);
-                                    $.ajax({
-                                        url: '{{url('getStdName')}}/' + ID,
-                                        success: function (data) {
-                                            if (data == 1) {
-
-                                            } else {
-                                                //alert(data);
-                                                $("#student-name").html(data).show();
-                                                var success = document.getElementById('sucess').value;
-                                                if(success=="0"){
-                                                    document.getElementById('index-number').value="";
-                                                }
-                                            }
-                                        }
-                                    });
-                                }
-                            </script>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="student-name">Student Name <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12" id="student-name">
-                                <input type="text"   disabled required="required" class="form-control col-md-7 col-xs-12">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Sport Name <span class="required">*</span>
-                            </label>
-                            <div class="col-md-3 col-sm-3 col-xs-12">
-                                <select name = "sport" class="form-control">
-                                    <option>Select sport name</option>
-                                    @foreach($sports as $sport)
-                                        <option>{{$sport->SportName}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Date <span class="required">*</span>
-                            </label>
-                            <div class="col-md-3 col-sm-3 col-xs-12">
-                                <input id="scheduleDay" name="scheduleDay" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="place">Place <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="text" id="place" name="place" required="required" class="form-control col-md-7 col-xs-12">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="contest">Contest <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="text" id="contest" name="contest" required="required" class="form-control col-md-7 col-xs-12">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="description">Description
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <textarea id="description" required="required" name="description" class="form-control col-md-7 col-xs-12"></textarea>
-                            </div>
-                        </div>
-                        <div class="ln_solid"></div>
-                        <div class="form-group">
-                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                <button type="reset" class="btn btn-primary">Cancel</button>
-                                <button type="submit" class="btn btn-success">Submit</button>
-                            </div>
-                        </div>
+                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
 
                     </form>
