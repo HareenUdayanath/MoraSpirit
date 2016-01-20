@@ -2,7 +2,7 @@
 
 
 @section('content')
-    <select data-parsley-id="0415" id="heard" class="form-control" required="" onchange="showSlots({{$resourceName}})">
+    <select data-parsley-id="0415" id="heard" class="form-control" required="" onchange="showSlots('{{$resourceName}}')">
         <option hidden value="">Choose a date..</option>
         @foreach($dates as $date)
             <option value="press">{{$date->Date}}</option>
@@ -10,15 +10,12 @@
     </select>
     <script type="text/javascript">
         function showSlots(resourceName) {
-            alert(resourceName);
             var sel_date = document.getElementById('heard');
             var selectDate = sel_date.options[sel_date.selectedIndex].text;
-            alert(resourceName);
             $.ajax({
                 url:'{{url('getReserveTime')}}/'+resourceName+'/'+selectDate,
                 success:function(data){
                     if(data!=1){
-                        alert(data);
                         $('#slotTable').html(data).show();
                     }
             }
