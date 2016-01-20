@@ -57,12 +57,11 @@ class AdminController extends Controller
 
     public function displayResourcePage(){
         $database = DataBase::getInstance();
-        $keepers = $database->loadKeepers();
         $resources = $database->loadResource();
         $user = new User();
         $user->setName("Anthony Fernando");
         $user->setID("130209");
-        return view('adminViews.adminResources')->with('user',$user)->with('keepers',$keepers)->with('resources',$resources);
+        return view('adminViews.adminResources')->with('user',$user)->with('resources',$resources);
     }
 
     public function displayStudentPage(){
@@ -84,7 +83,7 @@ class AdminController extends Controller
             $user->setSportName(Input::get('user-sport-or-res'));
         }elseif($role=='Keeper'){
             $user = new Keeper();
-            $user->setResource(Input::get('user-sport-or-res'));
+            $user->setResourceName(Input::get('user-sport-or-res'));
         }else{
             $user = new User();
         }
@@ -93,7 +92,9 @@ class AdminController extends Controller
         $user->setContactNo(Input::get('contact-num'));
         $user->setPassword(Hash::make('mora1234'));
         $user->setRole($role);
-        
+        $user->setAddress(Input::get('user-addr'));
+        $user->setGender(Input::get('gender'));
+        $user->setDateOfBirth(Input::get('user-dob'));
         if($role=='Coach'){
             $database->addCoach($user);
         }elseif($role=='Keeper'){
@@ -111,9 +112,7 @@ class AdminController extends Controller
         $rows = Input::get('num-of-rows');
         for($i=0; $i<$rows;$i++){
             $util = new Utilization();
-            $resourceID = $database->getResourceID(Input::get('resource'.$i));
-            //fwrite($myfile, $resourceID);
-            $util->setResourceID($resourceID);
+            $util->setResourceName(Input::get('resource'.$i));
             $util->setUtilization(Input::get('util'.$i));
             $sport->addUtilization($util);
         }
@@ -126,9 +125,7 @@ class AdminController extends Controller
         $equip = new Equipment();
         $equip->setItemNo(Input::get('equip-id'));
         $equip->setType(Input::get('equip-type'));
-        $purchDate = explode('/',Input::get('purch-date'));
-        $purchDate = $purchDate[2].'/'.$purchDate[1].'/'.$purchDate[0];
-        $equip->setPurchaseDate($purchDate);
+        $equip->setPurchaseDate(Input::get('purch-date'));
         $equip->setPurchasePrice(Input::get('equip-price'));
         $equip->setCondition(Input::get('equip-cond'));
         $equip->setAvailability(Input::get('equip-avail'));
@@ -143,7 +140,6 @@ class AdminController extends Controller
         $resource->setID(Input::get('res-id'));
         $resource->setName(Input::get('res-name'));
         $resource->setLocation(Input::get('res-location'));
-        $resource->setKeeperID(Input::get('res-keeper'));
         $database->addResource($resource);
         return $this->displayResourcePage();
     }

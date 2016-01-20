@@ -166,9 +166,9 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12"> Date of Birth </label>
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="user-dob"> Date of Birth </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input type="text" class="form-control" data-inputmask="'mask': '99/99/9999'">
+                                            <input type="text" class="form-control" data-inputmask="'mask': '9999/99/99'" id="user-dob" name="user-dob">
                                         </div>
                                     </div>
                                     <!-- input_mask -->
@@ -192,10 +192,10 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="contact-num"> Address </span>
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="user-addr"> Address </span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input type="text" id="contact-num" class="form-control col-md-7 col-xs-12">
+                                            <input type="text" id="user-addr" name="user-addr" class="form-control col-md-7 col-xs-12">
                                         </div>
                                     </div>
                                     <div class="form-group">

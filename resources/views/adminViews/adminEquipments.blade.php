@@ -106,7 +106,7 @@
                                     @foreach($equips as $equip)
                                         <tr class="clickable-row">
                                             <td>{{$equip->ItemNo}}</td>
-                                            <td>{{$equip->EquipType}}</td>
+                                            <td>{{$equip->Type}}</td>
                                             <td>{{$equip->Condition}}</td>
                                             @if($equip->Availability=="1")
                                                 <td>Available</td>
@@ -174,7 +174,7 @@
                                     <div class="form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="purch-date"> Purchase Date </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input type="text" id="purch-date" name="purch-date" class="form-control col-md-7 col-xs-12" data-inputmask="'mask': '99/99/9999'">
+                                            <input type="text" id="purch-date" name="purch-date" class="form-control col-md-7 col-xs-12" data-inputmask="'mask': '9999/99/99'">
                                         </div>
                                     </div>
                                     <!-- input_mask -->
@@ -229,7 +229,7 @@
                                     <div class="form-group">
                                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                                             <button type="button" class="btn btn-dark" onclick="goToView()">Cancel</button>
-                                            <button type="submit" class="btn btn-success pull-right">Add New User</button>
+                                            <button type="submit" class="btn btn-success pull-right">Add New Equipment</button>
                                             <button type="reset" class="btn btn-primary pull-right">Reset</button>
                                         </div>
                                     </div>

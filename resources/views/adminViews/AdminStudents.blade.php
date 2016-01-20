@@ -168,9 +168,9 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12"> Date of Birth </label>
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="std-dob"> Date of Birth </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input type="text" class="form-control" data-inputmask="'mask': '99/99/9999'">
+                                            <input type="text" class="form-control" data-inputmask="'mask': '99/99/9999'" id="std-dob" name="std-dob">
                                         </div>
                                     </div>
                                     <!-- input_mask -->
@@ -196,7 +196,7 @@
                                     <div class="form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="std-address"> Address </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input type="text" id="std-address" class="form-control col-md-7 col-xs-12">
+                                            <input type="text" id="std-address" class="form-control col-md-7 col-xs-12" name="std-address">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -216,19 +216,19 @@
                                     <div class="form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="std-emrg-per"> Emergency Contact Person </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input type="text" id="std-emrg-per" class="form-control col-md-7 col-xs-12">
+                                            <input type="text" id="std-emrg-per" class="form-control col-md-7 col-xs-12" name="std-emrg-per">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="std-emrg-num"> Emergency Contact Number </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input type="text" id="std-emrg-num" class="form-control col-md-7 col-xs-12">
+                                            <input type="text" id="std-emrg-num" class="form-control col-md-7 col-xs-12" name="std-emrg-num">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12"> Blood Group </label>
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="std-blood"> Blood Group </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <select class="form-control">
+                                            <select class="form-control" name="std-blood" id="std-blood">
                                                 <option hidden> Choose a blood group... </option>
                                                 <option> A+ </option>
                                                 <option> A- </option>
@@ -242,9 +242,9 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12"> Medical Conditions </label>
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="std-med"> Medical Conditions </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <textarea class="form-control"></textarea>
+                                            <textarea class="form-control" id="std-med" name="std-med"></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -288,6 +288,7 @@
                                             </script>
                                         </div>
                                     </div>
+                                    <input hidden value="1" id="num-of-rows" name="num-of-sports">
                                     <div class="ln_solid"></div>
                                     <div class="form-group">
                                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">

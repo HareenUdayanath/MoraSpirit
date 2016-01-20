@@ -9,7 +9,7 @@
 class Utilization
 {
     private $sportName;
-    private $resourceID;
+    private $resourceName;
     private $utilization;
 
         /**
@@ -29,15 +29,15 @@ class Utilization
     /**
      * @return the resourceID
      */
-    public function getResourceID() {
-        return $this->resourceID;
+    public function getResourceName() {
+        return $this->resourceName;
     }
 
     /**
      * @param resourceID the resourceID to set
      */
-    public function setResourceID($resourceID) {
-        $this->resourceID = $resourceID;
+    public function setResourceName($resourceName) {
+        $this->resourceName = $resourceName;
     }
 
     /**

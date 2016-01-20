@@ -13,6 +13,7 @@ class User
     private $name;
     private $dateOfBirth;
     private $gender;
+    private $address;
     private $contactNo;
     private $password;
     private $role;
@@ -114,6 +115,20 @@ class User
      */
     public function setPassword($password) {
         $this->password = $password;
+    }
+    /**
+     * @return the address
+     */
+
+    public function getAddress() {
+        return $this->address;
+    }
+
+    /**
+     * @param address the address to set
+     */
+    public function setAddress($address) {
+        $this->address = $address;
     }
 
 }

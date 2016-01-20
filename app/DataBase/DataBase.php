@@ -62,13 +62,12 @@ class DataBase{
         DB::insert('INSERT INTO Achieve VALUES(?,DEFAULT))',
             [$achievement->getStudentID()]);
     }
-//hhhhhhhhhhhhhhhhhhhhhhh
+
     public function addEquipment($equipment){
-        DB::insert('INSERT INTO Equipment VALUES(?,?,?,?,?,?,?)',
-            [$equipment->getItemNo(),$equipment->getType(),
+        DB::insert('INSERT INTO Equipment VALUES(?,(SELECT ID FROM Sport WHERE SportName = ?),?,?,?,?,?)',
+            [$equipment->getItemNo(),$equipment->getSportName(),$equipment->getType(),
                 $equipment->getPurchaseDate(),$equipment->isAvailable(),
-                $equipment->getPurchasePrice(),$equipment->getCondition(),
-                $equipment->getSportName()]);
+                $equipment->getPurchasePrice(),$equipment->getCondition()]);
     }
 
     public function addBorrow($borrow){
@@ -79,33 +78,28 @@ class DataBase{
     }
 
     public function addSport($sport){
-        DB::insert('INSERT INTO Sport VALUES(?)',[$sport->getSportName()]);
+        DB::insert('INSERT INTO Sport VALUES(DEFAULT ,?)',[$sport->getSportName()]);
         foreach($sport->getUtilizationList() as $uti){
-            DB::insert('INSERT INTO SportsResources VALUES(?,?,?)',
-                [$uti->getSportName(),$uti->getResourceID(),$uti->getUtilization()]);
+            DB::insert('INSERT INTO SportsResource VALUES((SELECT ID FROM Resource WHERE Name=?),(SELECT ID FROM Sport WHERE SportName = ?),?)',
+                [$uti->getResourceName(),$uti->getSportName(),$uti->getUtilization()]);
         }
     }
 
-    public function addAdmin($admin){
-        DB::insert('INSERT INTO Admin VALUES(?)',[$admin->getID()]);
-        $this->addUser($admin);
-    }
-
     public function addKeeper($keeper){
-        DB::insert('INSERT INTO Keeper VALUES(?,?)',
-            [$keeper->getID(),$keeper->getResource()]);
         $this->addUser($keeper);
+        DB::insert('INSERT INTO Keeper VALUES(?,(SELECT ID FROM Resource WHERE Name=?))',
+            [$keeper->getID(),$keeper->getResourceName()]);
     }
 
     public function addCoach($coach){
         $this->addUser($coach);
-        DB::insert('INSERT INTO Coach VALUES(?,?)',
+        DB::insert('INSERT INTO Coach VALUES(?,(SELECT ID FROM Sport WHERE SportName = ?))',
             [$coach->getID(),$coach->getSportName()]);
     }
 
     public function addUser($user){
-        DB::insert('INSERT INTO Users VALUES(?,?,?,?,?)',
-            [$user->getID(),$user->getName(),$user->getContactNo(),$user->getPassword(),$user->getRole()]);
+        DB::insert('INSERT INTO User VALUES(?,?,?,?,?,?,?,?)',
+            [$user->getID(),$user->getName(),$user->getDateOfBirth(),$user->getGender(),$user->getAddress(),$user->getRole(),$user->getContactNo(),$user->getPassword()]);
     }
 
     public function addEquipmentRequest($equipmentType,$studentID){
@@ -230,6 +224,11 @@ class DataBase{
             array_push($resDates,$date);
         }
         return $resDates;
+    }
+
+    public function getSportIDofSport($sportname){
+        $sportId = DB::select('SELECT ID FROM Sport WHERE sportName=?',[$sportname]);
+        return $sportId[0];
     }
 
     public function getNameOfResource($id){
