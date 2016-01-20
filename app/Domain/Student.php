@@ -9,9 +9,15 @@
 class Student
 {
     private $ID;
-    private $sportName;
-    private $firstName;
-    private $lastName;
+    private $sportList;
+    private $name;
+    private $dateOfBirth;
+    private $gender;
+    private $address;
+    private $medicalCondition;
+    private $bloodGroup;
+    private $emergencyContactPerson;
+    private $emergencyContactNumber;
     private $faculty;
     private $department;
     private $achievementList;
@@ -19,6 +25,7 @@ class Student
     public function  __construct()
     {
         $this->achievementList = array();
+        $this->sportList = array();
     }
 
     public function addAchievement($achievement){
@@ -39,31 +46,115 @@ class Student
     }
 
     /**
-     * @return the firstName
+     * @return the Name
      */
-    public function getFirstName() {
-        return $this->firstName;
+    public function getName() {
+        return $this->name;
     }
 
     /**
-     * @param firstName the firstName to set
+     * @param Name the Name to set
      */
-    public function setFirstName($firstName) {
-        $this->firstName = $firstName;
+    public function setName($name) {
+        $this->name = $name;
     }
 
     /**
-     * @return the lastName
+     * @return the date of birth
      */
-    public function getLastName() {
-        return $this->lastName;
+    public function getDateOfBirth() {
+        return $this->dateOfBirth;
     }
 
     /**
-     * @param lastName the lastName to set
+     * @param name the date of birth to set
      */
-    public function setLastName($lastName) {
-        $this->lastName = $lastName;
+    public function setDateOfBirth($dateOfBirth) {
+        $this->dateOfBirth = $dateOfBirth;
+    }
+
+    /**
+     * @return the gender
+     */
+    public function getGender() {
+        return $this->gender;
+    }
+
+    /**
+     * @param name the gender to set
+     */
+    public function setGender($gender) {
+        $this->gender = $gender;
+    }
+
+    /**
+     * @return the contactNo
+     */
+    public function getEmergencyContactNo() {
+        return $this->emergencyContactNumber;
+    }
+
+    /**
+     * @param contactNo the contactNo to set
+     */
+    public function setEmergencyContactNo($contactNo) {
+        $this->emergencyContactNumber = $contactNo;
+    }
+
+    /**
+     * @return the contactNo
+     */
+    public function getEmergencyContactPerson() {
+        return $this->emergencyContactPerson;
+    }
+
+    /**
+     * @param contactNo the contactNo to set
+     */
+    public function setEmergencyContactPerson($contactP) {
+        $this->emergencyContactPerson = $contactP;
+    }
+
+    /**
+     * @return the address
+     */
+    public function getAddress() {
+        return $this->address;
+    }
+
+    /**
+     * @param address the address to set
+     */
+    public function setAddress($address) {
+        $this->address = $address;
+    }
+
+    /**
+     * @return the medicalCondition
+     */
+    public function getMedicalCondition() {
+        return $this->medicalCondition;
+    }
+
+    /**
+     * @param address the address to set
+     */
+    public function setMedicalCondition($mc) {
+        $this->medicalCondition = $mc;
+    }
+
+    /**
+     * @return the bloodGroup
+     */
+    public function getBloodGroup() {
+        return $this->bloodGroup;
+    }
+
+    /**
+     * @param bloodGroup the bloodGroup to set
+     */
+    public function setBloodGroup($mc) {
+        $this->bloodGroup = $mc;
     }
 
     /**

@@ -11,9 +11,9 @@ class Booking
     private $resourceID;
     private $requesterName;
     private $requesterContactNo;
-    private $date;
-    private $startTime;
-    private $endTime;
+    private $date = null;
+    private $startTime = null;
+    private $endTime = null;
 
     /**
      * @return the resourceID
@@ -68,7 +68,8 @@ class Booking
      * @param date the date to set
      */
     public function setDate($date) {
-        $this->date = $date;
+        if($date!='')
+            $this->date = $date;
     }
 
     /**
@@ -82,7 +83,8 @@ class Booking
      * @param startTime the startTime to set
      */
     public function setStartTime($startTime) {
-        $this->startTime = $startTime;
+        if($startTime!='')
+            $this->startTime = $startTime;
     }
 
     /**
@@ -96,6 +98,7 @@ class Booking
      * @param endTime the endTime to set
      */
     public function setEndTime($endTime) {
-        $this->endTime = $endTime;
+        if($endTime!='')
+            $this->endTime = $endTime;
     }
 }

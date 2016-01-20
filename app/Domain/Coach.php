@@ -10,14 +10,14 @@ class Coach extends User{
     private $sportName;
 
     /**
-     * @return the sportName
+     * @return the sportID
      */
     public function getSportName() {
         return $this->sportName;
     }
 
     /**
-     * @param sportName the sportName to set
+     * @param sportName the sportID to set
      */
     public function setSportName($sportName) {
         $this->sportName = $sportName;

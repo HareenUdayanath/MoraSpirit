@@ -11,9 +11,13 @@
     @foreach($equips as $equip)
         <tr class="clickable-row">
             <td>{{$equip->ItemNo}}</td>
-            <td>{{$equip->EquipType}}</td>
+            <td>{{$equip->Type}}</td>
             <td>{{$equip->Condition}}</td>
-            <td>{{$equip->Availability}}</td>
+            @if($equip->Availability=="1")
+                <td>Available</td>
+            @else
+                <td>Not Available</td>
+            @endif
         </tr>
     @endforeach
     </tbody>

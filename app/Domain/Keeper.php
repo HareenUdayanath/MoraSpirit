@@ -7,19 +7,19 @@
  * Time: 12:27 AM
  */
 class Keeper extends User{
-    private $resource;
+    private $resourceName;
 
         /**
          * @return the resource
          */
-    public function getResource() {
-        return $this->resource;
+    public function getResourceName() {
+        return $this->resourceName;
     }
 
     /**
      * @param resource the resource to set
      */
-    public function setResource($resource) {
-        $this->resource = $resource;
+    public function setResourceName($resourceName) {
+        $this->resourceName = $resourceName;
     }
 }

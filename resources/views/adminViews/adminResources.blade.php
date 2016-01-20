@@ -63,19 +63,17 @@
                                         <th>Resource ID</th>
                                         <th>Name</th>
                                         <th>Location</th>
-                                        <th>Sports</th>
-                                        <th>Keepers</th>
                                     </tr>
                                     </thead>
-                                    {{--<tbody>
-                                    @foreach($users as $usr)
+                                    <tbody>
+                                    @foreach($resources as $resource)
                                         <tr>
-                                            <td>{{$usr->ID}}</td>
-                                            <td>{{$usr->Name}}</td>
-                                            <td>{{$usr->ContactNo}}</td>
+                                            <td>{{$resource->ID}}</td>
+                                            <td>{{$resource->Name}}</td>
+                                            <td>{{$resource->Location}}</td>
                                         </tr>
                                     @endforeach
-                                    </tbody>--}}
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
@@ -109,18 +107,6 @@
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <input type="text" id="res-location" name="res-location" required="required" class="form-control col-md-7 col-xs-12">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="res-keeper"> Keeper <span class="required">*</span>
-                                        </label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <select class="form-control" id="res-keeper" name="res-keeper">
-                                                <option hidden value="">Select a Keeper... </option>
-                                                @foreach($keepers as $keeper)
-                                                    <option>{{$keeper->Name}}</option>
-                                                @endforeach
-                                            </select>
                                         </div>
                                     </div>
                                     <div class="ln_solid"></div>

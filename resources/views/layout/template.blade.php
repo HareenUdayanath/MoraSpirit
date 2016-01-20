@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-use Log;
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
@@ -55,7 +55,9 @@ use Log;
                 <!-- menu prile quick info -->
                 <div class="profile">
                     <div class="profile_pic">
-                        <img src={{--asset("/images/Users")."/".$user->ID.".jpg")--}} alt="..." class="img-circle profile_img">
+                        {{--
+                        <img src={{asset("/images/Users")."/".$user->ID.".jpg"}} alt="..." class="img-circle profile_img">
+                        --}}
                     </div>
                     <div class="profile_info">
                         <span>Welcome,</span>
@@ -65,7 +67,7 @@ use Log;
                 <!-- /menu prile quick info -->
 
                 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                    <div class="col-md-offset-5">
                         <h3>{{"Rool"}}</h3>
                     </div>
 

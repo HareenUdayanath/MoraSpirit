@@ -11,6 +11,9 @@ class User
 {
     private $ID;
     private $name;
+    private $dateOfBirth;
+    private $gender;
+    private $address;
     private $contactNo;
     private $password;
     private $role;
@@ -38,7 +41,7 @@ class User
     }
 
     /**
-     * @param ID the Role to set
+     * @param Role the Role to set
      */
     public function setRole($Role) {
         $this->role = $Role;
@@ -56,6 +59,34 @@ class User
      */
     public function setName($name) {
         $this->name = $name;
+    }
+
+    /**
+     * @return the date of birth
+     */
+    public function getDateOfBirth() {
+        return $this->dateOfBirth;
+    }
+
+    /**
+     * @param name the date of birth to set
+     */
+    public function setDateOfBirth($dateOfBirth) {
+        $this->dateOfBirth = $dateOfBirth;
+    }
+
+    /**
+     * @return the gender
+     */
+    public function getGender() {
+        return $this->gender;
+    }
+
+    /**
+     * @param name the gender to set
+     */
+    public function setGender($gender) {
+        $this->gender = $gender;
     }
 
     /**
@@ -84,6 +115,20 @@ class User
      */
     public function setPassword($password) {
         $this->password = $password;
+    }
+    /**
+     * @return the address
+     */
+
+    public function getAddress() {
+        return $this->address;
+    }
+
+    /**
+     * @param address the address to set
+     */
+    public function setAddress($address) {
+        $this->address = $address;
     }
 
 }

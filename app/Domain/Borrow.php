@@ -6,12 +6,12 @@
  * Date: 12/30/2015
  * Time: 12:25 AM
  */
-class Brrow
+class Borrow
 {
     private $itemNo;
     private $studentID;
-    private $startDate;
-    private $endDate;
+    private $startDate = null;
+    private $endDate = null;
     private $returned;
 
     /**
@@ -53,7 +53,8 @@ class Brrow
      * @param startDate the startDate to set
      */
     public function setStartDate($startDate) {
-        $this->startDate = $startDate;
+        if($startDate!='')
+            $this->startDate = $startDate;
     }
 
     /**
@@ -67,7 +68,8 @@ class Brrow
      * @param endDate the endDate to set
      */
     public function setEndDate($endDate) {
-        $this->endDate = $endDate;
+        if($endDate!='')
+            $this->endDate = $endDate;
     }
 
     /**

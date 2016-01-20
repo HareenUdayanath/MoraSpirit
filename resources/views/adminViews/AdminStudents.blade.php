@@ -31,15 +31,15 @@
     <h3>Students</h3>
     <div class="" role="tabpanel" data-example-id="togglable-tabs">
         <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-            <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">View Srudents</a>
+            <li role="presentation" class="active"><a href="#tab_content1" id="view-tab" role="tab" data-toggle="tab" aria-expanded="true">View Srudents</a>
             </li>
-            <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab"  aria-expanded="false">Add New Student</a>
+            <li role="presentation" class=""><a href="#tab_content2" role="tab" id="new-tab" data-toggle="tab"  aria-expanded="false">Add New Student</a>
             </li>
-            <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab" data-toggle="tab"  aria-expanded="false">Edit Student</a>
+            <li role="presentation" class=""><a href="#tab_content3" role="tab" id="edit-tab" data-toggle="tab"  aria-expanded="false">Edit Student</a>
             </li>
         </ul>
         <div id="myTabContent" class="tab-content">
-            <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+            <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="view-tab">
                 <section class="content">
                     <div class="row">
                         <label class=" col-md-1 col-sm-1 col-xs-1" style="padding-top: 5px;"> Search By: </label>
@@ -145,7 +145,7 @@
                     <br />
                 </section>
             </div>
-            <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+            <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="new-tab">
                 <div class="clearfix"></div>
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
@@ -168,9 +168,9 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12"> Date of Birth </label>
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="std-dob"> Date of Birth </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input type="text" class="form-control" data-inputmask="'mask': '99/99/9999'">
+                                            <input type="text" class="form-control" data-inputmask="'mask': '99/99/9999'" id="std-dob" name="std-dob">
                                         </div>
                                     </div>
                                     <!-- input_mask -->
@@ -196,7 +196,7 @@
                                     <div class="form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="std-address"> Address </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input type="text" id="std-address" class="form-control col-md-7 col-xs-12">
+                                            <input type="text" id="std-address" class="form-control col-md-7 col-xs-12" name="std-address">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -216,19 +216,19 @@
                                     <div class="form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="std-emrg-per"> Emergency Contact Person </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input type="text" id="std-emrg-per" class="form-control col-md-7 col-xs-12">
+                                            <input type="text" id="std-emrg-per" class="form-control col-md-7 col-xs-12" name="std-emrg-per">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="std-emrg-num"> Emergency Contact Number </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input type="text" id="std-emrg-num" class="form-control col-md-7 col-xs-12">
+                                            <input type="text" id="std-emrg-num" class="form-control col-md-7 col-xs-12" name="std-emrg-num">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12"> Blood Group </label>
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="std-blood"> Blood Group </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <select class="form-control">
+                                            <select class="form-control" name="std-blood" id="std-blood">
                                                 <option hidden> Choose a blood group... </option>
                                                 <option> A+ </option>
                                                 <option> A- </option>
@@ -242,9 +242,9 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12"> Medical Conditions </label>
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="std-med"> Medical Conditions </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <textarea class="form-control"></textarea>
+                                            <textarea class="form-control" id="std-med" name="std-med"></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -288,11 +288,12 @@
                                             </script>
                                         </div>
                                     </div>
+                                    <input hidden value="1" id="num-of-rows" name="num-of-sports">
                                     <div class="ln_solid"></div>
                                     <div class="form-group">
                                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                                             <button type="button" class="btn btn-dark" onclick="goToView()">Cancel</button>
-                                            <button type="submit" class="btn btn-success pull-right">Submit</button>
+                                            <button type="submit" class="btn btn-success pull-right">Add New Student</button>
                                             <button type="reset" class="btn btn-primary pull-right">Reset</button>
                                         </div>
                                         <script type="text/javascript">
@@ -309,7 +310,7 @@
                     </div>
                 </div>
             </div>
-            <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
+            <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="edit-tab">
                 <p align="center"> Select a student in View tab to Edit here</p>
             </div>
         </div>
