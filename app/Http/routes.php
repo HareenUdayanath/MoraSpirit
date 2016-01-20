@@ -75,7 +75,13 @@ Route::get('adminLoadSports/{requester}','AdminController@loadSports');
 
 Route::get('adminLoadResources/{requester}','AdminController@loadResources');
 
-Route::get('adminLoadStudent/{index}','AdminController@loadStudent');
+Route::get('adminLoadStudent/{ID}','AdminController@loadStudent');
+
+Route::get('adminLoadUser/{ID}','AdminController@loadUser');
+
+Route::get('adminLoadEquipment/{ID}','AdminController@loadEquip');
+
+Route::get('adminLoadUtils/{sport}','AdminController@loadUtils');
 
 Route::get('adminUpdateStudent',array('as'=>'adminUpdateStudent','uses'=>'AdminController@updateStudent'));
 

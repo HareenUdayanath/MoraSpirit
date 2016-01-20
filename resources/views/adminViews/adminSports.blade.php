@@ -31,56 +31,76 @@
     <h3>Sports</h3>
     <div class="" role="tabpanel" data-example-id="togglable-tabs">
         <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-            <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">View Sports</a>
+            <li role="presentation" class="active"><a href="#tab_content1" id="view-tab" role="tab" data-toggle="tab" aria-expanded="true">View Sports</a>
             </li>
-            <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab"  aria-expanded="false">Add New Sport</a>
+            <li role="presentation" class=""><a href="#tab_content2" role="tab" id="new-tab" data-toggle="tab"  aria-expanded="false">Add New Sport</a>
+            </li>
+            <li role="presentation" class=""><a href="#tab_content3" role="tab" id="edit-tab" data-toggle="tab"  aria-expanded="false">Edit Sport</a>
             </li>
         </ul>
         <div id="myTabContent" class="tab-content">
-            <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+            <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="view-tab">
                 <section class="content">
                     <div class="row">
-                        <label class=" col-md-1 col-sm-1 col-xs-1" style="padding-top: 5px;"> Search By: </label>
-                        <div class="col-md-2 col-sm-2 col-xs-2">
-                            <select class="form-control">
-                                <option> ID </option>
-                                <option> Name </option>
-                            </select>
-                        </div>
+                        <label class=" col-md-1 col-sm-1 col-xs-1" style="padding-top: 5px;"> Search: </label>
                         <div class="col-md-6 col-sm-6 col-xs-6 top_search">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search for...">
+                                <input type="text" class="form-control" placeholder="Enter a sport name...">
                                     <span class="input-group-btn">
                                     <button class="btn btn-default" type="button">Go!</button>
                                     </span>
                             </div>
                         </div>
-                        <div class="col-xs-12">
-                            <div class="table-responsive">
-                                <table id="example1" class="table table-bordered table-striped">
-                                    <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Contact Number</th>
-                                    </tr>
-                                    </thead>
-                                    {{--<tbody>
-                                    @foreach($users as $usr)
+                        <br />
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <ul class="list-group" id="sport-list">
+                                    <li class="list-group-item ">Cricket</li>
+                                    <li class="list-group-item ">Football</li>
+                                    <li class="list-group-item ">Vollyball</li>
+                                </ul>
+                                <script type='text/javascript'>
+                                    $('.list-group li').click(function(e) {
+                                        e.preventDefault()
+                                        $that = $(this);
+                                        $('.list-group').find('li').removeClass('active');
+                                        $that.addClass('active');
+                                        document.getElementById('selected-sport').value=$(this).text();
+                                        var sport = $(this).text();
+                                        $.ajax({
+                                            url:'{{url('adminLoadUtils')}}/'+sport,
+                                            success:function(data){
+                                                if(data!=1){
+                                                    $('#util-tbl').html(data).show();
+                                                }
+                                            }
+                                        });
+                                    });
+                                </script>
+                            </div>
+                            <input hidden id="selected-sport" value="">
+                            <div class="col-md-6 col-sm-6 col-xs-6" id="util-tbl">
+                                <div class="table-responsive">
+                                    <table id="example1" class="table table-bordered table-striped">
+                                        <thead>
                                         <tr>
-                                            <td>{{$usr->ID}}</td>
-                                            <td>{{$usr->Name}}</td>
-                                            <td>{{$usr->ContactNo}}</td>
+                                            <th>Resource</th>
+                                            <th>Utilization</th>
                                         </tr>
-                                    @endforeach
-                                    </tbody>--}}
-                                </table>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
+                        <button class="btn btn-primary pull-right" type="button" onclick="">Edit Sport</button>
                     </div>
+                    <br />
+                    <br />
                 </section>
             </div>
-            <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+            <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="new-tab">
                 <div class="clearfix"></div>
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
@@ -98,14 +118,6 @@
                                     <div class="form-group">
                                         <input type="hidden" name="num-of-rows" id="num-of-rows" value="0">
                                     </div>
-                                    <script type="text/javascript">
-                                        function prepare(){
-                                            alert(document.getElementById("num-of-rows").value);
-                                            var url = "{{url('adminAddSport')}}"+"/"+document.getElementById("num-of-rows").value;
-                                            alert(url);
-                                            return url;
-                                        }
-                                    </script>
                                     <br />
                                     <div class="form-group">
                                         <div class="col-xs-12">
@@ -166,6 +178,9 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="edit-tab">
+                <p align="center"> Select a sport in View tab to Edit here</p>
             </div>
         </div>
     </div>

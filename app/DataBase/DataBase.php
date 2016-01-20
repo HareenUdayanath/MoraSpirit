@@ -96,14 +96,14 @@ class DataBase{
     }
 
     public function addCoach($coach){
-        DB::insert('INSERT INTO Coach VALUES(?,?)',
-            [$coach->getID(),$coach->getResource()]);
         $this->addUser($coach);
+        DB::insert('INSERT INTO Coach VALUES(?,?)',
+            [$coach->getID(),$coach->getSportName()]);
     }
 
     public function addUser($user){
-        DB::insert('INSERT INTO Users VALUES(?,?,?,?)',
-            [$user->getID(),$user->getName(),$user->getContactNo(),$user->getPassword()]);
+        DB::insert('INSERT INTO Users VALUES(?,?,?,?,?)',
+            [$user->getID(),$user->getName(),$user->getContactNo(),$user->getPassword(),$user->getRole()]);
     }
 
     public function addEquipmentRequest($equipmentType,$studentID){
@@ -209,6 +209,20 @@ class DataBase{
     public function getResourceID($resourceName){
         $id = DB::select('SELECT ID FROM resource WHERE Name=?',[$resourceName]);
         return $id[0]->ID;
+    }
+
+    public function getKeeper($id){
+        $keeper = DB::select('SELECT * FROM Keeper WHERE ID=?',[$id]);
+        return $keeper[0];
+    }
+
+    public function getCoach($id){
+        $coach = DB::select('SELECT * FROM Coach WHERE ID=?',[$id]);
+        return $coach[0];
+    }
+
+    public function getUtils($sport){
+        return DB::select('SELECT Name,Utilization From SportsResources LEFT OUTER JOIN Resource ON SportsResources.ResourceID=Resource.ID WHERE SportName=?',[$sport]);
     }
 
     public function searchUserByID($ID){
