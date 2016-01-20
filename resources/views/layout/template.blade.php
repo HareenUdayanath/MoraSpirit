@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+use Log;
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
@@ -55,11 +55,11 @@
                 <!-- menu prile quick info -->
                 <div class="profile">
                     <div class="profile_pic">
-                        <img src={{asset("/images/Users")."/".$user->ID.".jpg"}} alt="..." class="img-circle profile_img">
+                        <img src={{--asset("/images/Users")."/".$user->ID.".jpg")--}} alt="..." class="img-circle profile_img">
                     </div>
                     <div class="profile_info">
                         <span>Welcome,</span>
-                        <h2>{{$user->Name}}</h2>
+                        <h2>{{--$user->Name--}}</h2>
                     </div>
                 </div>
                 <!-- /menu prile quick info -->
@@ -91,7 +91,8 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li class="">
                             <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                <img src={{asset("/images/Users")."/".$user->ID.".jpg"}} alt="">{{$user->Name}}
+                                {{--
+                                <img src={{asset("/images/Users")."/".$user->ID.".jpg"}} alt="">{{$user->Name--}}
                                 <span class=" fa fa-angle-down"></span>
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">

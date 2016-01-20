@@ -75,10 +75,12 @@ class CoachController extends Controller
     public function addAchievement(){
         $achievement=new Achievement();
         $achievement->setAchievementID(8);
+        $achievement->setStudentID(Input::get('index-number'));
         $achievement->setSportName(Input::get('sport'));
         $achievement->setContest(Input::get('contest'));
         $achievement->setPlace(Input::get('place'));
         $achievement->setDate(Input::get('scheduleDay'));
+        $achievement->setDescription(Input::get('description'));
         $database=Database::getInstance();
         $database->addAchievementt($achievement);
         $user=new User();
@@ -115,6 +117,42 @@ class CoachController extends Controller
     public function getStdName($ID){
         $name=DataBase::getInstance()->getStudentName($ID);
         return view('coachViews.ajexViews.studentName')->with('stdName',$name);
+    }
+
+    public function loadAchiPage(){
+        $user = new User();
+        $user->setName("Anthony Fernando");
+        return view('coachViews.loadAchievement')
+            ->with('user',$user);
+    }
+
+    public function loadAchievement($ID){
+        $achievement=Database::getInstance()->getAchievement($ID);
+        return view('coachViews.ajexViews.achieveList')->with('achieve',$achievement);
+    }
+     public function displayCoachHome(){
+         $user = new User();
+         $user->setName("Anthony Fernando");
+         return view('coachViews.coachHome')
+             ->with('user',$user);
+     }
+    public function displayDelSession(){
+        $sessionID=DataBase::getInstance()->getAllSessionID();
+        $user = new User();
+        $user->setName("Anthony Fernando");
+        return view('coachViews.deleteSchedule')
+            ->with('user',$user)
+            ->with('sessionID',$sessionID);
+    }
+
+    public function deleteSession(){
+        $sessionID=Input::get('sessionID');
+        DataBase::getInstance()->deleteSessionID($sessionID);
+        $user = new User();
+        $user->setName("Anthony Fernando");
+        return view('coachViews.deleteSchedule')
+            ->with('user',$user)
+            ->with('sessionID',DataBase::getInstance()->getAllSessionID());
     }
 
 }

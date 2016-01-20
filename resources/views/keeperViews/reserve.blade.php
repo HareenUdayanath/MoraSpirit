@@ -6,17 +6,18 @@
     <div class="menu_section">
         <h3>Keeper</h3>
         <ul class="nav side-menu">
-            <li><a><i class="fa fa-home"></i> Home </a> </li>
-            <li><a><i class="fa fa-edit"></i> Reserve </a>
+            <li><a href={{route('keeperHome')}}><i class="fa fa-home"></i> Home </a> </li>
+
             </li>
-            <li><a><i class="fa fa-desktop"></i> Equipment Lending </a>
+            <li><a href={{route('eqplending')}}><i class="fa fa-desktop"></i> Equipment Lending </a>
             </li>
-            <li><a><i class="fa fa-table"></i> Equipment Recieval </a>
+            <li><a href={{route('eqprecieval')}}><i class="fa fa-table"></i> Equipment Recieval </a>
             </li>
-            <li><a><i class="fa fa-bar-chart-o"></i> Update Details </a>
+            <li><a href={{route('eqpUpdateDetails')}}><i class="fa fa-bar-chart-o"></i> Update Details </a>
         </ul>
     </div>
 @endsection
+
 
 
 @section('content')
@@ -44,12 +45,25 @@
         </div>
         <div class="x_content">
             <br />
-            <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+            <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left"  action="{{route('addBooking')}}">
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Reqester Name <span class="required">*</span></label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text"   id="reqName" name="reqName" required="required" class="form-control col-md-7 col-xs-12">
+                    </div>
+                </div>
 
                 <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Resource</label>
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Contact Number <span class="required">*</span></label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text"   id="conNum" name="conNum" required="required" class="form-control col-md-7 col-xs-12" maxlength="10">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Resource <span class="required">*</span></label>
                     <div class="col-md-4 col-sm-9 col-xs-12">
-                        <select class="form-control" id="resource">
+                        <select class="form-control" id="resource" name="resource" placeholder="select">
                             @foreach($resources as $resource)
                                 <option>{{$resource->Name}}</option>
                             @endforeach
@@ -60,9 +74,11 @@
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Reservation Date <span class="required">*</span>
                     </label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input id="resdate" class="date-picker form-control col-md-7 col-xs-12 active" required="required" type="text" data-parsley-id="2514"><ul class="parsley-errors-list" id="parsley-id-2514"></ul>
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <input id="resdate" name="resdate" class="date-picker form-control col-md-6 col-xs-12 active" required="required" type="text" data-parsley-id="2514"><ul class="parsley-errors-list" id="parsley-id-2514"></ul>
+                        <button type="button" class="btn btn-primary" onclick="getReserveTimes()">Check</button>
                     </div>
+
                 </div>
                 <script type="text/javascript">
                     $(document).ready(function () {
@@ -73,67 +89,89 @@
                             console.log(start.toISOString(), end.toISOString(), label);
                         });
                     });
+
+                    function getReserveTimes(){
+
+                        var date,resourceName,value;
+                        date=document.getElementById('resdate').value;
+                        resourceName = document.getElementById('resource');
+                        value = resourceName.options[resourceName.selectedIndex].text;
+                        date = date.split("/");
+                        var newDate = date[2] + "-" + date[0] + "-" + date[1];
+                        alert(value+' '+newDate);
+                        $.ajax({
+                            url: '{{url('getResTimes')}}/' + value + '/' + newDate,
+                            success: function (data) {
+                                $('#restimes').html(data).show();
+                            }
+                        });
+                     }
                 </script>
 
                 <div class="form-group">
-                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                    <label>
-                        <input type="checkbox" class="flat" onclick="disableTxt()"> All day
-                    </label>
-                </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                        <!--label>
+
+                        <input type="checkbox"  id="checkAllday">  All day
+                        <script type="text/javascript">
+                            $('#checkAllday').change(function(){
+                                alert('sas');
+                            })
+                            $('#checkAllday').click(function(){
+                                if($('#checkAllday').prop('checked',true)){
+                                    alert('in if');
+                                    //document.getElementById('startTime').outerHTML='';
+                                    //document.getElementById('endTime').outerHTML='';
+                                    $('#startTime').html('');
+                                }else{
+                                    //document.getElementById('startTime').outerHTML='';
+                                    $('#startTime').html('<label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">From <span class="required"></span></label><div class="col-md-2 col-sm-9 col-xs-12"><input type="number" id="fromH" name="fromH"  min="1" max="12" class="form-control col-md-7 col-xs-12" ></div><div class="col-md-2 col-sm-9 col-xs-12"><input type="number" id="number" name="number" required="required" min="0" max="59" class="form-control col-md-7 col-xs-12"></div><div class="col-md-1 col-sm-9 col-xs-12"><select class="form-control"><option>AM</option><option>PM</option></select>');
+                                }
+                                //document.getElementById('startTime').outerHTML='';
+
+                            });
+                        </script>
+                        </label-->
                     </div>
 
-                <script>
-                    function disableTxt() {
-                        document.getElementById("fromH").disabled = "disabled";
-                        /*document.getElementById("myText").disabled = true;
-                        document.getElementById("myText").disabled = true;
-                        document.getElementById("myText").disabled = true;
-                        document.getElementById("myText").disabled = true;
-                        document.getElementById("myText").disabled = true;*/
-
-                    }
-
-                    function loadtimes(){
+                </div>
 
 
-                    }
-                    </script>
 
-                <div class="form-group" id ="timeInput" >
+                <div class="form-group" id ="startTime" >
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">From <span class="required"></span>
                     </label>
 
                         <div class="col-md-2 col-sm-9 col-xs-12">
-                            <input type="number" id="fromH" name="fromH"  data-validate-minmax="10,100" class="form-control col-md-7 col-xs-12" >
+                            <input type="number" id="start-hour" name="start-hour"  min="1" max="12" class="form-control col-md-7 col-xs-12" >
                         </div>
 
                     <div class="col-md-2 col-sm-9 col-xs-12">
-                        <input type="number" id="number" name="number" required="required" data-validate-minmax="10,100" class="form-control col-md-7 col-xs-12">
+                        <input type="number" id="start-minute" name="start-minute" required="required" min="0" max="59" class="form-control col-md-7 col-xs-12">
                     </div>
                     <div class="col-md-1 col-sm-9 col-xs-12">
-                        <select class="form-control">
-                            <option>AM</option>
-                            <option>PM</option>
+                        <select class="form-control" name="start-am-pm">
+                            <option>am</option>
+                            <option>pm</option>
 
                         </select>
                     </div>
 
                 </div>
 
-                <div class="form-group">
+                <div class="form-group" id ="endTime" >
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">To <span class="required"></span>
                     </label>
                     <div class="col-md-2 col-sm-9 col-xs-12">
-                        <input type="number" id="number" name="number" required="required" data-validate-minmax="10,100" class="form-control col-md-7 col-xs-12">
+                        <input type="number" id="end-hour" name="end-hour" required="required" min="1" max="12" class="form-control col-md-7 col-xs-12">
                     </div>
                     <div class="col-md-2 col-sm-9 col-xs-12">
-                        <input type="number" id="number" name="number" required="required" data-validate-minmax="10,100" class="form-control col-md-7 col-xs-12">
+                        <input type="number" id="end-minute" name="end-minute" required="required" min="0" min="59" class="form-control col-md-7 col-xs-12">
                     </div>
                     <div class="col-md-1 col-sm-9 col-xs-12">
-                        <select class="form-control">
-                            <option>AM</option>
-                            <option>PM</option>
+                        <select class="form-control" name="end-am-pm">
+                            <option>am</option>
+                            <option>pm</option>
 
                         </select>
                     </div>
@@ -144,8 +182,8 @@
 
                 <div class="form-group">
                     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                        <button type="submit" class="btn btn-primary">Check</button>
-                        <button type="" class="btn btn-success">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="reset" class="btn btn-success">Cancel</button>
                     </div>
                 </div>
 
@@ -172,21 +210,13 @@
                             <div class="clearfix"></div>
                         </div>
 
-                        <div class="x_content">
+                        <div class="x_content" id ="restimes">
 
 
 
                             <table class="table table-striped responsive-utilities jambo_table bulk_action">
                                 <thead>
-                                <tr class="headings">
-                                    <th>
-                                        <input type="checkbox" id="check-all" class="flat">
-                                    </th>
-                                    <th class="column-title">Date </th>
-                                    <th class="column-title">Time </th>
 
-
-                                    </th>
                                     <th class="bulk-actions" colspan="7">
                                         <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
                                     </th>
@@ -194,7 +224,7 @@
                                 </thead>
 
                                 <tbody>
-                                <tr class="even pointer" id ="restimes">
+                                <tr class="even pointer" >
 
 
                                 </tr>
