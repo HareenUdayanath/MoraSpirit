@@ -10,11 +10,11 @@ class Achievement
 {
     private $studentID;
     private $achievementID;
-    private $contest;
-    private $date;
-    private $place;
-    private $sportName;
-    private $description;
+    private $contest = null;
+    private $date = null;
+    private $place = null;
+    private $sportID;
+    private $description = null;
 
     /**
      * @return the achievementID
@@ -41,7 +41,8 @@ class Achievement
      * @param contest the contest to set
      */
     public function setContest($contest) {
-        $this->contest = $contest;
+        if($contest!='')
+            $this->contest = $contest;
     }
 
         /**
@@ -55,9 +56,11 @@ class Achievement
      * @param date the date to set
      */
     public function setDate($date) {
-        $array=explode('/',$date);
-        $newDate=$array[2]."-".$array[0]."-".$array[1];
-        $this->date = $newDate;
+        if($date!='') {
+            $array = explode('/', $date);
+            $newDate = $array[2] . "-" . $array[0] . "-" . $array[1];
+            $this->date = $newDate;
+        }
     }
 
     /**
@@ -71,21 +74,22 @@ class Achievement
      * @param place the place to set
      */
     public function setPlace($place) {
-        $this->place = $place;
+        if($place!='')
+            $this->place = $place;
     }
 
     /**
-     * @return the sportName
+     * @return the sportID
      */
-    public function getSportName() {
-        return $this->sportName;
+    public function getSportID() {
+        return $this->sportID;
     }
 
     /**
-     * @param sportName the sportName to set
+     * @param sportName the sportID to set
      */
-    public function setSportName($sportName) {
-        $this->sportName = $sportName;
+    public function setSportID($sportID) {
+        $this->sportName = $sportID;
     }
 
     /**
@@ -99,7 +103,8 @@ class Achievement
      * @param description the description to set
      */
     public function setDescription($description) {
-        $this->description = $description;
+        if($description!='')
+            $this->description = $description;
     }
 
     /**

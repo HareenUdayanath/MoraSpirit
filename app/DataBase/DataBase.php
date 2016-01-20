@@ -34,9 +34,11 @@ class DataBase{
      * Insert Data.........................
      * */
     public function addStudent($student){
-        DB::insert('INSERT INTO Student VALUES(?,?,?,?,?)',
-            [$student->getID(),$student->getFirstName(),
-                $student->getLastName(),$student->getFaculty(),$student->getDepartment()]);
+        DB::insert('INSERT INTO Student VALUES(?,?,?,?,?,?,?,?,?,?,?)',
+            [$student->getID(),$student->getName(),
+                $student->getDateOfBirth(),$student->getGender(),getAddress(),
+                $student->getFaculty(),$student->getDepartment(),$student->getMedicalCondition(),
+                $student->getBloodGroup(),$student->getEmergencyContactPerson(),$student->getEmergencyContactNo()]);
     }
 
     public function addResource($resource){

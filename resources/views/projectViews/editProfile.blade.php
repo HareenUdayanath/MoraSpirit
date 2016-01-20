@@ -1,10 +1,15 @@
+<div class="col-md-6">
 <h1>Edit Profile</h1>
-<h1>Image</h1>
 <img src="{{asset("/images/Users")."/".$user->ID.".jpg"}}" alt="..."  width="200" height="200">
-<h1>{{$user->ID}}</h1>
-<h1>{{$user->Name}}</h1>
-
-
+</br>
+</br>
+</div>
+<div class="col-md-6">
+<h1>User Details</h1>
+</br>
+<h2>{{"Name: ".$user->Name}}</h2>
+<h2>{{"Role: ".$user->Role}}</h2>
+</div>
 
 <div class="row">
     <div class="col-md-12 col-sm-12 col-xs-12">
@@ -70,58 +75,27 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="user-role"> Role <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <select class="form-control" required onchange="loadSportsOrResources()" id="user-role" value="{{$user->Role}}">
-                                <option> Admin </option>
-                                <option> Coach </option>
-                                <option> Keeper </option>
-                            </select>
+                            <input type="text" id="user-role" required disabled class="form-control col-md-7 col-xs-12" value="{{$user->Role}}">
                         </div>
                     </div>
-                    <script type="text/javascript">
-                        function loadSportsOrResources(){
-                            var roledrop = document.getElementById('user-role');
-                            var role = roledrop.options[roledrop.selectedIndex].text;
-                            if(role=='Coach'){
-                                $.ajax({
-                                    url:'{{url('adminLoadSports')}}/'+'user',
-                                    success:function(data){
-                                        if(data!=1){
-                                            $('#sportResourcefield').html(data).show();
-                                        }
-                                    }
-                                });
-                            }else if(role=='Keeper'){
-                                $.ajax({
-                                    url:'{{url('adminLoadResources')}}/'+'user',
-                                    success:function(data){
-                                        if(data!=1){
-                                            $('#sportResourcefield').html(data).show();
-                                        }
-                                    }
-                                });
-                            }else if(role=='Admin'){
-                                $('#sportResourcefield').html('');
-                            }
-                        }
-                    </script>
                     <div class="form-group" id="sportResourcefield">
-                        @if(-$user->Role=='Coach')
+                        @if($user->Role=='Coach')
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="user-sport-or-res"> Sport </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <select class="form-control" id="user-sport-or-res" value="{{$coach->Sport}}">
-                                    @foreach($sports as $sport)
+                                <!--select class="form-control" id="user-sport-or-res" value="{{--$coach->Sport--}}">
+                                    {{--@foreach($sports as $sport)
                                         <option>{{$sport->SportName}}</option>
-                                    @endforeach
-                                </select>
+                                    @endforeach--}}
+                                </select-->
                             </div>
                         @elseif($user->Role=='Keeper')
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="user-sport-or-res"> Resource </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <select class="form-control" id="user-sport-or-res" value="{{$keeper->Resource}}">
-                                    @foreach($resources as $resource)
+                                <!--select class="form-control" id="user-sport-or-res" value="{{--$keeper->Resource--}}">
+                                    {{--@foreach($resources as $resource)
                                         <option>{{$resource->Name}}</option>
-                                    @endforeach
-                                </select>
+                                    @endforeach--}}
+                                </select-->
                             </div>
                         @endif
                     </div>
@@ -137,4 +111,5 @@
         </div>
     </div>
 </div>
+
 
