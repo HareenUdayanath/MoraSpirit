@@ -159,7 +159,7 @@ class DataBase{
     }
 
     public function loadKeepers(){
-        return DB::select('SELECT Name From Users NATURAL JOIN Keeper');
+        return DB::select('SELECT Name From User NATURAL JOIN Keeper');
     }
 
     public function loadAvailableEquipments(){
@@ -231,11 +231,11 @@ class DataBase{
     }
 
     public function searchUserByID($ID){
-        return DB::select('SELECT * FROM users WHERE ID LIKE \'%'.$ID.'%\'');
+        return DB::select('SELECT * FROM user WHERE ID LIKE \'%'.$ID.'%\'');
     }
 
     public function searchUserByName($name){
-        return DB::select('SELECT * FROM users WHERE Name LIKE \'%'.$name.'%\'');
+        return DB::select('SELECT * FROM user WHERE Name LIKE \'%'.$name.'%\'');
     }
 
     public function loadStudents(){
@@ -260,11 +260,11 @@ class DataBase{
 
 
     public function loadUsers(){
-      return DB::select('SELECT * FROM users');
+      return DB::select('SELECT * FROM user');
     }
 
     public function loadUsersOf($ID){
-        return DB::select('SELECT Name FROM users WHERE ID = ?',[$ID]);
+        return DB::select('SELECT Name FROM user WHERE ID = ?',[$ID]);
     }
 
     //DB::statement("UPDATE favorite_contents,
@@ -282,7 +282,7 @@ class DataBase{
     }
 
     public function checkUser($username,$password){
-        $users = DB::select('SELECT * FROM users WHERE Name = ? AND Password = ?',[$username,$password]);
+        $users = DB::select('SELECT * FROM user WHERE Name = ? AND Password = ?',[$username,$password]);
         if(count($users)<=0)
             return false;
         return true;

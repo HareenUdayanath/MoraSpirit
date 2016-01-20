@@ -9,6 +9,7 @@ use App\Domain\Student;
 use App\Domain\User;
 use App\DataBase\DataBase;
 use App\Domain\Utilization;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Input;
 
 /**
@@ -23,18 +24,21 @@ class AdminController extends Controller
     public function displayHomePage(){
         $user = new User();
         $user->setName("Anthony Fernando");
+        $user->setID("130209");
         return view('adminViews.adminHome')->with('user',$user);
     }
 
     public function displayUserPage(){
         $user = new User();
         $user->setName("Anthony Fernando");
+        $user->setID("130209");
         return view('adminViews.adminUsers')->with('user',$user)->with('users',DataBase::getInstance()->loadUsers());
     }
 
     public function displaySportPage(){
         $user = new User();
         $user->setName("Anthony Fernando");
+        $user->setID("130209");
         $database = DataBase::getInstance();
         $sports = $database->loadSports();
         $resources = $database->loadResource();
@@ -47,6 +51,7 @@ class AdminController extends Controller
         $sports = $database->loadSports();
         $user = new User();
         $user->setName("Anthony Fernando");
+        $user->setID("130209");
         return view('adminViews.adminEquipments')->with('user',$user)->with('equips',$equips)->with('sports',$sports);
     }
 
@@ -56,6 +61,7 @@ class AdminController extends Controller
         $resources = $database->loadResource();
         $user = new User();
         $user->setName("Anthony Fernando");
+        $user->setID("130209");
         return view('adminViews.adminResources')->with('user',$user)->with('keepers',$keepers)->with('resources',$resources);
     }
 
@@ -64,6 +70,7 @@ class AdminController extends Controller
         $students = $database->loadStudents();
         $sports = $database->loadSports();
         $user = new User();
+        $user->setID("130209");
         $user->setName("Anthony Fernando");
         return view('adminViews.adminStudents')->with('user',$user)->with('students',$students)->with('sports',$sports);
     }
@@ -84,8 +91,9 @@ class AdminController extends Controller
         $user->setID(Input::get('user-id'));
         $user->setName(Input::get('user-name'));
         $user->setContactNo(Input::get('contact-num'));
-        $user->setPassword('abcd');
+        $user->setPassword(Hash::make('mora1234'));
         $user->setRole($role);
+        
         if($role=='Coach'){
             $database->addCoach($user);
         }elseif($role=='Keeper'){
