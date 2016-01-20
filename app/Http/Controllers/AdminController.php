@@ -35,7 +35,10 @@ class AdminController extends Controller
     public function displaySportPage(){
         $user = new User();
         $user->setName("Anthony Fernando");
-        return view('adminViews.adminSports')->with('user',$user)->with('resources',DataBase::getInstance()->loadResource());
+        $database = DataBase::getInstance();
+        $sports = $database->loadSports();
+        $resources = $database->loadResource();
+        return view('adminViews.adminSports')->with('user',$user)->with('resources',$resources)->with('sports',$sports);
     }
 
     public function displayEquipmentPage(){
@@ -50,9 +53,10 @@ class AdminController extends Controller
     public function displayResourcePage(){
         $database = DataBase::getInstance();
         $keepers = $database->loadKeepers();
+        $resources = $database->loadResource();
         $user = new User();
         $user->setName("Anthony Fernando");
-        return view('adminViews.adminResources')->with('user',$user)->with('keepers',$keepers);
+        return view('adminViews.adminResources')->with('user',$user)->with('keepers',$keepers)->with('resources',$resources);
     }
 
     public function displayStudentPage(){

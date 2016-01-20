@@ -55,9 +55,9 @@
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="col-md-6 col-sm-6 col-xs-6">
                                 <ul class="list-group" id="sport-list">
-                                    <li class="list-group-item ">Cricket</li>
-                                    <li class="list-group-item ">Football</li>
-                                    <li class="list-group-item ">Vollyball</li>
+                                    @foreach($sports as $sport)
+                                        <li class="list-group-item ">{{$sport->SportName}}</li>
+                                    @endforeach
                                 </ul>
                                 <script type='text/javascript'>
                                     $('.list-group li').click(function(e) {
