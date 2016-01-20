@@ -1,6 +1,8 @@
 <?php namespace App\Http\Controllers;
 
+use App\Domain\Coach;
 use App\Domain\Equipment;
+use App\Domain\Keeper;
 use App\Domain\Resource;
 use App\Domain\Sport;
 use App\Domain\Student;
@@ -33,7 +35,10 @@ class AdminController extends Controller
     public function displaySportPage(){
         $user = new User();
         $user->setName("Anthony Fernando");
-        return view('adminViews.adminSports')->with('user',$user)->with('resources',DataBase::getInstance()->loadResource());
+        $database = DataBase::getInstance();
+        $sports = $database->loadSports();
+        $resources = $database->loadResource();
+        return view('adminViews.adminSports')->with('user',$user)->with('resources',$resources)->with('sports',$sports);
     }
 
     public function displayEquipmentPage(){
@@ -48,9 +53,10 @@ class AdminController extends Controller
     public function displayResourcePage(){
         $database = DataBase::getInstance();
         $keepers = $database->loadKeepers();
+        $resources = $database->loadResource();
         $user = new User();
         $user->setName("Anthony Fernando");
-        return view('adminViews.adminResources')->with('user',$user)->with('keepers',$keepers);
+        return view('adminViews.adminResources')->with('user',$user)->with('keepers',$keepers)->with('resources',$resources);
     }
 
     public function displayStudentPage(){
@@ -64,12 +70,29 @@ class AdminController extends Controller
 
     public function addNewUser(){
         $database = DataBase::getInstance();
-        $user = new User();
+        $user=null;
+        $role = Input::get('user-role');
+        if($role=='Coach'){
+            $user = new Coach();
+            $user->setSportName(Input::get('user-sport-or-res'));
+        }elseif($role=='Keeper'){
+            $user = new Keeper();
+            $user->setResource(Input::get('user-sport-or-res'));
+        }else{
+            $user = new User();
+        }
         $user->setID(Input::get('user-id'));
         $user->setName(Input::get('user-name'));
         $user->setContactNo(Input::get('contact-num'));
         $user->setPassword('abcd');
-        $database->addUser($user);
+        $user->setRole($role);
+        if($role=='Coach'){
+            $database->addCoach($user);
+        }elseif($role=='Keeper'){
+            $database->addKeeper($user);
+        }else{
+            $database->addUser($user);
+        }
         return $this->displayUserPage();
     }
 
@@ -203,11 +226,39 @@ class AdminController extends Controller
         $sports = $database->loadSports();
         $myfile = fopen("newfile.txt", "w");
         //fwrite($myfile,$txt);
-        foreach($student as $equip){
+        /*foreach($student as $equip){
             fwrite($myfile,$equip->ID);
         }
-        fclose($myfile);
+        fclose($myfile);*/
         return view('adminViews.ajaxViews.editStudentForm')->with('student',$student[0])->with('sports',$sports);
+    }
+
+    public function loadUser($id){
+        $database = DataBase::getInstance();
+        $user = $database->searchUserByID($id);
+        if($user[0]->Role=='Coach'){
+            $coach=$database->getCoach($id);
+            $sports = $database->loadSports();
+            return view('adminViews.ajaxViews.editUserForm')->with('user',$user[0])->with('coach',$coach)->with('sports',$sports);
+        }elseif($user[0]->Role=='Keeper'){
+            $keeper=$database->getKeeper($id);
+            $resource = $database->loadResource();
+            return view('adminViews.ajaxViews.editUserForm')->with('user',$user[0])->with('keeper',$keeper)->with('resources',$resource);
+        }
+        return view('adminViews.ajaxViews.editUserForm')->with('user',$user[0]);
+    }
+
+    public function loadEquip($itemNo){
+        $database = DataBase::getInstance();
+        $equips = $database->searchEquipmentByID($itemNo);
+        $sports = $database->loadSports();
+        return view('adminViews.ajaxViews.editEquipmentForm')->with('equip',$equips[0])->with('sports',$sports);
+    }
+
+    public function loadUtils($sport){
+        $database = DataBase::getInstance();
+        $utils = $database->getUtils($sport);
+        return view('adminViews.ajaxViews.utilizationTable')->with('utils',$utils);
     }
 
     public function updateStudent(){

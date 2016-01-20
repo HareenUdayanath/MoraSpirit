@@ -31,15 +31,15 @@
     <h3>Students</h3>
     <div class="" role="tabpanel" data-example-id="togglable-tabs">
         <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-            <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">View Srudents</a>
+            <li role="presentation" class="active"><a href="#tab_content1" id="view-tab" role="tab" data-toggle="tab" aria-expanded="true">View Srudents</a>
             </li>
-            <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab"  aria-expanded="false">Add New Student</a>
+            <li role="presentation" class=""><a href="#tab_content2" role="tab" id="new-tab" data-toggle="tab"  aria-expanded="false">Add New Student</a>
             </li>
-            <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab" data-toggle="tab"  aria-expanded="false">Edit Student</a>
+            <li role="presentation" class=""><a href="#tab_content3" role="tab" id="edit-tab" data-toggle="tab"  aria-expanded="false">Edit Student</a>
             </li>
         </ul>
         <div id="myTabContent" class="tab-content">
-            <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+            <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="view-tab">
                 <section class="content">
                     <div class="row">
                         <label class=" col-md-1 col-sm-1 col-xs-1" style="padding-top: 5px;"> Search By: </label>
@@ -145,7 +145,7 @@
                     <br />
                 </section>
             </div>
-            <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+            <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="new-tab">
                 <div class="clearfix"></div>
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
@@ -292,7 +292,7 @@
                                     <div class="form-group">
                                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                                             <button type="button" class="btn btn-dark" onclick="goToView()">Cancel</button>
-                                            <button type="submit" class="btn btn-success pull-right">Submit</button>
+                                            <button type="submit" class="btn btn-success pull-right">Add New Student</button>
                                             <button type="reset" class="btn btn-primary pull-right">Reset</button>
                                         </div>
                                         <script type="text/javascript">
@@ -309,7 +309,7 @@
                     </div>
                 </div>
             </div>
-            <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
+            <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="edit-tab">
                 <p align="center"> Select a student in View tab to Edit here</p>
             </div>
         </div>

@@ -63,19 +63,17 @@
                                         <th>Resource ID</th>
                                         <th>Name</th>
                                         <th>Location</th>
-                                        <th>Sports</th>
-                                        <th>Keepers</th>
                                     </tr>
                                     </thead>
-                                    {{--<tbody>
-                                    @foreach($users as $usr)
+                                    <tbody>
+                                    @foreach($resources as $resource)
                                         <tr>
-                                            <td>{{$usr->ID}}</td>
-                                            <td>{{$usr->Name}}</td>
-                                            <td>{{$usr->ContactNo}}</td>
+                                            <td>{{$resource->ID}}</td>
+                                            <td>{{$resource->Name}}</td>
+                                            <td>{{$resource->Location}}</td>
                                         </tr>
                                     @endforeach
-                                    </tbody>--}}
+                                    </tbody>
                                 </table>
                             </div>
                         </div>

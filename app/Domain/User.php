@@ -116,4 +116,15 @@ class User
         $this->password = $password;
     }
 
+    public function getRole() {
+        return $this->role;
+    }
+
+    /**
+     * @param password the password to set
+     */
+    public function setRole($role) {
+        $this->role = $role;
+    }
+
 }
