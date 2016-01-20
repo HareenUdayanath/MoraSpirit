@@ -168,6 +168,11 @@ class DataBase{
         return DB::select('SELECT * FROM Equipment WHERE Availability = TRUE');
     }
 
+    public function getEquipment($equipmentNo){
+        return DB::select('SELECT * FROM Equipment WHERE ItemNo = ?'
+                            ,[$equipmentNo]);
+    }
+
     public function getAvailableEquipments($equipmentType,$sportName){
         return DB::select('SELECT * FROM Equipment WHERE Type = ? AND
                             SportName = ? AND Availability = True'
@@ -184,11 +189,11 @@ class DataBase{
             ,[$itemNo]);
     }
 
-    public function getResourceReservedTime($resourceID,$date){
+    public function getResourceReservedTime($resourceName,$date){
         $timeSlotList = array();
         $timeSlots =  DB::select('SELECT StartTime,EndTime FROM Booking WHERE
-                            Resources_ID = ? AND Date = ? '
-                            ,[$resourceID,$date]);
+                            Resources_ID = (SELECT ID FROM resource WHERE Name = ?) AND Date = ? '
+                            ,[$resourceName,$date]);
         foreach($timeSlots as $ts){
             $timeSlot = new TimeSlot();
             $timeSlot->setStartTime($ts->StartTime);
@@ -197,8 +202,8 @@ class DataBase{
         }
 
         $timeSlots =  DB::select('SELECT StartTime,EndTime FROM PracticeSchedule
-                 WHERE Resources_ID = ? AND Date = ? '
-            ,[$resourceID,$date]);
+                 WHERE Resources_ID = (SELECT ID FROM resource WHERE Name = ?) AND Date = ? '
+            ,[$resourceName,$date]);
         foreach($timeSlots as $ts){
             $timeSlot = new TimeSlot();
             $timeSlot->setStartTime($ts->StartTime);
@@ -272,9 +277,9 @@ class DataBase{
     }
 
     public function addPracticeSchedule1($practiceSchedule){
-        DB::insert('INSERT INTO PracticeSchedule VALUES(?,?,?,?,?)',
+        DB::insert('INSERT INTO PracticeSchedule VALUES(?,?,?,?,?,?)',
             [$practiceSchedule->getSessionID(),$practiceSchedule->getSportName(),$practiceSchedule->getDate(),
-                $practiceSchedule->getStartTime(),$practiceSchedule->getEndTime()]);
+                $practiceSchedule->getStartTime(),$practiceSchedule->getEndTime(),$practiceSchedule->getResourceID()]);
     }
 
     public function addAchievementt($achievement){
@@ -282,6 +287,11 @@ class DataBase{
             [$achievement->getAchievementID(),$achievement->getContest(),
                 $achievement->getPlace(),
                 $achievement->getSportName(),$achievement->getDate()]);
+    }
+
+    public function getStudentName($studentID){
+        $studentName=DB::select('SELECT FirstName,LastName FROM student WHERE ID = ? ',[$studentID]);
+        return $studentName[0]->FirstName." ".$studentName[0]->LastName;
     }
 
     public function updateStudent($student){

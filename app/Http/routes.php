@@ -107,6 +107,10 @@ Route::get('addAC', array('as'=>'addAchievement','uses'=>'CoachController@addAch
 
 Route::get('getRes/{sportName}', 'CoachController@getResources');
 
+Route::get('getReserveTime/{resourceName}/{date}','CoachController@getReservedTimes');
+
+Route::get('getStdName/{ID}','CoachController@getStdName');
+
 Route::get('loadeqp/{sport}', 'KeeperController@loadeqp');
 
 Route::get('chkAv/{equipment}/{sport}', 'KeeperController@checkEqpAv');
