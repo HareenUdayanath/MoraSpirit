@@ -9,8 +9,8 @@
 class PracticeSchedule
 {
     private $sessionID;
-    private $sportID;
-    private $resourceID;
+    private $sportName;
+    private $resourceName;
     private $date;
     private $startTime;
     private $endTime;
@@ -30,17 +30,17 @@ class PracticeSchedule
     }
 
     /**
-     * @return the sportID
+     * @return the sportName
      */
-    public function getSportID() {
-        return $this->sportID;
+    public function getSportName() {
+        return $this->sportName;
     }
 
     /**
-     * @param sportName the sportID to set
+     * @param sportName the sportName to set
      */
-    public function setSportID($sportID) {
-        $this->sportName = $sportID;
+    public function setSportName($sportName) {
+        $this->sportName = $sportName;
     }
 
     /**
@@ -88,16 +88,16 @@ class PracticeSchedule
     }
 
     /**
-     * @return the resourceID
+     * @return the resourceName
      */
-    public function getResourceID() {
-        return $this->resourceID;
+    public function getResourceName() {
+        return $this->resourceName;
     }
 
     /**
-     * @param resourceID the resourceID to set
+     * @param resourceID the resourceName to set
      */
-    public function setResourceID($resourceID) {
-        $this->resourceID = $resourceID;
+    public function setResourceName($resourceName) {
+        $this->resourceName = $resourceName;
     }
 }

@@ -19,7 +19,7 @@ class MoraController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth',['except'=>['login','home','publicView']]);
+        $this->middleware('auth',['except'=>['login','home']]);
     }
 
     public function login(){
@@ -37,7 +37,7 @@ class MoraController extends Controller
             return view('projectViews.home')->with('user',Auth::user());
         }
         //return view('auth.login');
-        return view('projectViews.public');
+        return view('publicViews.public');
     }
 
     public function loginView(){
@@ -92,8 +92,6 @@ class MoraController extends Controller
 
     }
 
-    public function publicView(){
-        return view('projectViews.public');
-    }
+
 
 }

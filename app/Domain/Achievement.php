@@ -13,7 +13,7 @@ class Achievement
     private $contest = null;
     private $date = null;
     private $place = null;
-    private $sportID;
+    private $sportName;
     private $description = null;
 
     /**
@@ -81,15 +81,15 @@ class Achievement
     /**
      * @return the sportID
      */
-    public function getSportID() {
-        return $this->sportID;
+    public function getSportName() {
+        return $this->sportName;
     }
 
     /**
      * @param sportName the sportID to set
      */
-    public function setSportID($sportID) {
-        $this->sportName = $sportID;
+    public function setSportName($sportName) {
+        $this->sportName = $sportName;
     }
 
     /**

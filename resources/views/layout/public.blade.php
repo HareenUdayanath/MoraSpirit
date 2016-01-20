@@ -68,9 +68,9 @@
                             </li>
                             <li><a><i class="fa fa-home"></i> Student <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu" style="display: none">
-                                    <li><a href={{url('/')}}>Practice Schedules</a></li>
-                                    <li><a href={{url('/')}}>Available Resources</a></li>
-                                    <li><a href={{url('/')}}>Available Equipments</a></li>
+                                    <li><a href={{url('publicPS')}}>Practice Schedules</a></li>
+                                    <li><a href={{url('publicRes')}}>Available Resources</a></li>
+                                    <li><a href={{url('publicEq')}}>Available Equipments</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -114,10 +114,10 @@
 
         <!-- page content -->
         <div class="right_col" role="main">
-
+            @yield('content')
             <div id="ncontent">
 
-                @yield('content')
+
             </div>
 
         </div>
