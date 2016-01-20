@@ -31,6 +31,20 @@ class User
     }
 
     /**
+     * @return the Role
+     */
+    public function getRole() {
+        return $this->role;
+    }
+
+    /**
+     * @param ID the Role to set
+     */
+    public function setRole($Role) {
+        $this->role = $Role;
+    }
+
+    /**
      * @return the name
      */
     public function getName() {

@@ -16,169 +16,204 @@
 
 @section('content')
 
-        <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
-                    <div class="x_title">
-                        <h2>Practice Schedule <small>addding schedules for coaches</small></h2>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="x_content">
-                        <br />
-                        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action={{route('addPracticeSchedule')}} >
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Practice Schedule
+                        <small>addding schedules for coaches</small>
+                    </h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <br/>
 
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12"  for="sport-name">Sport Name <span class="required">*</span>
-                                </label>
-                                <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <select name = "sport" class="form-control" onchange="getResources(this.options[this.selectedIndex].text)">
-                                        <option>Select sport name</option>
-                                        @foreach($sports as $sport)
-                                            <option>{{$sport->SportName}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
+                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left"
+                          action="{{route('addPracticeSchedule')}}">
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="sport-name">Sport Name <span
+                                        class="required">*</span>
+                            </label>
+
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                <select name="sport" class="form-control"
+                                        onchange="getResources(this.options[this.selectedIndex].text)">
+                                    <option>Select sport name</option>
+                                    @foreach($sports as $sport)
+                                        <option>{{$sport->SportName}}</option>
+                                    @endforeach
+                                </select>
                             </div>
-                            <script type = "text/javascript">
-                                function getResources(sportName){
+                        </div>
+                        <script type="text/javascript">
+                            function getResources(sportName) {
+                                $.ajax({
+                                    url: '{{url('getRes')}}/' + sportName,
+                                    success: function (data) {
+                                        if (data == 1) {
 
-                                    $.ajax({
-                                        url:'{{url('getRes')}}/'+sportName,
-                                        success:function(data){
-
-                                            if (data==1){
-
-                                            }else{
-                                                $("#resource-name").html(data).show();
-                                            }
+                                        } else {
+                                            $("#resource-name").html(data).show();
                                         }
-                                    });
-                                }
-                            </script>
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="resource-name">Resource Name <span class="required">*</span>
-                                </label>
-                                <div class="col-md-3 col-sm-3 col-xs-12" id="resource-name">
-                                    <select name = "resource" class="form-control" id="resourceList">
+                                    }
+                                });
+                            }
+                        </script>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="resource-name">Resource Name
+                                <span class="required">*</span>
+                            </label>
 
-                                    </select>
-                                </div>
+                            <div class="col-md-3 col-sm-3 col-xs-12" id="resource-name">
+                                <select name="resource" class="form-control" id="resourceList">
+
+                                </select>
                             </div>
+                        </div>
 
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Date <span class="required">*</span>
-                                </label>
-                                <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <input id="scheduleDay" name="date" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Date <span
+                                        class="required">*</span>
+                            </label>
+
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                <input id="scheduleDay" name="date" class="date-picker form-control col-md-7 col-xs-12"
+                                       required="required" type="text">
+                            </div>
+                        </div>
+                        <script type="text/javascript">
+                            $(document).ready(function () {
+                                $('#scheduleDay').daterangepicker({
+                                    singleDatePicker: true,
+                                    calender_style: "picker_4"
+                                }, function (start, end, label) {
+                                    console.log(start.toISOString(), end.toISOString(), label);
+                                });
+                            });
+                        </script>
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                <button type="reset" class="btn btn-primary">Cancel</button>
+                                <button type="button" class="btn btn-success" onclick="check()">Check</button>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3" name="reseverdSlots"
+                                 id="reserved-list">
+                                <div class="x_panel">
+                                    <div class="x_title">
+                                        <h2>Resevered Time Slots
+                                            <small>for the given particular date</small>
+                                        </h2>
+                                        <ul class="nav navbar-right panel_toolbox">
+
+                                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                            </li>
+                                        </ul>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="x_content" id="resTable">
+                                        <table class="table table-striped responsive-utilities jambo_table bulk_action"
+                                               id="reservedTable" name="reservedList">
+
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                             <script type="text/javascript">
-                                $(document).ready(function () {
-                                    $('#scheduleDay').daterangepicker({
-                                        singleDatePicker: true,
-                                        calender_style: "picker_4"
-                                    }, function (start, end, label) {
-                                        console.log(start.toISOString(), end.toISOString(), label);
+                                function setTable(resourceName, date) {
+                                    //alert('ddd00');
+                                    var str = date.split("/");
+                                    var newDate = str[2] + "-" + str[0] + "-" + str[1];
+
+                                    $.ajax({
+                                        url: '{{url('getReserveTime')}}/' + resourceName + '/' + newDate,
+                                        success: function (data) {
+                                            $('#resTable').html(data).show();
+                                        }
                                     });
-                                });
+                                }
+                                function check() {
+                                    var resourceName, date, value;
+                                    resourceName = document.getElementById('resourceList');
+                                    value = resourceName.options[resourceName.selectedIndex].text;
+                                    date = document.getElementById('scheduleDay').value;
+                                    setTable(value, date);
+                                    //alert(value);
+                                    //alert(date);
+                                }
                             </script>
-                            <div class="form-group">
-                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                    <button type="reset" class="btn btn-primary">Cancel</button>
-                                    <button type="submit" class="btn btn-success">Check</button>
-                                </div>
-                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-1" name="reseverdSlots" id="reserved-list">
-                                    <div class="x_panel">
-                                        <div class="x_title">
-                                            <h2>Resevered Time Slots <small>for the given particular date</small></h2>
-                                            <ul class="nav navbar-right panel_toolbox">
+                        </div>
 
-                                                <li><a class="close-link"><i class="fa fa-close"></i></a>
-                                                </li>
-                                            </ul>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                        <div class="x_content">
-                                            <table class="table table-striped responsive-utilities jambo_table bulk_action" id="reservedTable" name="reservedList">
-                                                <thead>
-                                                <tr class="headings">
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Start Time <span
+                                        class="required">*</span>
+                            </label>
 
-                                                    <th class="column-title">Start Time </th>
-                                                    <th class="column-title">End Time </th>
-
-
-                                                    <th class="bulk-actions" colspan="7">
-                                                        <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
-                                                    </th>
-                                                </tr>
-                                                </thead>
-
-                                                <tbody>
-                                                <tr class="even pointer">
-                                                    <th class="column-title">10:00 </th>
-                                                    <th class="column-title">12:00 </th>
-                                                </tr>
-                                                <tr class="odd pointer">
-
-                                                </tr>
-                                                <tr class="even pointer">
-
-                                                </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-
+                            <div class="col-md-2 col-sm-1 col-xs-12">
+                                <input type="number" id="start-hour" name="start-hour" required="required"
+                                       placeholder="hour" class="form-control col-md-7 col-xs-12" min="0" max="12">
                             </div>
 
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" >Start Time <span class="required">*</span>
-                                </label>
-                                <div class="col-md-2 col-sm-1 col-xs-12">
-                                    <input type="number" id="start-hour" name="start-hour" required="required" data-validate-minmax="0,12" placeholder="hour" class="form-control col-md-7 col-xs-12">
-                                </div>
-
-                                <div class="col-md-2 col-sm-1 col-xs-12">
-                                    <input type="number" id="start-minute" name="start-minute" required="required" data-validate-minmax="0,59" placeholder="minute" class="form-control col-md-7 col-xs-12">
-                                </div>
-                                <div class="col-md-2 col-sm-12 col-xs-12">
-                                    <select class="form-control">
-                                        <option>am</option>
-                                        <option>pm</option>
-                                    </select>
-                                </div>
+                            <div class="col-md-2 col-sm-1 col-xs-12">
+                                <input type="number" id="start-minute" name="start-minute" required="required"
+                                       placeholder="minute" class="form-control col-md-7 col-xs-12" min="0" max="59">
                             </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="end-time">End Time <span class="required">*</span>
-                                </label>
-                                <div class="col-md-2 col-sm-1 col-xs-12">
-                                    <input type="number" id="end-time" name="end-hour" required="required" data-validate-minmax="0,12" placeholder="hour" class="form-control col-md-7 col-xs-12">
-                                </div>
-                                <div class="col-md-2 col-sm-1 col-xs-12">
-                                    <input type="number" id="end-time" name="end-minute" required="required" data-validate-minmax="0,59" placeholder="minute" class="form-control col-md-7 col-xs-12">
-                                </div>
-                                <div class="col-md-2 col-sm-12 col-xs-12">
-                                    <select class="form-control">
-                                        <option>am</option>
-                                        <option>pm</option>
-                                    </select>
-                                </div>
+                            <div class="col-md-2 col-sm-12 col-xs-12">
+                                <select class="form-control" name="start-am-pm">
+                                    <option>am</option>
+                                    <option>pm</option>
+                                </select>
                             </div>
-                            <div class="ln_solid"></div>
-                            <div class="form-group">
-                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                    <button type="reset" class="btn btn-primary">Cancel</button>
-                                    <button type="submit" class="btn btn-success">Submit</button>
-                                </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="end-time">End Time <span
+                                        class="required">*</span>
+                            </label>
+
+                            <div class="col-md-2 col-sm-1 col-xs-12">
+                                <input type="number" id="end-time" name="end-hour" required="required"
+                                       data-validate-minmax="0,12" placeholder="hour"
+                                       class="form-control col-md-7 col-xs-12" min="0" max="12">
                             </div>
+                            <div class="col-md-2 col-sm-1 col-xs-12">
+                                <input type="number" id="end-time" name="end-minute" required="required"
+                                       placeholder="minute" class="form-control col-md-7 col-xs-12" min="0" max="59">
+                            </div>
+                            <div class="col-md-2 col-sm-12 col-xs-12">
+                                <select class="form-control" name="end-am-pm">
+                                    <option>am</option>
+                                    <option>pm</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="ln_solid"></div>
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                <button type="reset" class="btn btn-primary">Cancel</button>
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
+                            <script>
+                                function checkTimes() {
+
+                                    var result = false;
+                                    alert('submit');
+                                    if (false) {
+                                        alert('Times are match');
+                                        return true;
+                                    } else {
+                                        alert('Times are not match');
+                                        return false;
+                                    }
+                                }
+                            </script>
+                        </div>
 
 
-                        </form>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
+    </div>
 
 
 
@@ -279,7 +314,6 @@
     <script>
         // initialize the validator function
         validator.message['date'] = 'not a real date';
-
         // validate a field on "blur" event, a 'select' on 'change' event & a '.reuired' classed multifield on 'keyup':
         $('form')
                 .on('blur', 'input[required], input.optional, select.required', validator.checkField)
@@ -359,7 +393,8 @@
         });
         try {
             hljs.initHighlightingOnLoad();
-        } catch (err) {}
+        } catch (err) {
+        }
     </script>
     <!-- /form validation -->
     <!-- editor -->
