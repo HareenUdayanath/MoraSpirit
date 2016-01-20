@@ -11,7 +11,6 @@ class Resource
     private $ID;
     private $name;
     private $location;
-    private $keeperID;
 
         /**
          * @return the ID
@@ -53,20 +52,6 @@ class Resource
      */
     public function setLocation($location) {
         $this->location = $location;
-    }
-
-    /**
-     * @return the keeperID
-     */
-    public function getKeeperID() {
-        return $this->keeperID;
-    }
-
-    /**
-     * @param keeperID the keeperID to set
-     */
-    public function setKeeperID($keeperID) {
-        $this->keeperID = $keeperID;
     }
 
 }

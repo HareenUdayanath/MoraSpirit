@@ -14,7 +14,7 @@ class Equipment
     private $availability;
     private $purchasePrice = null;
     private $condition;
-    private $sportID;
+    private $sportName;
 
     /**
      * @return the itemNo
@@ -92,15 +92,15 @@ class Equipment
     /**
      * @return the sportID
      */
-    public function getSportID() {
-        return $this->sportID;
+    public function getSportName() {
+        return $this->sportName;
     }
 
     /**
      * @param sportName the sportID to set
      */
-    public function setSportID($sportID) {
-        $this->sportID = $sportID;
+    public function setSportName($sportName) {
+        $this->sportName = $sportName;
     }
 
     /**

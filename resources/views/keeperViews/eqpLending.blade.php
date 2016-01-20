@@ -95,7 +95,7 @@
 
                                 }
                                 else{
-                                   alert(data);
+                                   //alert(data);
                                     $('#eqID').html(data).show();
                                 }
 

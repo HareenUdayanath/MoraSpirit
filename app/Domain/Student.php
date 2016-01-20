@@ -9,7 +9,7 @@
 class Student
 {
     private $ID;
-    private $sportName;
+    private $sportList;
     private $name;
     private $dateOfBirth;
     private $gender;
@@ -25,6 +25,7 @@ class Student
     public function  __construct()
     {
         $this->achievementList = array();
+        $this->sportList = array();
     }
 
     public function addAchievement($achievement){

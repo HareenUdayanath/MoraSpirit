@@ -94,7 +94,7 @@
                         <li class="">
                             <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                 {{--
-                                <!-img src={{asset("/images/Users")."/".$user->ID.".jpg"}} alt="">{{$user->Name--}}
+                                <img src={{asset("/images/Users")."/".$user->ID.".jpg"}} alt="">{{$user->Name--}}
                                 <span class=" fa fa-angle-down"></span>
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">

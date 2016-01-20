@@ -26,6 +26,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                @foreach($utils as $util)
                                 <tr id="addr0">
                                     <td>
                                         <select class="form-control" name="resource0" required>

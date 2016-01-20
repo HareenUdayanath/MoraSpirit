@@ -7,19 +7,19 @@
  * Time: 12:26 AM
  */
 class Coach extends User{
-    private $sportID;
+    private $sportName;
 
     /**
      * @return the sportID
      */
-    public function getSportID() {
-        return $this->sportID;
+    public function getSportName() {
+        return $this->sportName;
     }
 
     /**
      * @param sportName the sportID to set
      */
-    public function setSportID($sportID) {
-        $this->sportID = $sportID;
+    public function setSportName($sportName) {
+        $this->sportName = $sportName;
     }
 }
