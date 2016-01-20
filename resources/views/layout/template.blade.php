@@ -65,7 +65,7 @@
                 <!-- /menu prile quick info -->
 
                 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                    <div class="col-md-offset-5">
                         <h3>{{"Rool"}}</h3>
                     </div>
 
