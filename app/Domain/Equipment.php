@@ -10,11 +10,11 @@ class Equipment
 {
     private $itemNo;
     private $type;
-    private $purchaseDate;
+    private $purchaseDate = null;
     private $availability;
     private $purchasePrice = null;
     private $condition;
-    private $sportName;
+    private $sportID;
 
     /**
      * @return the itemNo
@@ -55,7 +55,8 @@ class Equipment
      * @param purchaseDate the purchaseDate to set
      */
     public function setPurchaseDate($purchaseDate) {
-        $this->purchaseDate = $purchaseDate;
+        if($purchaseDate!='')
+            $this->purchaseDate = $purchaseDate;
     }
 
     /**
@@ -89,17 +90,17 @@ class Equipment
     }
 
     /**
-     * @return the sportName
+     * @return the sportID
      */
-    public function getSportName() {
-        return $this->sportName;
+    public function getSportID() {
+        return $this->sportID;
     }
 
     /**
-     * @param sportName the sportName to set
+     * @param sportName the sportID to set
      */
-    public function setSportName($sportName) {
-        $this->sportName = $sportName;
+    public function setSportID($sportID) {
+        $this->sportID = $sportID;
     }
 
     /**

@@ -34,9 +34,11 @@ class DataBase{
      * Insert Data.........................
      * */
     public function addStudent($student){
-        DB::insert('INSERT INTO Student VALUES(?,?,?,?,?)',
-            [$student->getID(),$student->getFirstName(),
-                $student->getLastName(),$student->getFaculty(),$student->getDepartment()]);
+        DB::insert('INSERT INTO Student VALUES(?,?,?,?,?,?,?,?,?,?,?)',
+            [$student->getID(),$student->getName(),
+                $student->getDateOfBirth(),$student->getGender(),getAddress(),
+                $student->getFaculty(),$student->getDepartment(),$student->getMedicalCondition(),
+                $student->getBloodGroup(),$student->getEmergencyContactPerson(),$student->getEmergencyContactNo()]);
     }
 
     public function addResource($resource){
@@ -46,21 +48,21 @@ class DataBase{
     }
 
     public function addPracticeSchedule($practiceSchedule){
-        DB::insert('INSERT INTO PracticeSchedule VALUES(?,?,?,?,?,?)',
-            [$practiceSchedule->getSessionID(),$practiceSchedule->getSportName(),
-                $practiceSchedule->getResourceID(),$practiceSchedule->getDate(),
+        DB::insert('INSERT INTO PracticeSchedule VALUES(DEFAULT,(SELECT ID FROM Sport WHERE SportName = ?)
+                          ,(SELECT ID FROM resource WHERE Name = ?),?,?,?)',
+            [$practiceSchedule->getSportName(),
+                $practiceSchedule->getResourceName(),$practiceSchedule->getDate(),
                 $practiceSchedule->getStartTime(),$practiceSchedule->getEndTime()]);
     }
 
     public function addAchievement($achievement){
-        DB::insert('INSERT INTO PracticeSchedule VALUES(?,?,?,?,?,?)',
-            [$achievement->getAchievementID(),$achievement->getContest(),
-                $achievement->getDate(),$achievement->getPlace(),
+        DB::insert('INSERT INTO Achievement VALUES(DEFAULT,(SELECT ID FROM Sport WHERE SportName = ?),?,?,?,?)',
+            [$achievement->getContest(),$achievement->getDate(),$achievement->getPlace(),
                 $achievement->getSportName(),$achievement->getDescription()]);
-        DB::insert('INSERT INTO Achieve VALUES(?,?))',
-            [$achievement->getStudentID(),$achievement->getAchievementID()]);
+        DB::insert('INSERT INTO Achieve VALUES(?,DEFAULT))',
+            [$achievement->getStudentID()]);
     }
-
+//hhhhhhhhhhhhhhhhhhhhhhh
     public function addEquipment($equipment){
         DB::insert('INSERT INTO Equipment VALUES(?,?,?,?,?,?,?)',
             [$equipment->getItemNo(),$equipment->getType(),
@@ -146,7 +148,8 @@ class DataBase{
     }
 
     public function loadPracticeSchedule(){
-        return DB::select('SELECT * FROM PracticeSchedule');
+        return DB::select('SELECT * FROM PracticeSchedule LEFT JOIN Resource ON
+                  PracticeSchedule.Resources_ID = Resource.ID ');
     }
 
     public function loadEquipments(){
@@ -164,6 +167,11 @@ class DataBase{
 
     public function loadAvailableEquipments(){
         return DB::select('SELECT * FROM Equipment WHERE Availability = TRUE');
+    }
+
+    public function loadAvailableEquipmentsWithSports(){
+        return DB::select('SELECT * FROM Equipment LEFT JOIN Sport ON
+                  Equipment.SportID = Sport.ID WHERE Availability = TRUE');
     }
 
     public function getEquipment($equipmentNo){
@@ -209,6 +217,23 @@ class DataBase{
             array_push($timeSlotList,$timeSlot);
         }
         return $timeSlotList;
+    }
+
+    public function getReservedDatesFor($resourceID){
+        $resDates = array();
+        $datelist = DB::select('SELECT Date FROM Booking WHERE Resources_ID=?',[$resourceID]);
+        foreach($datelist as $date){
+            array_push($resDates,$date);
+        }
+        $datelist = DB::select('SELECT Date FROM PracticeSchedule WHERE Resources_ID=?',[$resourceID]);
+        foreach($datelist as $date){
+            array_push($resDates,$date);
+        }
+        return $resDates;
+    }
+
+    public function getNameOfResource($id){
+        return DB::select('SELECT Name FROM Resource WHERE ID=?',[$id]);
     }
 
     public function getResourceID($resourceName){

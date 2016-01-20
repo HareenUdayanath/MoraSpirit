@@ -11,6 +11,8 @@ class User
 {
     private $ID;
     private $name;
+    private $dateOfBirth;
+    private $gender;
     private $contactNo;
     private $password;
     private $role;
@@ -56,6 +58,34 @@ class User
      */
     public function setName($name) {
         $this->name = $name;
+    }
+
+    /**
+     * @return the date of birth
+     */
+    public function getDateOfBirth() {
+        return $this->dateOfBirth;
+    }
+
+    /**
+     * @param name the date of birth to set
+     */
+    public function setDateOfBirth($dateOfBirth) {
+        $this->dateOfBirth = $dateOfBirth;
+    }
+
+    /**
+     * @return the gender
+     */
+    public function getGender() {
+        return $this->gender;
+    }
+
+    /**
+     * @param name the gender to set
+     */
+    public function setGender($gender) {
+        $this->gender = $gender;
     }
 
     /**

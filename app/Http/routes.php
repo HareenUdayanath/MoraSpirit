@@ -21,7 +21,17 @@ Route::get('home', 'HomeController@index');
 
 Route::get('editProfileView', 'MoraController@editProfileView');
 
-Route::get('publicView', array('as'=>'public','uses'=>'MoraController@publicView'));
+Route::get('publicView', array('as'=>'public','uses'=>'PublicController@publicView'));
+
+Route::get('publicPS', 'PublicController@loadPracticeSchedules');
+
+Route::get('publicEq', 'PublicController@loadEquipments');
+
+Route::get('publicRes', 'PublicController@loadResources');
+
+Route::get('publicResDates/{resourceID}', 'PublicController@loadResourceFreeTimes');
+
+Route::get('getReserveTime/{resourceName}/{date}','PublicController@getReservedTimes');
 
 Route::get('loginView', array('as'=>'getLogin','uses'=>'MoraController@loginView'));
 
