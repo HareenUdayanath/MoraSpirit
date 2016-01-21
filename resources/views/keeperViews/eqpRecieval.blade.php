@@ -5,14 +5,14 @@
     <div class="menu_section">
         <h3>Keeper</h3>
         <ul class="nav side-menu">
-            <li><a><i class="fa fa-home"></i> Home </a> </li>
-            <li><a><i class="fa fa-edit"></i> Reserve </a>
+            <li><a href={{route('keeperHome')}}><i class="fa fa-home"></i> Home </a> </li>
+            <li><a href={{route('res_res')}}><i class="fa fa-edit"></i> Reserve </a>
             </li>
-            <li><a><i class="fa fa-desktop"></i> Equipment Lending </a>
+            <li><a href={{route('eqplending')}}><i class="fa fa-desktop"></i> Equipment Lending </a>
             </li>
-            <li><a><i class="fa fa-table"></i> Equipment Recieval </a>
+
             </li>
-            <li><a><i class="fa fa-bar-chart-o"></i> Update Details </a>
+            <li><a href={{route('eqpUpdateDetails')}}><i class="fa fa-bar-chart-o"></i> Update Details </a>
         </ul>
     </div>
 @endsection

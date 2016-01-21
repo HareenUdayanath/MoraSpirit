@@ -5,17 +5,18 @@
     <div class="menu_section">
         <h3>Keeper</h3>
         <ul class="nav side-menu">
-            <li><a><i class="fa fa-home"></i> Home </a> </li>
-            <li><a><i class="fa fa-edit"></i> Reserve </a>
+            <li><a href={{route('keeperHome')}}><i class="fa fa-home"></i> Home </a> </li>
+            <li><a href={{route('res_res')}}><i class="fa fa-edit"></i> Reserve </a>
             </li>
-            <li><a><i class="fa fa-desktop"></i> Equipment Lending </a>
+
             </li>
-            <li><a><i class="fa fa-table"></i> Equipment Recieval </a>
+            <li><a href={{route('eqprecieval')}}><i class="fa fa-table"></i> Equipment Recieval </a>
             </li>
-            <li><a><i class="fa fa-bar-chart-o"></i> Update Details </a>
+            <li><a href={{route('eqpUpdateDetails')}}><i class="fa fa-bar-chart-o"></i> Update Details </a>
         </ul>
     </div>
 @endsection
+
 
 @section('content')
     <div class="right_col" role="main">
@@ -41,7 +42,7 @@
         </div>
         <div class="x_content">
             <br />
-            <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+            <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="{{url('lendEqp')}}">
 
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Sport</label>
@@ -95,7 +96,7 @@
 
                                 }
                                 else{
-                                   alert(data);
+                                   //alert(data);
                                     $('#eqID').html(data).show();
                                 }
 
@@ -126,12 +127,15 @@
                     }
 
                     function lendEqp(){
-                        var lendstID = document.getElementById("lendstid");
-                        var eqpID = document.getElementById("eqID");
-                        var duedate = document.getElementById("birthday");
+                        var lendstID = document.getElementById("lendstid").value;
+                        var eqpID = document.getElementById("eqID").value;
+                        var duedate = document.getElementById("birthday").value;
+                        var arrDate=duedate.split("/");
+                        alert('split');
+                        var newDate=arrDate[2]+"-"+arrDate[0]+"-"+arrDate[1];
                         var lendID = eqpID.options[eqpID.selectedIndex].text
                         $.ajax({
-                            url:'{{url('lendEqp')}}/'+ lendstID + '/' + lendID + '/' + duedate,
+                            url:'{{url('lendEqp')}}/'+ lendstID + '/' + lendID + '/' + newDate,
                             success: function(data){
                                 if (data == null){
                                     alert("No equipments are available");
@@ -205,7 +209,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Student Index <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="lendstid"  class="form-control col-md-4 col-xs-12">
+                                    <input type="text" id="lendstid" name="lendstid" class="form-control col-md-4 col-xs-12">
                                 </div>
                             </div>
 
@@ -220,7 +224,7 @@
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Due Date</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="birthday" class="date-picker form-control col-md-7 col-xs-12 active"   type="text" data-parsley-id="2514"><ul class="parsley-errors-list" id="parsley-id-2514"></ul>
+                                    <input id="birthday" name="birthday" class="date-picker form-control col-md-7 col-xs-12 active"   type="text" data-parsley-id="2514"><ul class="parsley-errors-list" id="parsley-id-2514"></ul>
                                 </div>
                             </div>
                             <script type="text/javascript">
@@ -237,7 +241,7 @@
                             <div class="form-group">
                                 <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                                     <button type="submit" class="btn btn-primary">Confirm</button>
-                                    <button type="" class="btn btn-success">Cancel</button>
+                                    <button type="reset" class="btn btn-success">Cancel</button>
                                 </div>
                             </div>
 

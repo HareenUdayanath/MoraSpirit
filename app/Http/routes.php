@@ -105,13 +105,21 @@ Route::get('adminResetPwd/{userId}','AdminController@resetPWD');
 
 Route::get('admin', 'MoraController@showAdmin');
 
-Route::get('eqprecieval', 'KeeperController@getEqpRc');
+Route::get('eqprecieval',array('as'=>'eqprecieval','uses'=>'KeeperController@getEqpRc'));
 
-Route::get('res_res', 'KeeperController@getReserve');
+Route::get('res_res',array('as'=>'res_res','uses'=>'KeeperController@getReserve'));
 
-Route::get('eqplending', 'KeeperController@getSports');
+Route::get('eqplending',array('as'=>'eqplending','uses'=>'KeeperController@getSports'));
 
-Route::get('eqpUpdateDetails', 'KeeperController@getUpDt');
+Route::get('eqpUpdateDetails',array('as'=>'eqpUpdateDetails','uses'=>'KeeperController@getUpDt'));
+
+//Route::get('eqprecieval', 'KeeperController@getEqpRc');
+
+//Route::get('res_res', 'KeeperController@getReserve');
+
+//Route::get('eqplending', 'KeeperController@getSports');
+
+//Route::get('eqpUpdateDetails', 'KeeperController@getUpDt');
 
 Route::get('admin', 'MoraController@showAdmin');
 
@@ -125,11 +133,23 @@ Route::get('addPS', array('as'=>'addPracticeSchedule','uses'=>'CoachController@a
 
 Route::get('addAC', array('as'=>'addAchievement','uses'=>'CoachController@addAchievement'));
 
+Route::get('displayDelSession', array('as'=>'displayDelSession','uses'=>'CoachController@displayDelSession'));
+
+Route::get('deleteSession', array('as'=>'deleteSession','uses'=>'CoachController@deleteSession'));
+
 Route::get('getRes/{sportName}', 'CoachController@getResources');
 
 Route::get('getReserveTime/{resourceName}/{date}','CoachController@getReservedTimes');
 
 Route::get('getStdName/{ID}','CoachController@getStdName');
+
+Route::get('loadAchiPage', array('as'=>'loadAchiPage','uses'=>'CoachController@loadAchiPage'));
+
+Route::get('coahHome', array('as'=>'coahHome','uses'=>'CoachController@displayCoachHome'));
+
+Route::get('getAchList/{ID}','CoachController@loadAchievement');
+
+Route::get('addBk', array('as'=>'addBooking','uses'=>'KeeperController@addBooking'));
 
 Route::get('loadeqp/{sport}', 'KeeperController@loadeqp');
 
@@ -143,8 +163,12 @@ Route::get('loadbreqp/{itemNo}', 'KeeperController@getBrDetails');
 
 Route::get('reserveEqp/{equipment}/{studentID}', 'KeeperController@addEqpRequest');
 
-Route::get('lendEqp/{lendstID}/{lendID}/{duedate}', 'KeeperController@lendEquipment');
+Route::get('lendEqp', 'KeeperController@lendEquipment');
 
 Route::get('setAv/{eqpID}', 'KeeperController@setAvailability');
 
 Route::get('upDetails/{eqpID}/{eqpAv}/{eqpCon}', 'KeeperController@updateEq');
+
+Route::get('getResTimes/{resourceName}/{date}','KeeperController@getReservedTimes');
+
+Route::get('keeperHome', array('as'=>'keeperHome','uses'=>'KeeperController@displayKeeperHome'));

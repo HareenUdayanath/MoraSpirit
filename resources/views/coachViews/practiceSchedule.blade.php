@@ -5,10 +5,11 @@
     <div class="menu_section">
         <h3>General</h3>
         <ul class="nav side-menu">
-            <li><a><i class="fa fa-home"></i> Home</a>
+            <li><a href={{route('coahHome')}}><i class="fa fa-home"></i> Home</a>
 
-            <li><a href={{route('displayAchieve')}}><i class="fa fa-trophy"></i> Achievements</a>
-
+            <li><a href={{route('displayAchieve')}}><i class="fa fa-trophy"></i>Add Achievements</a>
+            <li><a href={{route('loadAchiPage')}}><i class="fa fa-line-chart"></i> View Achievements</a>
+            <li><a href={{route('deleteSession')}}><i class="fa fa-trash"></i> Delete Session</a>
             </li>
         </ul>
     </div>
@@ -28,8 +29,7 @@
                 <div class="x_content">
                     <br/>
 
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left"
-                          action="{{route('addPracticeSchedule')}}">
+                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="{{route('addPracticeSchedule')}}">
 
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="sport-name">Sport Name <span
