@@ -115,9 +115,12 @@
                                     $('#example1').on('click', '.clickable-row', function(event) {
                                         $(this).addClass('bg-info').siblings().removeClass('bg-info');
                                         document.getElementById("selected-index").value = $(this).find('td:first').text();
+                                        var loc = '{{url('adminResetPwd')}}/'+$(this).find('td:first').text();
+                                        document.getElementById('reset-url').value = loc;
                                     });
                                 </script>
                             </div>
+                            <input hidden id="reset-url">
                         </div>
                         <button class="btn btn-primary pull-right" type="button" onclick="editUser()">Edit User</button>
                     </div>

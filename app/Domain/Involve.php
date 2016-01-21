@@ -18,8 +18,16 @@ class Involve
         return $this->studentID;
     }
 
-    public function setStudentID(){
+    public function setStudentID($studentID){
+        $this->studentID = $studentID;
+    }
 
+    public function getSportName(){
+        return $this->sportName;
+    }
+
+    public function setSportName($sportName){
+        $this->sportName = $sportName;
     }
 
 }

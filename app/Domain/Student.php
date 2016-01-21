@@ -11,13 +11,13 @@ class Student
     private $ID;
     private $sportList;
     private $name;
-    private $dateOfBirth;
+    private $dateOfBirth=null;
     private $gender;
-    private $address;
-    private $medicalCondition;
-    private $bloodGroup;
-    private $emergencyContactPerson;
-    private $emergencyContactNumber;
+    private $address=null;
+    private $medicalCondition=null;
+    private $bloodGroup=null;
+    private $emergencyContactPerson=null;
+    private $emergencyContactNumber=null;
     private $faculty;
     private $department;
     private $achievementList;
@@ -31,6 +31,15 @@ class Student
     public function addAchievement($achievement){
         array_push($this->achievementList,$achievement );
     }
+
+    public function addSport($involve){
+        array_push($this->sportList,$involve);
+    }
+
+    public function getSportList(){
+        return $this->sportList;
+    }
+
     /**
      * @return the ID
      */
@@ -70,7 +79,8 @@ class Student
      * @param name the date of birth to set
      */
     public function setDateOfBirth($dateOfBirth) {
-        $this->dateOfBirth = $dateOfBirth;
+        if($dateOfBirth!='')
+            $this->dateOfBirth = $dateOfBirth;
     }
 
     /**
@@ -98,7 +108,8 @@ class Student
      * @param contactNo the contactNo to set
      */
     public function setEmergencyContactNo($contactNo) {
-        $this->emergencyContactNumber = $contactNo;
+        if ($contactNo!='')
+            $this->emergencyContactNumber = $contactNo;
     }
 
     /**
@@ -112,7 +123,8 @@ class Student
      * @param contactNo the contactNo to set
      */
     public function setEmergencyContactPerson($contactP) {
-        $this->emergencyContactPerson = $contactP;
+        if($contactP!='')
+            $this->emergencyContactPerson = $contactP;
     }
 
     /**
@@ -126,7 +138,8 @@ class Student
      * @param address the address to set
      */
     public function setAddress($address) {
-        $this->address = $address;
+        if($address!='')
+            $this->address = $address;
     }
 
     /**
@@ -140,7 +153,8 @@ class Student
      * @param address the address to set
      */
     public function setMedicalCondition($mc) {
-        $this->medicalCondition = $mc;
+        if($mc!='')
+            $this->medicalCondition = $mc;
     }
 
     /**
@@ -154,7 +168,8 @@ class Student
      * @param bloodGroup the bloodGroup to set
      */
     public function setBloodGroup($mc) {
-        $this->bloodGroup = $mc;
+        if($mc!='')
+            $this->bloodGroup = $mc;
     }
 
     /**

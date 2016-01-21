@@ -2,6 +2,7 @@
 
 use App\Domain\Coach;
 use App\Domain\Equipment;
+use App\Domain\Involve;
 use App\Domain\Keeper;
 use App\Domain\Resource;
 use App\Domain\Sport;
@@ -40,15 +41,15 @@ class AdminController extends Controller
         $user->setName("Anthony Fernando");
         $user->setID("130209");
         $database = DataBase::getInstance();
-        $sports = $database->loadSports();
-        $resources = $database->loadResource();
+        $sports = $database->loadSportsNames();
+        $resources = $database->loadResourceNames();
         return view('adminViews.adminSports')->with('user',$user)->with('resources',$resources)->with('sports',$sports);
     }
 
     public function displayEquipmentPage(){
         $database = DataBase::getInstance();
         $equips = $database->loadEquipments();
-        $sports = $database->loadSports();
+        $sports = $database->loadSportsNames();
         $user = new User();
         $user->setName("Anthony Fernando");
         $user->setID("130209");
@@ -57,7 +58,7 @@ class AdminController extends Controller
 
     public function displayResourcePage(){
         $database = DataBase::getInstance();
-        $resources = $database->loadResource();
+        $resources = $database->loadResourceNames();
         $user = new User();
         $user->setName("Anthony Fernando");
         $user->setID("130209");
@@ -67,7 +68,7 @@ class AdminController extends Controller
     public function displayStudentPage(){
         $database = DataBase::getInstance();
         $students = $database->loadStudents();
-        $sports = $database->loadSports();
+        $sports = $database->loadSportsNames();
         $user = new User();
         $user->setID("130209");
         $user->setName("Anthony Fernando");
@@ -147,11 +148,24 @@ class AdminController extends Controller
     public function addnewStudent(){
         $database = DataBase::getInstance();
         $student = new Student();
+        $numofSports = Input::get('num-of-sports');
         $student->setID(Input::get('std-id'));
-        $student->setFirstName(Input::get('std-name'));
+        $student->setName(Input::get('std-name'));
+        $student->setDateOfBirth(Input::get('std-dob'));
+        $student->setGender(Input::get('gender'));
+        $student->setAddress(Input::get('std-address'));
         $student->setDepartment(Input::get('std-dept'));
         $student->setFaculty(Input::get('std-faculty'));
-        $student->setSportName(Input::get('std-sport'));
+        $student->setMedicalCondition(Input::get('std-med'));
+        $student->setBloodGroup(Input::get('std-blood'));
+        $student->setEmergencyContactPerson(Input::get('std-emrg-per'));
+        $student->setEmergencyContactNo(Input::get('std-emrg-num'));
+        for($i=0; $i<$numofSports; $i++){
+            $inv = new Involve();
+            $inv->setSportName(Input::get('sport'.$i));
+            $inv->setStudentID(Input::get('std-id'));
+            $student->addSport($inv);
+        }
         $database->addStudent($student);
         return $this->displayStudentPage();
     }
@@ -204,18 +218,15 @@ class AdminController extends Controller
 
     public function loadSports($requester){
         $database = DataBase::getInstance();
-        $sports = $database->loadSports();
+        $sports = $database->loadSportsNames();
         if ($requester=='user'){
             return view('adminViews.ajaxViews.sportResourceSelect')->with('role','Sport')->with('roleitem',$sports);
-        }
-        else if($requester==''){
-
         }
     }
 
     public function loadResources($requester){
         $database = DataBase::getInstance();
-        $resources = $database->loadResource();
+        $resources = $database->loadResourceNames();
         if ($requester=='user'){
             return view('adminViews.ajaxViews.sportResourceSelect')->with('role','Resource')->with('roleitem',$resources);
         }
@@ -227,7 +238,7 @@ class AdminController extends Controller
     public  function loadStudent($id){
         $database = DataBase::getInstance();
         $student = $database->searchStudentByID($id);
-        $sports = $database->loadSports();
+        $sports = $database->loadSportsNames();
         $myfile = fopen("newfile.txt", "w");
         //fwrite($myfile,$txt);
         /*foreach($student as $equip){
@@ -241,12 +252,12 @@ class AdminController extends Controller
         $database = DataBase::getInstance();
         $user = $database->searchUserByID($id);
         if($user[0]->Role=='Coach'){
-            $coach=$database->getCoach($id);
-            $sports = $database->loadSports();
+            $coach=$database->getCoachsSport($id);
+            $sports = $database->loadSportsNames();
             return view('adminViews.ajaxViews.editUserForm')->with('user',$user[0])->with('coach',$coach)->with('sports',$sports);
         }elseif($user[0]->Role=='Keeper'){
-            $keeper=$database->getKeeper($id);
-            $resource = $database->loadResource();
+            $keeper=$database->getKeepersResource($id);
+            $resource = $database->loadResourceNames();
             return view('adminViews.ajaxViews.editUserForm')->with('user',$user[0])->with('keeper',$keeper)->with('resources',$resource);
         }
         return view('adminViews.ajaxViews.editUserForm')->with('user',$user[0]);
@@ -255,7 +266,7 @@ class AdminController extends Controller
     public function loadEquip($itemNo){
         $database = DataBase::getInstance();
         $equips = $database->searchEquipmentByID($itemNo);
-        $sports = $database->loadSports();
+        $sports = $database->loadSportsNames();
         return view('adminViews.ajaxViews.editEquipmentForm')->with('equip',$equips[0])->with('sports',$sports);
     }
 
@@ -275,6 +286,43 @@ class AdminController extends Controller
         $student->setSportName(Input::get('std-sport'));
         $database->updateStudent($student);
         return $this->displayStudentPage();
+    }
+
+    public function updateUser(){
+        $database = DataBase::getInstance();
+        $user=null;
+        $role = Input::get('user-role');
+        if($role=='Coach'){
+            $user = new Coach();
+            $user->setSportName(Input::get('user-sport-or-res'));
+        }elseif($role=='Keeper'){
+            $user = new Keeper();
+            $user->setResourceName(Input::get('user-sport-or-res'));
+        }else{
+            $user = new User();
+        }
+        $user->setID(Input::get('user-id'));
+        $user->setName(Input::get('user-name'));
+        $user->setContactNo(Input::get('contact-num'));
+        $user->setPassword(Hash::make('mora1234'));
+        $user->setRole($role);
+        $user->setAddress(Input::get('user-addr'));
+        $user->setGender(Input::get('gender'));
+        $user->setDateOfBirth(Input::get('user-dob'));
+        if($role=='Coach'){
+            $database->updateCoach($user);
+        }elseif($role=='Keeper'){
+            $database->updateKeeper($user);
+        }else{
+            $database->updateUser($user);
+        }
+        return $this->displayUserPage();
+    }
+
+    public function resetPWD($id){
+        $database = DataBase::getInstance();
+        $database->resetPwd($id);
+        return back();
     }
 
 }

@@ -99,6 +99,10 @@ Route::get('adminLoadUtils/{sport}','AdminController@loadUtils');
 
 Route::get('adminUpdateStudent',array('as'=>'adminUpdateStudent','uses'=>'AdminController@updateStudent'));
 
+Route::get('adminUpdateUser',array('as'=>'adminUpdateUser','uses'=>'AdminController@updateUser'));
+
+Route::get('adminResetPwd/{userId}','AdminController@resetPWD');
+
 Route::get('admin', 'MoraController@showAdmin');
 
 Route::get('eqprecieval', 'KeeperController@getEqpRc');

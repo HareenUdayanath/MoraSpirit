@@ -11,6 +11,7 @@ use App\Domain\Equipment;
 use App\Domain\Sport;
 use App\Domain\TimeSlot;
 use DB;
+use Illuminate\Support\Facades\Hash;
 
 class DataBase{
     private static $instance;
@@ -36,9 +37,12 @@ class DataBase{
     public function addStudent($student){
         DB::insert('INSERT INTO Student VALUES(?,?,?,?,?,?,?,?,?,?,?)',
             [$student->getID(),$student->getName(),
-                $student->getDateOfBirth(),$student->getGender(),getAddress(),
+                $student->getDateOfBirth(),$student->getGender(),$student->getAddress(),
                 $student->getFaculty(),$student->getDepartment(),$student->getMedicalCondition(),
                 $student->getBloodGroup(),$student->getEmergencyContactPerson(),$student->getEmergencyContactNo()]);
+        foreach($student->getSportList() as $inv){
+            DB::insert('INSERT INTO Involve VALUES(?,(SELECT ID FROM Sport WHERE SportName = ?))',[$inv->getStudentID(),$inv->getSportName()]);
+        }
     }
 
     public function addResource($resource){
@@ -127,12 +131,12 @@ class DataBase{
      * Load Data.................................................
      */
 
-    public function loadSports(){
-        return DB::select('SELECT * FROM Sport');
+    public function loadSportsNames(){
+        return DB::select('SELECT SportName FROM Sport');
     }
 
-    public function loadResource(){
-        return DB::select('SELECT * FROM Resource');
+    public function loadResourceNames(){
+        return DB::select('SELECT Name FROM Resource');
     }
 
     public function loadResourceOf($sportName){
@@ -240,13 +244,13 @@ class DataBase{
         return $id[0]->ID;
     }
 
-    public function getKeeper($id){
-        $keeper = DB::select('SELECT * FROM Keeper WHERE ID=?',[$id]);
+    public function getKeepersResource($id){
+        $keeper = DB::select('SELECT Name FROM Keeper LEFT OUTER JOIN Resource ON Keeper.Resources_ID=Resource.ID WHERE Keeper.ID=?',[$id]);
         return $keeper[0];
     }
 
-    public function getCoach($id){
-        $coach = DB::select('SELECT * FROM Coach WHERE ID=?',[$id]);
+    public function getCoachsSport($id){
+        $coach = DB::select('SELECT SportName FROM Coach LEFT OUTER JOIN Sport ON Coach.SportID=Sport.ID WHERE Coach.ID=?',[$id]);
         return $coach[0];
     }
 
@@ -333,6 +337,25 @@ class DataBase{
     public function updateStudent($student){
         DB::update('UPDATE Student SET ID=?,FirstName=?,Faculty=?,Department=? WHERE ID=?',
             [$student->getID(),$student->getFirstName(),$student->getFaculty(),$student->getDepartment(),$student->getID()]);
+    }
+
+    public function updateUser($user){
+        DB::update('UPDATE User SET ID=?,Name=?,DoB=?,Gender=?,Address=?,Role=?,ContactNo=? WHERE ID=?',[$user->getID(),$user->getName(),
+            $user->getDateOfBirth(),$user->getGender(),$user->getAddress(),$user->getRole(),$user->getContactNo(),$user->getID()]);
+    }
+
+    public function updateKeeper($keeper){
+        $this->updateUser($keeper);
+        DB::update('UPDATE Keeper SET ID=?,Resource_ID=(SELECT ID FROM Resource WHERE Name = ?) WHERE ID=?',[$keeper->getID(),$keeper->getResourceName(),$keeper->getID()]);
+    }
+
+    public function updateCoach($coach){
+        $this->updateUser($coach);
+        DB::update('UPDATE Coach SET ID=?,SportID=(SELECT ID FROM Sport WHERE SportName = ?) WHERE ID=?',[$coach->getID(),$coach->getSportName(),$coach->getID()]);
+    }
+
+    public function resetPwd($id){
+        DB::update('UPDATE User Set Password=? WHERE ID=?',[Hash::make('mora1234'),$id]);
     }
 
 }

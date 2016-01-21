@@ -106,7 +106,7 @@
                                     @foreach($students as $std)
                                         <tr class="clickable-row">
                                             <td>{{$std->ID}}</td>
-                                            <td>{{$std->FirstName}}</td>
+                                            <td>{{$std->Name}}</td>
                                             <td>{{$std->Department}}</td>
                                             <td>{{$std->Faculty}}</td>
                                         </tr>
@@ -170,7 +170,7 @@
                                     <div class="form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="std-dob"> Date of Birth </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input type="text" class="form-control" data-inputmask="'mask': '99/99/9999'" id="std-dob" name="std-dob">
+                                            <input type="text" class="form-control" data-inputmask="'mask': '9999/99/99'" id="std-dob" name="std-dob">
                                         </div>
                                     </div>
                                     <!-- input_mask -->
