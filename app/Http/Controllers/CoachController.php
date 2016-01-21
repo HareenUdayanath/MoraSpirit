@@ -116,7 +116,7 @@ class CoachController extends Controller
     }*/
     public function getStdName($ID){
         $name=DataBase::getInstance()->getStudentName($ID);
-        return view('coachViews.ajexViews.studentName')->with('stdName',$name);
+        return view('coachViews.ajexViews.studentName')->with('stdName',$name[0]->Name);
     }
 
     public function loadAchiPage(){

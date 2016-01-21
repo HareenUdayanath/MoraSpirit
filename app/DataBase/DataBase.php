@@ -58,9 +58,9 @@ class DataBase{
 
     public function addAchievement($achievement){
         DB::insert('INSERT INTO Achievement VALUES(DEFAULT,(SELECT ID FROM Sport WHERE SportName = ?),?,?,?,?)',
-            [$achievement->getContest(),$achievement->getDate(),$achievement->getPlace(),
-                $achievement->getSportName(),$achievement->getDescription()]);
-        DB::insert('INSERT INTO Achieve VALUES(?,DEFAULT))',
+            [$achievement->getSportName(),$achievement->getContest(),$achievement->getDate(),$achievement->getPlace()
+                ,$achievement->getDescription()]);
+        DB::insert('INSERT INTO Achieve VALUES(?,DEFAULT)',
             [$achievement->getStudentID()]);
     }
 
