@@ -159,7 +159,7 @@ Route::get('loadbreqp/{itemNo}', 'KeeperController@getBrDetails');
 
 Route::get('reserveEqp/{equipment}/{studentID}', 'KeeperController@addEqpRequest');
 
-Route::get('lendEqp/{lendstID}/{lendID}/{duedate}', 'KeeperController@lendEquipment');
+Route::get('lendEqp', 'KeeperController@lendEquipment');
 
 Route::get('setAv/{eqpID}', 'KeeperController@setAvailability');
 

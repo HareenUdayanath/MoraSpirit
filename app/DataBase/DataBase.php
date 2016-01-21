@@ -72,7 +72,7 @@ class DataBase{
     }
 
     public function addBookin($booking){
-        Log::info('s');
+
         DB::insert('INSERT INTO Booking VALUES(?,?,?,?,?,?)',
             [$booking->getResourceID(),$booking->getRequesterName(),
                 $booking->getRequesterContactNo(),$booking->getDate(),$booking->getStartTime(),
@@ -124,7 +124,7 @@ class DataBase{
     }
 
     public function updateEquipmentDetails($eqpAv,$eqpCon,$equipmentID){
-        DB::update('UPDATE equipment SET Availability= ?,EquipCondition= ? WHERE ItemNo = ?',
+        DB::update('UPDATE equipment SET Availability= ?,EqCondition= ? WHERE ItemNo = ?',
             [$eqpAv,$eqpCon,$equipmentID]);
 
     }
@@ -178,8 +178,10 @@ class DataBase{
     }
 
     public function getEquipment($equipmentNo){
-        return DB::select('SELECT * FROM Equipment WHERE ItemNo = ?'
+        $u= DB::select('SELECT * FROM Equipment LEFT JOIN Sport ON Equipment.SportID=Sport.ID WHERE ItemNo = ?'
                             ,[$equipmentNo]);
+        Log::info($u);
+        return $u;
     }
 
     public function getAvailableEquipments($equipmentType,$sportName){

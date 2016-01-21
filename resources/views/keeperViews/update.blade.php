@@ -74,7 +74,7 @@
                 <script type = "text/javascript">
                     function updateEqp(){
                         var eqpID = document.getElementById('updateEqpID').value;
-                        //alert(eqpID);
+                        alert(eqpID);
                         $.ajax({
                             url:'{{url('getUpEqp')}}/'+ eqpID,
                             success: function(data){
@@ -82,7 +82,7 @@
 
                                 }
                                 else{
-                                    //alert(data);
+                                    alert(data);
                                     $('#updatePanel').html(data).show();
                                 }
 

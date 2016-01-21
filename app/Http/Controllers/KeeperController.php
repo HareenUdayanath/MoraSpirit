@@ -3,6 +3,7 @@
 
 use App\DataBase\DataBase;
 use App\Domain\Booking;
+use App\Domain\Borrow;
 use App\Domain\Equipment;
 use App\Domain\User;
 use Illuminate\Support\Facades\Input;
@@ -100,6 +101,10 @@ class KeeperController extends Controller
 
         $db = DataBase::getInstance();
         $db->updateEquipmentDetails($eqpAv,$eqpCon,$eqpID);
+        //$user = new User();
+        //$user->setName("Anthony Fernando");
+        //return view('keeperViews.update')->with('user',$user);
+
     }
 
     public function getBorrowedItems($stid){
@@ -121,16 +126,20 @@ class KeeperController extends Controller
 
     }
 
-    public function lendEquipment($stID,$eqpID,$duedate){
-        $date=explode("/",$duedate);
+    public function lendEquipment(){
+        //$date=explode("/",$duedate);
+
         $lendEq = new Borrow();
-        $lendEq-> setStudentID($stID);
-        $lendEq-> setItemNo($eqpID);
+        $lendEq-> setStudentID(Input::get('lendstid'));
+        $lendEq-> setItemNo(Input::get('eqnums'));
+        $lendEq->setReturned(false);
         $lendEq-> setStartDate(date("Y-m-d"));
+        $date=explode("/",Input::get('birthday'));
         $lendEq-> setEndDate($date[2]."-".$date[0]."-".$date[1]);
 
         $db = DataBase::getInstance();
         $db->addBorrow($lendEq);
+        return back();
 
     }
 
