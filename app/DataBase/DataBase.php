@@ -58,9 +58,9 @@ class DataBase{
 
     public function addAchievement($achievement){
         DB::insert('INSERT INTO Achievement VALUES(DEFAULT,(SELECT ID FROM Sport WHERE SportName = ?),?,?,?,?)',
-            [$achievement->getContest(),$achievement->getDate(),$achievement->getPlace(),
-                $achievement->getSportName(),$achievement->getDescription()]);
-        DB::insert('INSERT INTO Achieve VALUES(?,DEFAULT))',
+            [$achievement->getSportName(),$achievement->getContest(),$achievement->getDate(),$achievement->getPlace()
+                ,$achievement->getDescription()]);
+        DB::insert('INSERT INTO Achieve VALUES(?,DEFAULT)',
             [$achievement->getStudentID()]);
     }
 
@@ -145,8 +145,8 @@ class DataBase{
     }
 
     public function loadResourceOf($sportName){
-        return DB::select('SELECT * FROM Resource NATURAL JOIN
-            (SELECT ResourceID as ID FROM SportsResources WHERE SportName = ?)as A'
+        return DB::select('SELECT * FROM Resource NATURAL JOIN (SELECT ResourceID as ID FROM SportsResource WHERE SportID =
+                      (SELECT ID FROM Sport WHERE SportName = ?))as A'
             ,[$sportName]);
     }
 
@@ -325,7 +325,7 @@ class DataBase{
     public function addPracticeSchedule1($practiceSchedule){
         DB::insert('INSERT INTO PracticeSchedule VALUES(?,?,?,?,?,?)',
             [$practiceSchedule->getSessionID(),$practiceSchedule->getSportName(),$practiceSchedule->getDate(),
-                $practiceSchedule->getStartTime(),$practiceSchedule->getEndTime(),$practiceSchedule->getResourceID()]);
+                $practiceSchedule->getStartTime(),$practiceSchedule->getEndTime(),$practiceSchedule->getResourceName()]);
     }
 
     public function addAchievementt($achievement){
@@ -336,7 +336,7 @@ class DataBase{
     }
 
     public function getStudentName($studentID){
-        $studentName=DB::select('SELECT FirstName,LastName FROM student WHERE ID = ? ',[$studentID]);
+        $studentName=DB::select('SELECT Name FROM student WHERE ID = ? ',[$studentID]);
         return $studentName;
     }
 
