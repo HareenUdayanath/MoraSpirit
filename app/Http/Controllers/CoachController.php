@@ -40,7 +40,7 @@ class CoachController extends Controller
         $practiceSchedule = new PracticeSchedule();
         $practiceSchedule->setSportName(Input::get('sport'));
         $practiceSchedule->setSessionID(10);
-        $practiceSchedule->setResourceID(1);
+        $practiceSchedule->setResourceName(Input::get('resource'));
         $practiceSchedule->setDate(Input::get('date'));
         $str1=Input::get('start-am-pm');
         $str2=Input::get('end-am-pm');
@@ -62,7 +62,7 @@ class CoachController extends Controller
 
         $practiceSchedule->setEndTime($endTime);
         $databse = DataBase::getInstance();
-        $databse->addPracticeSchedule1($practiceSchedule);
+        $databse->addPracticeSchedule($practiceSchedule);
         $user = new User();
         $user->setName("Anthony Fernando");
         return view('coachViews.practiceSchedule')
@@ -82,7 +82,7 @@ class CoachController extends Controller
         $achievement->setDate(Input::get('scheduleDay'));
         $achievement->setDescription(Input::get('description'));
         $database=Database::getInstance();
-        $database->addAchievementt($achievement);
+        $database->addAchievement($achievement);
         $user=new User();
         $user->setName("Anthony Fernando");
         return view('coachViews.achievements')

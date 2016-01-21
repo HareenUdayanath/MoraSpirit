@@ -46,14 +46,14 @@
                             <script type="text/javascript">
                                 function getName(){
                                     var ID = document.getElementById('index-number').value;
-                                    //alert(ID);
+                                    alert(ID);
                                     $.ajax({
                                         url: '{{url('getStdName')}}/' + ID,
                                         success: function (data) {
                                             if (data == 1) {
 
                                             } else {
-                                                //alert(data);
+                                                alert(data);
                                                 $("#student-name").html(data).show();
                                                 var success = document.getElementById('sucess').value;
                                                 if(success=="0"){
